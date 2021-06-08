@@ -1,0 +1,62 @@
+@import url("https://rsms.me/inter/inter.css");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    @apply bg-light text-dark text-lg sm:text-xl dark:bg-dark dark:text-light;
+    font-feature-settings: "ss01" 1, "case" 1, "calt" 1, "frac" 1;
+  }
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply mb-2 font-extrabold;
+  }
+  h1 {
+    @apply text-4xl sm:text-5xl;
+  }
+  h2 {
+    @apply text-3xl sm:text-4xl;
+  }
+  h3 {
+    @apply text-2xl sm:text-3xl;
+  }
+  h4 {
+    @apply text-xl sm:text-2xl;
+  }
+  h5 {
+    @apply text-lg sm:text-xl;
+  }
+  h6 {
+    @apply text-base sm:text-lg;
+  }
+  p {
+    @apply mt-0 mb-4 leading-loose;
+  }
+  *::selection,
+  mark {
+    @apply bg-selection bg-opacity-50 px-0.5 text-current dark:bg-opacity-40;
+  }
+  small {
+    @apply text-sm;
+  }
+  code {
+    @apply bg-gray-300 my-2 px-2 w-full dark:bg-gray-800 whitespace-nowrap;
+  }
+  .lead {
+    @apply text-lg;
+  }
+  .email-honey {
+    @apply absolute h-px w-px overflow-hidden whitespace-nowrap;
+    clip: rect(1px 1px 1px 1px);
+    clip: rect(1px, 1px, 1px, 1px);
+  }
+  #__next {
+    @apply min-h-screen flex flex-col justify-between
+  }
+}
