@@ -17,7 +17,7 @@ const Layout = ({ children, title = "Front-End Engineer" }: Props) => (
       <meta charSet="utf-8" />
       <meta name="viewport" content="initial-scale=1.0, width=device-width, viewport-fit=cover" />
     </Head>
-    <header className="p-4 notch-padding flex flex-col sm:flex-row  justify-between sm:items-center">
+    <header className="p-4 flex flex-col sm:flex-row  justify-between sm:items-center">
       <nav>
         <h1 className="text-3xl uppercase font-extrabold tracking-wide">
           <Link href="/">

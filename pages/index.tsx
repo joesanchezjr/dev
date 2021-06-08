@@ -2,7 +2,7 @@ import Layout from "../components/Layout"
 
 const IndexPage = () => (
   <Layout>
-    <section className="p-4 notch-padding bg-gradient-to-l from-indigo-200 via-red-200 to-yellow-100 text-indigo-700">
+    <section className="p-4 bg-gradient-to-l from-indigo-200 via-red-200 to-yellow-100 text-indigo-700">
       <p>
         <span className="bg-white px-2 py-1 rounded text-sm">NEW</span>{" "}
         <span role="img" aria-label="Butterfly">
@@ -17,7 +17,7 @@ const IndexPage = () => (
         with a team of good people making good things.
       </p>
     </section>
-    <section className="p-4 notch-padding">
+    <section className="p-4">
       <h2 className="text-xl font-bold">So what do I know?</h2>
       <p className="font-mono tracking-widest">HTML</p>
       <p className="font-mono tracking-widest">CSS/SCSS</p>
