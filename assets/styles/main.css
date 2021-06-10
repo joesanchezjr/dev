@@ -1,10 +1,18 @@
+.marquee {
+  animation: marquee 60s linear infinite;
+  flex: 0 0 auto;
+  min-width: 100%;
+  z-index: 1;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+@media (prefers-reduced-motion) {
+  .marquee {
+    animation-duration: 180s;
+  }
+}
 
-.marquee-list {
-  animation: marquee 10s linear alternate infinite;
-}
-.marquee-list > li {
-  flex-shrink: 0;
-}
 @keyframes marquee {
   0% {
     transform: translateX(0);
