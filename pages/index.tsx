@@ -4,25 +4,39 @@ const IndexPage = () => (
   <Layout>
     <section className="p-4 bg-gradient-to-l from-indigo-200 via-red-200 to-yellow-100 text-indigo-700">
       <p>
-        <span className="bg-white px-2 py-1 rounded text-sm">NEW</span>{" "}
+        <span className="bg-white px-1 py-0.5 rounded text-sm">NEW</span>{" "}
         <span role="img" aria-label="Butterfly">
           🦋
         </span>{" "}
         Available for hire!
       </p>
-      <p className="max-w-prose text-4xl my-16">
+      <p className="max-w-prose text-4xl my-12 md:my-16">
         <span className="font-serif italic">Front-End Engineer</span> — Creative
         developer with four years of experience building for the web. Dedicated
         to making beautiful and accessible digital products. Seeking to work
         with a team of good people making good things.
       </p>
     </section>
-    <section className="p-4">
-      <h2 className="text-xl font-bold">So what do I know?</h2>
-      <p className="font-mono tracking-widest">HTML</p>
-      <p className="font-mono tracking-widest">CSS/SCSS</p>
-      <p className="font-mono tracking-widest">JavaScript</p>
-      <p className="font-mono tracking-widest">React</p>
+    <section className="marquee py-4 relative overflow-hidden w-full">
+      <ul className="marquee-list uppercase font-bold text-xl flex space-x-8 list-disc list-outside transform translate-x-6 pl-6">
+        <li>React</li>
+        <li>Next</li>
+        <li>Gatsby</li>
+        <li>Create React App</li>
+        <li>WordPress</li>
+        <li>HTML</li>
+        <li>CSS</li>
+        <li>SCSS</li>
+        <li>CSS-in-JS</li>
+        <li>Styled Components</li>
+        <li>Bootstrap</li>
+        <li>Tailwind CSS</li>
+        <li>JavaScript</li>
+        <li>Git</li>
+        <li>GraphQL</li>
+        <li>Node</li>
+        <li>VS Code</li>
+      </ul>
     </section>
   </Layout>
 )

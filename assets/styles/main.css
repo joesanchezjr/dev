@@ -1,0 +1,15 @@
+
+.marquee-list {
+  animation: marquee 10s linear alternate infinite;
+}
+.marquee-list > li {
+  flex-shrink: 0;
+}
+@keyframes marquee {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
