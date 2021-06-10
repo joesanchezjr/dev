@@ -11,15 +11,15 @@ type Props = {
 }
 
 const Layout = ({ children, title = "Front-End Engineer" }: Props) => (
-  <div>
+  <>
     <Head>
       <title>{title}</title>
       <meta charSet="utf-8" />
-      <meta
-        name="viewport"
-        content="initial-scale=1.0, width=device-width, viewport-fit=cover"
-      />
+      <meta name="viewport" content="initial-scale=1.0, width=device-width, viewport-fit=cover" />
     </Head>
+    <div className="notch-padding bg-yellow-200">
+      <p className="px-4 py-2">🚧 Excuse the mess... site under construction</p>
+    </div>
     <header className="notch-padding">
       <div className="p-4 flex flex-col sm:flex-row  justify-between sm:items-center">
         <nav>
@@ -47,7 +47,7 @@ const Layout = ({ children, title = "Front-End Engineer" }: Props) => (
       </div>
     </header>
     <main>{children}</main>
-  </div>
+  </>
 )
 
 export default Layout
