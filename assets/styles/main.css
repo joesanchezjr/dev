@@ -1,3 +1,8 @@
+@media screen and (min-width: 1536px) {
+  html {
+    font-size: 125%;
+  }
+}
 .marquee {
   animation: marquee 60s linear infinite;
   flex: 0 0 auto;
