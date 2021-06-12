@@ -23,6 +23,7 @@ export default function SkillAndTechMarquee() {
         <li>APIs</li>
         <li>A11y</li>
         <li>TypeScript</li>
+        <li>Prettier</li>
       </ul>
       <ul className="marquee uppercase font-bold text-xl flex space-x-8 list-disc list-outside pl-8">
         <li>React</li>
@@ -46,6 +47,7 @@ export default function SkillAndTechMarquee() {
         <li>APIs</li>
         <li>A11y</li>
         <li>TypeScript</li>
+        <li>Prettier</li>
       </ul>
     </div>
   )

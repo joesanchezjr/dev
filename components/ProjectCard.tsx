@@ -5,6 +5,7 @@ type ProjectCardProps = {
   className?: string
   title?: string
   client?: string
+  imageUrl: string
   summary: string
   skills?: string[]
   imageData: {
@@ -19,8 +20,10 @@ const ProjectCard = ({ title, client, summary, skills, imageData }: ProjectCardP
     <div className="mb-6 p-2 rounded  border border-indigo-700">
       <div>
         <h3 className="text-lg font-bold uppercase inline">{title}</h3>
-        {" / "}
-        <p className="inline">{client}</p>
+        <p className="inline-block ml-1.5">
+          {" / "}
+          {client}
+        </p>
       </div>
       <div className="flex flex-col md:flex-row">
         <div className="max-w-screen-lg md:w-1/2 relative">

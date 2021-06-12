@@ -6,9 +6,9 @@ type TechAndToolsProps = {
 
 const TechAndTools = ({ array }: TechAndToolsProps) => {
   return (
-    <ul className="flex justify-end space-x-1 mt-6">
+    <ul className="flex flex-wrap justify-end space-x-1 mt-6">
       {array?.map((tech) => {
-        return <li className="bg-indigo-100 px-1 py-0.5 rounded text-sm uppercase">{tech}</li>
+        return <li className="bg-indigo-100 px-1 py-0.5 mt-1 rounded text-sm uppercase">{tech}</li>
       })}
     </ul>
   )

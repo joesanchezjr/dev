@@ -1,85 +1,8 @@
-import Image from "next/image"
 import Layout from "../components/Layout"
 import SkillAndTechMarquee from "../components/SkillsAndTechMarquee"
-import TechAndTools from "../components/TechAndTools"
 import ProjectCard from "../components/ProjectCard"
 
-const projects = [
-  {
-    title: "Personal Website",
-    client: "Joe Sanchez Jr",
-    imageData: {
-      width: 1267,
-      height: 800,
-      url: "/personal-screenshot.jpg",
-    },
-    summary:
-      "During my tenure as part of the small team of developers at Preemptive Love, I worked as one of the primary engineers of the mission critical donation processing form. The project had us transition a legacy form built with PHP to a new form built with React.",
-    skills: ["javascript", "git", "react"],
-  },
-  {
-    title: "title",
-    client: "Preemptive Love",
-    imageData: {
-      width: 1251,
-      height: 800,
-      url: "/main-screenshot.jpg",
-    },
-    summary: "summary",
-    skills: ["javascript", "git", "react"],
-  },
-  {
-    title: "title",
-    client: "Disinherited Podcast",
-    imageData: {
-      width: 1267,
-      height: 800,
-      url: "/disinherited-screenshot.jpg",
-    },
-    summary: "summary",
-    skills: ["javascript", "git", "react"],
-  },
-  {
-    title: "title",
-    client: "Preemptive Love",
-    imageData: {
-      width: 1267,
-      height: 800,
-      url: "/to-end-war-screenshot.jpg"
-    },    summary: "summary",
-    skills: ["javascript", "git", "react"],
-  },
-  {
-    title: "title",
-    client: "Preemptive Love",
-    imageData: {
-      width: 1260,
-      height: 844,
-      url: "/donate-form-screenshot.jpg"
-    },    summary: "summary",
-    skills: ["javascript", "git", "react"],
-  },
-  {
-    title: "title",
-    client: "Preemptive Love",
-    imageData: {
-      width: 1299,
-      height: 699,
-      url: "/loveanyway-screenshot.jpg"
-    },    summary: "summary",
-    skills: ["javascript", "git", "react"],
-  },
-  {
-    title: "title",
-    client: "Preemptive Love",
-    imageData: {
-      width: 1298,
-      height: 690,
-      url: "/give-screenshot.jpg"
-    },    summary: "summary",
-    skills: ["javascript", "git", "react"],
-  },
-]
+import projects from "../data/projects"
 
 const IndexPage = () => (
   <Layout>
