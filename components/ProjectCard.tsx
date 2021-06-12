@@ -5,7 +5,6 @@ type ProjectCardProps = {
   className?: string
   title?: string
   client?: string
-  imageUrl: string
   summary: string
   skills?: string[]
   imageData: {
