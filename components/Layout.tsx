@@ -59,6 +59,12 @@ const Layout = ({ children }: Props) => (
       </div>
     </header>
     <main>{children}</main>
+
+    <footer className="bg-gray-50">
+      <div className="max-w-screen-lg text-center mx-auto px-4 py-8">
+        <p className="underline hover:italic"><a href="mailto:joe@joesanchezjr.com">joe@joesanchezjr.com</a></p>
+      </div>
+    </footer>
   </>
 )
 
