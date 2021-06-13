@@ -21,16 +21,16 @@ const Layout = ({ children }: Props) => (
       <meta name="description" content="4+ years of experience with web development. Austin, TX or remote work." />
 
       <meta property="og:type" content="website" />
-      <meta property="og:url" content="https://joesanchezjr.dev/" />
+      <meta property="og:url" content="https://www.joesanchezjr.dev/" />
       <meta property="og:title" content="Joe Sanchez Jr | Front-End Engineer - Available for hire!" />
       <meta property="og:description" content="4+ years of experience with web development. Austin, TX or remote work." />
-      <meta property="og:image" content="https://joesanchezjr.dev/cover.png" />
+      <meta property="og:image" content="https://www.joesanchezjr.dev/cover.png" />
 
       <meta property="twitter:card" content="summary_large_image" />
-      <meta property="twitter:url" content="https://joesanchezjr.dev/" />
+      <meta property="twitter:url" content="https://www.joesanchezjr.dev/" />
       <meta property="twitter:title" content="Joe Sanchez Jr | Front-End Engineer - Available for hire!" />
       <meta property="twitter:description" content="4+ years of experience with web development. Austin, TX or remote work."/>
-      <meta property="twitter:image" content="https://joesanchezjr.dev/cover.png"/>
+      <meta property="twitter:image" content="https://www.joesanchezjr.dev/cover.png"/>
     </Head>
     <header className="notch-padding">
       <div className="p-4 flex flex-col sm:flex-row  justify-between sm:items-center">
