@@ -38,8 +38,8 @@ const IndexPage = () => (
           Featured Work
         </h2>
 
-        {projects.map((project) => {
-          return <ProjectCard {...project} />
+        {projects.map((project, key) => {
+          return <ProjectCard key={key} {...project} />
         })}
       </div>
     </section>

@@ -1,53 +1,40 @@
+const skillsAndTech = [
+  "React",
+  "Next",
+  "Gatsby",
+  "Create React App",
+  "WordPress",
+  "HTML",
+  "CSS",
+  "SCSS",
+  "CSS-in-JS",
+  "Styled Components",
+  "Bootstrap",
+  "Tailwind CSS",
+  "JavaScript",
+  "Git",
+  "GraphQL",
+  "Node",
+  "VS Code",
+  "Stripe",
+  "APIs",
+  "A11y",
+  "TypeScript",
+  "Prettier",
+]
+
 export default function SkillAndTechMarquee() {
   return (
-    <div className="marquee-container overflow-hidden flex relative w-full p-4">
+    <div className="marquee-container overflow-hidden flex relative w-full p-4" aria-hidden={true}>
       <ul className="marquee uppercase font-bold text-xl flex space-x-8 list-disc list-outside pl-8">
-        <li>React</li>
-        <li>Next</li>
-        <li>Gatsby</li>
-        <li>Create React App</li>
-        <li>WordPress</li>
-        <li>HTML</li>
-        <li>CSS</li>
-        <li>SCSS</li>
-        <li>CSS-in-JS</li>
-        <li>Styled Components</li>
-        <li>Bootstrap</li>
-        <li>Tailwind CSS</li>
-        <li>JavaScript</li>
-        <li>Git</li>
-        <li>GraphQL</li>
-        <li>Node</li>
-        <li>VS Code</li>
-        <li>Stripe</li>
-        <li>APIs</li>
-        <li>A11y</li>
-        <li>TypeScript</li>
-        <li>Prettier</li>
+        {skillsAndTech.map((skill, key) => {
+          return <li key={key}>{skill}</li>
+        })}
       </ul>
       <ul className="marquee uppercase font-bold text-xl flex space-x-8 list-disc list-outside pl-8">
-        <li>React</li>
-        <li>Next</li>
-        <li>Gatsby</li>
-        <li>Create React App</li>
-        <li>WordPress</li>
-        <li>HTML</li>
-        <li>CSS</li>
-        <li>SCSS</li>
-        <li>CSS-in-JS</li>
-        <li>Styled Components</li>
-        <li>Bootstrap</li>
-        <li>Tailwind CSS</li>
-        <li>JavaScript</li>
-        <li>Git</li>
-        <li>GraphQL</li>
-        <li>Node</li>
-        <li>VS Code</li>
-        <li>Stripe</li>
-        <li>APIs</li>
-        <li>A11y</li>
-        <li>TypeScript</li>
-        <li>Prettier</li>
+        {skillsAndTech.map((skill, key) => {
+          return <li key={key}>{skill}</li>
+        })}
       </ul>
     </div>
   )

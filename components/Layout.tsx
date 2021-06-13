@@ -1,4 +1,4 @@
-import React, { ReactNode } from "react"
+import React from "react"
 import Link from "next/link"
 import Head from "next/head"
 
@@ -6,7 +6,7 @@ import LinkedIn from "../assets/svgs/linkedin-brands.svg"
 import Globe from "../assets/svgs/globe-light.svg"
 
 type Props = {
-  children?: ReactNode
+  children?: React.ReactNode
   title?: string
 }
 
@@ -17,9 +17,6 @@ const Layout = ({ children, title = "Front-End Engineer" }: Props) => (
       <meta charSet="utf-8" />
       <meta name="viewport" content="initial-scale=1.0, width=device-width, viewport-fit=cover" />
     </Head>
-    <div className="notch-padding bg-yellow-200">
-      <p className="px-4 py-2">🚧 Excuse the mess... site under construction</p>
-    </div>
     <header className="notch-padding">
       <div className="p-4 flex flex-col sm:flex-row  justify-between sm:items-center">
         <nav>
@@ -31,7 +28,7 @@ const Layout = ({ children, title = "Front-End Engineer" }: Props) => (
         </nav>
         <div className="flex items-center mt-2 sm:mt-0">
           <a
-            href="https://www.joesanchezjr.com/?ref=dev-site"
+            href="https://www.joesanchezjr.com/?utm_source=dev-site"
             className="mr-2 flex items-center hover:text-indigo-300"
           >
             <Globe className="h-6 mr-2 inline" /> Blog
