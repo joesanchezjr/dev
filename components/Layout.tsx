@@ -10,7 +10,7 @@ type Props = {
   title?: string
 }
 
-const Layout = ({ children, title = "Front-End Engineer" }: Props) => (
+const Layout = ({ children }: Props) => (
   <>
     <Head>
       <title>Joe Sanchez Jr | Front-End Engineer - Available for hire!</title>
