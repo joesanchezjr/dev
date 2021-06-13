@@ -4,6 +4,7 @@ import Head from "next/head"
 
 import LinkedIn from "../assets/svgs/linkedin-brands.svg"
 import Globe from "../assets/svgs/globe-light.svg"
+import Github from "../assets/svgs/github-brands.svg"
 
 type Props = {
   children?: React.ReactNode
@@ -54,6 +55,13 @@ const Layout = ({ children }: Props) => (
             className="ml-2 flex items-center hover:text-indigo-300"
           >
             <LinkedIn className="h-6 mr-2 inline" /> LinkedIn
+          </a>
+          &nbsp;/&nbsp;
+          <a
+            href="https://github.com/joesanchezjr"
+            className="ml-2 flex items-center hover:text-indigo-300"
+          >
+            <Github className="h-6 mr-2 inline" /> Github
           </a>
         </div>
       </div>

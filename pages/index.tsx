@@ -2,6 +2,8 @@ import Layout from "../components/Layout"
 import SkillAndTechMarquee from "../components/SkillsAndTechMarquee"
 import ProjectCard from "../components/ProjectCard"
 
+import ExternalLink from "../assets/svgs/external-link-light.svg"
+
 import projects from "../data/projects"
 
 const IndexPage = () => (
@@ -20,6 +22,12 @@ const IndexPage = () => (
           developer with four years of experience building for the web. Dedicated to making
           beautiful and accessible digital products. Seeking to work with a team of good people
           making good things.
+        </p>
+        <p className="text-right hover:underline">
+          <a href="https://github.com/joesanchezjr/dev" className="flex justify-end items-center" target="_blank" rel="noopener noreferrer">
+            <span>View source for this site!</span>
+            <ExternalLink className="h-3 inline ml-2" />
+          </a>
         </p>
       </div>
     </section>
