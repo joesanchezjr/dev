@@ -20,7 +20,7 @@ const ProjectCard = ({ title, client, summary, skills, imageData, link }: Projec
     <div className="mb-6 p-2 rounded  border border-indigo-700">
       <div>
         {link ? (
-          <a href={link}>
+          <a href={link} target="_blank" rel="noopener noreferrer">
             <h3 className="text-lg font-bold uppercase inline">
               {link && (
                 <span role="img" aria-label="link">
@@ -54,7 +54,7 @@ const ProjectCard = ({ title, client, summary, skills, imageData, link }: Projec
       <div className="flex flex-col md:flex-row">
         <div className="max-w-screen-lg md:w-1/2 relative">
           {link ? (
-            <a href={link} className="hover:opacity-80">
+            <a href={link} target="_blank" rel="noopener noreferrer" className="hover:opacity-80">
               <Image height={imageData.height} width={imageData.width} src={imageData.url} />
             </a>
           ) : (
