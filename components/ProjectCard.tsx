@@ -12,22 +12,54 @@ type ProjectCardProps = {
     height: number
     width: number
   }
+  link?: string
 }
 
-const ProjectCard = ({ title, client, summary, skills, imageData }: ProjectCardProps) => {
+const ProjectCard = ({ title, client, summary, skills, imageData, link }: ProjectCardProps) => {
   return (
     <div className="mb-6 p-2 rounded  border border-indigo-700">
       <div>
-        <h3 className="text-lg font-bold uppercase inline">{title}</h3>
-        <p className="inline-block ml-1.5">
-          {" / "}
-          {client}
-        </p>
+        {link ? (
+          <a href={link}>
+            <h3 className="text-lg font-bold uppercase inline">
+              {link && (
+                <span role="img" aria-label="link">
+                  🔗
+                </span>
+              )}
+              {title}
+            </h3>
+            <p className="inline-block ml-1.5">
+              {" / "}
+              {client}
+            </p>
+          </a>
+        ) : (
+          <>
+            <h3 className="text-lg font-bold uppercase inline">
+              {link && (
+                <span role="img" aria-label="link">
+                  🔗
+                </span>
+              )}
+              {title}
+            </h3>
+            <p className="inline-block ml-1.5">
+              {" / "}
+              {client}
+            </p>
+          </>
+        )}
       </div>
       <div className="flex flex-col md:flex-row">
         <div className="max-w-screen-lg md:w-1/2 relative">
-          <span className="absolute inset-0 z-10 opacity-0 hover:opacity-50 transition-opacity bg-gray-100" />
-          <Image height={imageData.height} width={imageData.width} src={imageData.url} />
+          {link ? (
+            <a href={link} className="hover:opacity-80">
+              <Image height={imageData.height} width={imageData.width} src={imageData.url} />
+            </a>
+          ) : (
+            <Image height={imageData.height} width={imageData.width} src={imageData.url} />
+          )}
         </div>
         <div className="flex-grow md:border-l border-indigo-700 md:pl-4 md:ml-4 flex flex-col justify-between mt-2 md:mt-0">
           <p className="max-w-prose" dangerouslySetInnerHTML={{ __html: summary }} />
