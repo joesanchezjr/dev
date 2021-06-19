@@ -88,6 +88,6 @@ export default [
     summary:
       'In the fall of 2019, Preemptive Love released a short film titled "Love Anyway". It was a major project that included the voice of Kristen Bell. One of the post-film call-to-actions was to become a monthly donor to Preemptive Love. In order to showcase our community of donors, we created a feature that integrated Mapbox and their API to display anonymized data of the general areas our donors came from.',
     skills: ["Mapbox", "APIs", "React", "git"],
-    link: null
+    link: ""
   },
 ]
