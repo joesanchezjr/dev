@@ -1,4 +1,6 @@
 import Image from "next/image"
+import { useInView } from "react-intersection-observer"
+
 import TechAndTools from "./TechAndTools"
 
 type ProjectCardProps = {
@@ -16,8 +18,15 @@ type ProjectCardProps = {
 }
 
 const ProjectCard = ({ title, client, summary, skills, imageData, link }: ProjectCardProps) => {
+  const [ref, inView] = useInView({
+    threshold: 0.5,
+    triggerOnce: true,
+  })
+
+  const animation = inView ? "motion-safe:animate-slideup" : "motion-safe:opacity-0"
+
   return (
-    <div className="mb-6 p-2 rounded  border border-indigo-700">
+    <div className={`mb-6 p-2 rounded  border border-indigo-700 ${animation}`} ref={ref}>
       <div>
         {link ? (
           <a href={link} target="_blank" rel="noopener noreferrer">

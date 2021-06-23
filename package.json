@@ -12,7 +12,8 @@
     "@svgr/webpack": "^5.5.0",
     "next": "latest",
     "react": "^17.0.1",
-    "react-dom": "^17.0.1"
+    "react-dom": "^17.0.1",
+    "react-intersection-observer": "^8.32.0"
   },
   "devDependencies": {
     "@types/node": "^15.12.2",
