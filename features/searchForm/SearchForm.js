@@ -1,7 +1,7 @@
 import * as React from "react"
 import { useSelector, useDispatch } from "react-redux"
 import { throttle } from "lodash"
-import { setQuery, setError, toggleIsQuick, setIsSubmitting } from "./searchFormSlice"
+import { setQuery, setError, toggleIsQuick, setIsSubmitting } from "./searchForm-slice"
 
 import Spinner from "@assets/svgs/spinner-third-duotone.svg"
 
