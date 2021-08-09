@@ -5,6 +5,7 @@ import Head from "next/head"
 import LinkedIn from "../assets/svgs/linkedin-brands.svg"
 import Globe from "../assets/svgs/globe-light.svg"
 import Github from "../assets/svgs/github-brands.svg"
+import Code from "../assets/svgs/code-light.svg"
 
 type Props = {
   children?: React.ReactNode
@@ -19,19 +20,34 @@ const Layout = ({ children }: Props) => (
       <meta name="viewport" content="initial-scale=1.0, width=device-width, viewport-fit=cover" />
 
       <meta name="title" content="Joe Sanchez Jr | Front-End Engineer - Available for hire!" />
-      <meta name="description" content="4+ years of experience with web development. Austin, TX or remote work." />
+      <meta
+        name="description"
+        content="4+ years of experience with web development. Austin, TX or remote work."
+      />
 
       <meta property="og:type" content="website" />
       <meta property="og:url" content="https://www.joesanchezjr.dev/" />
-      <meta property="og:title" content="Joe Sanchez Jr | Front-End Engineer - Available for hire!" />
-      <meta property="og:description" content="4+ years of experience with web development. Austin, TX or remote work." />
+      <meta
+        property="og:title"
+        content="Joe Sanchez Jr | Front-End Engineer - Available for hire!"
+      />
+      <meta
+        property="og:description"
+        content="4+ years of experience with web development. Austin, TX or remote work."
+      />
       <meta property="og:image" content="https://www.joesanchezjr.dev/cover.png" />
 
       <meta property="twitter:card" content="summary_large_image" />
       <meta property="twitter:url" content="https://www.joesanchezjr.dev/" />
-      <meta property="twitter:title" content="Joe Sanchez Jr | Front-End Engineer - Available for hire!" />
-      <meta property="twitter:description" content="4+ years of experience with web development. Austin, TX or remote work."/>
-      <meta property="twitter:image" content="https://www.joesanchezjr.dev/cover.png"/>
+      <meta
+        property="twitter:title"
+        content="Joe Sanchez Jr | Front-End Engineer - Available for hire!"
+      />
+      <meta
+        property="twitter:description"
+        content="4+ years of experience with web development. Austin, TX or remote work."
+      />
+      <meta property="twitter:image" content="https://www.joesanchezjr.dev/cover.png" />
     </Head>
     <header className="notch-padding">
       <div className="p-4 flex flex-col sm:flex-row  justify-between sm:items-center">
@@ -43,6 +59,12 @@ const Layout = ({ children }: Props) => (
           </h1>
         </nav>
         <div className="flex items-center mt-2 sm:mt-0">
+          <Link href="/coding-challenges">
+            <a>
+              <Code className="h-6 mr-2 inline" /> Coding Challenges
+            </a>
+          </Link>
+          &nbsp;/&nbsp;
           <a
             href="https://www.joesanchezjr.com/?utm_source=dev-site"
             className="mr-2 flex items-center hover:text-indigo-300"
@@ -70,7 +92,9 @@ const Layout = ({ children }: Props) => (
 
     <footer className="bg-gray-50">
       <div className="max-w-screen-lg text-center mx-auto px-4 py-8">
-        <p className="underline hover:italic"><a href="mailto:joe@joesanchezjr.com">joe@joesanchezjr.com</a></p>
+        <p className="underline hover:italic">
+          <a href="mailto:joe@joesanchezjr.com">joe@joesanchezjr.com</a>
+        </p>
       </div>
     </footer>
   </>

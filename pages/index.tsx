@@ -1,3 +1,5 @@
+import Link from "next/link"
+
 import Layout from "../components/Layout"
 import SkillAndTechMarquee from "../components/SkillsAndTechMarquee"
 import ProjectCard from "../components/ProjectCard"
@@ -24,10 +26,23 @@ const IndexPage = () => (
           making good things.
         </p>
         <p className="text-right hover:underline">
-          <a href="https://github.com/joesanchezjr/dev" className="flex justify-end items-center" target="_blank" rel="noopener noreferrer">
+          <a
+            href="https://github.com/joesanchezjr/dev"
+            className="flex justify-end items-center"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             <span>View source for this site!</span>
             <ExternalLink className="h-3 inline ml-2" />
           </a>
+        </p>
+        <p className="text-right hover:underline">
+          <Link href="/coding-challenges/api-search">
+            <a target="_blank" rel="noopener noreferrer">
+              <span className="bg-white px-1 py-0.5 rounded text-sm">NEW</span> View coding
+              challenges!
+            </a>
+          </Link>
         </p>
       </div>
     </section>
