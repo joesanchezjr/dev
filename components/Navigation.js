@@ -8,8 +8,11 @@ export default function Navigation() {
     { href: "/coding-challenges/merge", text: "Merged Array" },
   ]
   return (
-    <nav className="flex flex-wrap py-4">
-      <p className="font-bold mr-4">Challenges Navigation:</p>
+    <nav className="flex flex-wrap mb-4">
+      <p className="w-full">
+        NOTE: These challenges and the design of the pages are a work in progress.
+      </p>
+      <p className="font-bold mr-4">Challenges:</p>
       <div className="flex flex-wrap space-x-4">
         {links.map((link, index) => {
           return (

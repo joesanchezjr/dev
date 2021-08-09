@@ -3,7 +3,7 @@ import { useSelector, useDispatch } from "react-redux"
 import { throttle } from "lodash"
 import { setQuery, setError, toggleIsQuick, setIsSubmitting } from "./searchFormSlice"
 
-import Spinner from "../../assets/svgs/spinner-third-duotone.svg"
+import Spinner from "@assets/svgs/spinner-third-duotone.svg"
 
 export function SearchForm({ setResults }) {
   const query = useSelector((state) => state.searchForm.query)

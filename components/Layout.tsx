@@ -2,10 +2,10 @@ import React from "react"
 import Link from "next/link"
 import Head from "next/head"
 
-import LinkedIn from "../assets/svgs/linkedin-brands.svg"
-import Globe from "../assets/svgs/globe-light.svg"
-import Github from "../assets/svgs/github-brands.svg"
-import Code from "../assets/svgs/code-light.svg"
+import LinkedIn from "@assets/svgs/linkedin-brands.svg"
+import Globe from "@assets/svgs/globe-light.svg"
+import Github from "@assets/svgs/github-brands.svg"
+import Code from "@assets/svgs/code-light.svg"
 
 type Props = {
   children?: React.ReactNode
@@ -90,7 +90,7 @@ const Layout = ({ children }: Props) => (
     </header>
     <main>{children}</main>
 
-    <footer className="bg-gray-50">
+    <footer className="bg-gray-50 mb-0 mt-auto">
       <div className="max-w-screen-lg text-center mx-auto px-4 py-8">
         <p className="underline hover:italic">
           <a href="mailto:joe@joesanchezjr.com">joe@joesanchezjr.com</a>

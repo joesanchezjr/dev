@@ -1,5 +1,6 @@
 {
   "compilerOptions": {
+    "baseUrl": ".",
     "allowJs": true,
     "alwaysStrict": true,
     "esModuleInterop": true,
@@ -16,7 +17,12 @@
     "resolveJsonModule": true,
     "skipLibCheck": true,
     "strict": true,
-    "target": "esnext"
+    "target": "esnext",
+    "paths": {
+      "@utils/*": ["utils/*"],
+      "@assets/*": ["assets/*"],
+      "@components/*": ["components/*"],
+    }
   },
   "exclude": ["node_modules"],
   "include": ["**/*.ts", "**/*.tsx"]

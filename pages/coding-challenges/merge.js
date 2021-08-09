@@ -1,9 +1,9 @@
 import React from "react"
 
-import { merge, mergeAlt } from "../../utils/merge"
-import Layout from "../../components/Layout"
+import { merge, mergeAlt } from "@utils/merge"
+import Layout from "@components/Layout"
 
-import Header from "../../components/Header"
+import Header from "@components/Header"
 
 export default function OverlappingItems() {
   const items = [

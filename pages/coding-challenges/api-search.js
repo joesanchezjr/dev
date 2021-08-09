@@ -2,10 +2,10 @@ import React from "react"
 import { useSelector } from "react-redux"
 
 import { SearchForm } from "../../features/searchForm/SearchForm"
-import UsersTable from "../../components/UsersTable"
-import Header from "../../components/Header"
+import UsersTable from "@components/UsersTable"
+import Header from "@components/Header"
 
-import Layout from "../../components/Layout"
+import Layout from "@components/Layout"
 
 export default function Home() {
   const query = useSelector((state) => state.searchForm.query)

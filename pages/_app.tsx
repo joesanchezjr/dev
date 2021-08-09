@@ -4,7 +4,7 @@ import { Provider } from "react-redux"
 import { store } from "../app/store"
 
 import "tailwindcss/tailwind.css"
-import "../assets/styles/main.css"
+import "@assets/styles/main.css"
 
 export default function CustomApp({ Component, pageProps }: AppProps) {
   return (

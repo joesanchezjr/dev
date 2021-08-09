@@ -1,10 +1,10 @@
 import Link from "next/link"
 
-import Layout from "../components/Layout"
-import SkillAndTechMarquee from "../components/SkillsAndTechMarquee"
-import ProjectCard from "../components/ProjectCard"
+import Layout from "@components/Layout"
+import SkillAndTechMarquee from "@components/SkillsAndTechMarquee"
+import ProjectCard from "@components/ProjectCard"
 
-import ExternalLink from "../assets/svgs/external-link-light.svg"
+import ExternalLink from "@assets/svgs/external-link-light.svg"
 
 import projects from "../data/projects"
 

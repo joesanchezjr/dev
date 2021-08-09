@@ -1,17 +1,13 @@
-import Link from "next/link"
-
-import Layout from "../../components/Layout"
+import Layout from "@components/Layout"
+import Navigation from "@components/Navigation"
 
 const IndexPage = () => (
   <Layout>
-    <ul>
-      <li>
-        <Link href="/coding-challenges/api-search">Api Search</Link>
-      </li>
-      <li>
-        <Link href="/coding-challenges/merge">Merge</Link>
-      </li>
-    </ul>
+    <section>
+      <div className="p-4">
+        <Navigation />
+      </div>
+    </section>
   </Layout>
 )
 
