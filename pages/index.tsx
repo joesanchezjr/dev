@@ -10,13 +10,6 @@ const IndexPage = () => (
   <Layout>
     <section className="notch-padding bg-gradient-to-l from-indigo-200 via-red-200 to-yellow-100 text-indigo-700">
       <div className="p-4 max-w-screen-xl mx-auto">
-        <p>
-          <span className="bg-white px-1 py-0.5 rounded text-sm">NEW</span>{" "}
-          <span role="img" aria-label="Butterfly">
-            🦋
-          </span>{" "}
-          Available for hire!
-        </p>
         <p className="max-w-prose text-4xl my-12 md:my-16 xl:my-32">
           <span className="font-bold font-serif italic">Front-End Engineer</span> — Creative
           developer with four years of experience building for the web. Dedicated to making
