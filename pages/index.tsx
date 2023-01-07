@@ -12,7 +12,7 @@ const IndexPage = () => (
       <div className="p-4 max-w-screen-xl mx-auto">
         <p className="max-w-prose text-4xl my-12 md:my-16 xl:my-32">
           <span className="font-bold font-serif italic">Front-End Engineer</span> — Creative
-          developer with four years of experience building for the web. Dedicated to making
+          developer with six years of experience building for the web. Dedicated to making
           beautiful and accessible digital products. Seeking to work with a team of good people
           making good things.
         </p>
