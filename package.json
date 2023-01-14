@@ -1,28 +1,28 @@
 {
   "name": "joesanchezjr-dev",
-  "version": "1.0.0",
+  "version": "2.0.0",
+  "private": true,
   "scripts": {
-    "dev": "next dev -H $(ifconfig | awk '/inet 192\\.168\\.[0-9]+\\.[0-9]+/{print $2}') -p 3000",
-    "dev:windows": "next",
+    "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "type-check": "tsc"
+    "lint": "next lint"
   },
   "dependencies": {
-    "@svgr/webpack": "^5.5.0",
-    "next": "latest",
-    "react": "^17.0.1",
-    "react-dom": "^17.0.1",
-    "react-intersection-observer": "^8.32.0"
+    "@next/font": "13.1.1",
+    "eslint": "8.31.0",
+    "eslint-config-next": "13.1.1",
+    "next": "13.1.1",
+    "react": "18.2.0",
+    "react-dom": "18.2.0",
+    "typescript": "4.9.4"
   },
   "devDependencies": {
-    "@types/node": "^15.12.2",
-    "@types/react": "^17.0.9",
-    "@types/react-dom": "^17.0.6",
-    "autoprefixer": "^10.2.6",
-    "postcss": "^8.3.0",
-    "tailwindcss": "^2.1.4",
-    "typescript": "4.3.2"
-  },
-  "license": "MIT"
+    "@types/node": "18.11.18",
+    "@types/react": "18.0.26",
+    "@types/react-dom": "18.0.10",
+    "autoprefixer": "^10.4.13",
+    "postcss": "^8.4.21",
+    "tailwindcss": "^3.2.4"
+  }
 }
