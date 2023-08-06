@@ -1,4 +1,4 @@
-import { formatDate } from "@/util/format-date";
+import { formatDate } from "@/utils/format-date";
 import { ArrowRightIcon } from "@heroicons/react/24/outline";
 import clsx from "clsx";
 import { allPosts } from "contentlayer/generated";
