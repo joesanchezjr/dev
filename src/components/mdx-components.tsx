@@ -1,0 +1,20 @@
+import { useMDXComponent } from "next-contentlayer/hooks";
+
+interface MdxProps {
+  code: string;
+}
+
+const components = {
+  ul: (props) => <ul className="list-inside list-disc" {...props} />,
+  li: (props) => <li className="mb-2 max-w-[65ch]" {...props} />,
+};
+
+export function Mdx({ code }: MdxProps) {
+  const Component = useMDXComponent(code);
+
+  return (
+    <div className="mt-4 space-y-4">
+      <Component components={components} />
+    </div>
+  );
+}
