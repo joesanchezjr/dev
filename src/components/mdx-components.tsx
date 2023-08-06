@@ -1,10 +1,11 @@
+import { MDXComponents } from "mdx/types";
 import { useMDXComponent } from "next-contentlayer/hooks";
 
 interface MdxProps {
   code: string;
 }
 
-const components = {
+const components: MDXComponents = {
   ul: (props) => <ul className="list-inside list-disc" {...props} />,
   li: (props) => <li className="mb-2 max-w-[65ch]" {...props} />,
 };
