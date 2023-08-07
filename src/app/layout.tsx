@@ -9,6 +9,7 @@ import Script from "next/script";
 import { Navigation } from "@/app/_components/navigation/navigation";
 import { AppNotification } from "@/components/notification";
 import { Metadata } from "next";
+import { BASE_URL } from "@/utils/constants";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -23,7 +24,7 @@ const fira_code = Fira_Code({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://www.joesanchezjr.dev"),
+  metadataBase: new URL(BASE_URL),
   title: {
     default: "Joe Sanchez Jr.",
     template: "%s | Joe Sanchez Jr.",
@@ -32,20 +33,20 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Joe Sanchez Jr",
     description: "Senior Front-End/UI Engineer, Web | React + TypeScript",
-    url: "https://www.joesanchezjr.dev",
+    url: "BASE_URL",
     siteName: "Joe Sanchez Jr.",
     locale: "en-US",
     type: "website",
     images: [
       {
-        url: "https://www.joesanchezjr.dev/images/cover.png",
+        url: `${BASE_URL}/images/cover.png`,
       },
     ],
   },
   twitter: {
     title: "Joe Sanchez Jr.",
     card: "summary_large_image",
-    images: ["https://www.joesanchezjr.dev/images/cover.png"],
+    images: [`${BASE_URL}/images/cover.png`],
   },
   keywords: [
     "Software engineer",
