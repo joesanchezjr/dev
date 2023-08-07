@@ -51,7 +51,7 @@ export default async function PagePage({ params }: PageProps) {
 
   return (
     <div className="max-width my-12">
-      <article className="prose dark:prose-invert">
+      <article className="prose">
         <h1>{page.title}</h1>
         {page.description && <p className="text-xl">{page.description}</p>}
         <hr />

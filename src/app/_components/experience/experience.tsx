@@ -27,14 +27,14 @@ export function Experience() {
               >
                 <Link href={experience.slug}>
                   <div className="flex items-center gap-x-2">
-                    <div className="rounded-md border border-slate-100 bg-slate-50 p-1">
+                    <div className="flex items-center justify-center rounded-md border border-slate-100 bg-slate-50 p-1">
                       {experience.icon && (
                         <Image
                           src={experience.icon}
                           alt={experience.company}
-                          width={100}
-                          height={100}
-                          className="my-0 inline-block h-6 w-6 dark:invert dark:filter"
+                          width={24}
+                          height={24}
+                          className="my-0 inline-block h-4 w-4 sm:h-6 sm:w-6"
                         />
                       )}
                     </div>

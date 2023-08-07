@@ -16,7 +16,7 @@ export function Mdx({ code }: MdxProps) {
   const Component = useMDXComponent(code);
 
   return (
-    <div className="mt-4 space-y-4">
+    <div className="mdx-components mt-4 space-y-4">
       <Component components={components} />
     </div>
   );

@@ -52,7 +52,7 @@ export default async function PostPage({ params }: PostProps) {
   }
 
   return (
-    <article className="max-width my-12">
+    <article className="post my-12">
       <header className="mb-4 border-b border-slate-300 pb-4">
         <h1 className="mb-2 text-2xl font-bold">{title(post.title)}</h1>
         {post.description && <p>{post.description}</p>}

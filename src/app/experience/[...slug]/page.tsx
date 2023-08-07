@@ -52,12 +52,10 @@ export default async function PostPage({ params }: PostProps) {
   return (
     <div className="flex min-h-screen flex-col items-center p-24">
       <span>current page: /posts/[...slug]</span>
-      <article className="prose dark:prose-invert p-6">
+      <article className="prose p-6">
         <h1 className="mb-2">{post.title}</h1>
         {post.description && (
-          <p className="mt-0 text-xl text-slate-700 dark:text-slate-200">
-            {post.description}
-          </p>
+          <p className="mt-0 text-xl text-slate-700 ">{post.description}</p>
         )}
         <hr className="my-4" />
         <Mdx code={post.body.code} />

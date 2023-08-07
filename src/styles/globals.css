@@ -35,4 +35,12 @@
   pre code {
     @apply rounded-md;
   }
+
+  article.post .mdx-components > *:not(.wide),
+  article.post header {
+    @apply max-width;
+  }
+  article.post .mdx-components > .wide {
+    @apply w-full;
+  }
 }
