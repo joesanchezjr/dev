@@ -15,7 +15,7 @@ export function EngineeringNotes({ showAll }: { showAll?: boolean }) {
   // @todo: organize by year if more than one year of posts
 
   return (
-    <section className="max-width rounded-md border border-slate-200 py-4">
+    <section className="max-width z-0 rounded-md border border-slate-200 py-4">
       <div className="mb-4 flex items-start justify-between">
         <h2 className="flex items-center gap-2 text-sm font-semibold uppercase tracking-wide">
           <span className="h-2 w-2 rounded-full bg-rose-600/60" /> Engineering

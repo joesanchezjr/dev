@@ -7,8 +7,8 @@ export const DATABASE = IS_DEV ? "myFirstDatabase" : "authDb";
 export const navigations = {
   main: [
     { name: "Home", href: "/" },
-    { name: "About", href: "/about" },
-    { name: "Contact", href: "/contact" },
+    // { name: "About", href: "/about" },
+    // { name: "Contact", href: "/contact" },
   ],
   social: [
     {

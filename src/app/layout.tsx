@@ -7,6 +7,7 @@ import { NavigationEvents } from "@/components/navigation-events";
 import { Suspense } from "react";
 import Script from "next/script";
 import { Navigation } from "@/app/_components/navigation/navigation";
+import { AppNotification } from "@/components/notification";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -35,7 +36,7 @@ export default function RootLayout({
   const htmlClasses = clsx(inter.variable, fira_code.variable, "antialiased");
   return (
     <html lang="en" className={htmlClasses}>
-      <body className="min-h-screen bg-slate-50 text-slate-600 ">
+      <body className="relative min-h-screen bg-slate-50 text-slate-600">
         <Providers>
           <header className="max-width flex items-center justify-between text-sm font-medium">
             <div className="group">
@@ -81,6 +82,7 @@ export default function RootLayout({
           src="https://static.cloudflareinsights.com/beacon.min.js"
           data-cf-beacon='{"token": "f95f7928ffdf42758a3fcc9bede5d584"}'
         ></Script>
+        <AppNotification />
       </body>
     </html>
   );
