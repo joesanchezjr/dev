@@ -4,6 +4,7 @@ import clsx from "clsx";
 import { allPosts } from "contentlayer/generated";
 import { compareDesc } from "date-fns";
 import Link from "next/link";
+import title from "title";
 
 export function EngineeringNotes({ showAll }: { showAll?: boolean }) {
   const sortedPosts = allPosts.sort((a, z) =>
@@ -20,12 +21,14 @@ export function EngineeringNotes({ showAll }: { showAll?: boolean }) {
           <span className="h-2 w-2 rounded-full bg-rose-600/60" /> Engineering
           Notes
         </h2>
-        <Link
-          href="/notes"
-          className="flex items-center gap-1 rounded-md border border-slate-200 bg-white px-2 py-1 text-sm font-medium hover:bg-slate-50"
-        >
-          All notes <ArrowRightIcon className="inline h-4 w-4" />
-        </Link>
+        {postsToShow.length > 5 && (
+          <Link
+            href="/notes"
+            className="flex items-center gap-1 rounded-md border border-slate-200 bg-white px-2 py-1 text-sm font-medium hover:bg-slate-50"
+          >
+            All notes <ArrowRightIcon className="inline h-4 w-4" />
+          </Link>
+        )}
       </div>
       <ul role="list" className="-ml-1 space-y-6">
         {postsToShow.map((post, index) => (
@@ -52,7 +55,7 @@ export function EngineeringNotes({ showAll }: { showAll?: boolean }) {
                 </time>
                 <p className="max-w-[85ch] flex-auto space-x-2 py-0.5 leading-5">
                   <span className="font-medium text-slate-900">
-                    {post.title}
+                    {title(post.title)}
                   </span>
                   <span>{post.description}</span>
                 </p>

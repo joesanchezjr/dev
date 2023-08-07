@@ -46,7 +46,7 @@ export default function RootLayout({
                   aria-label="waving hand emoji"
                   className="inline-block transition-transform group-hover:rotate-12"
                 >
-                  👋🏽
+                  👋
                 </span>
               </Link>
             </div>

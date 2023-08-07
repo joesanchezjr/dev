@@ -8,8 +8,9 @@ interface MdxProps {
 
 const components: MDXComponents = {
   ul: (props) => <ul className="list-inside list-disc" {...props} />,
-  li: (props) => <li className="mb-2 max-w-[65ch]" {...props} />,
+  li: (props) => <li className="prose" {...props} />,
   Image: MdxImage,
+  p: (props) => <p className="prose" {...props} />,
 };
 
 export function Mdx({ code }: MdxProps) {
