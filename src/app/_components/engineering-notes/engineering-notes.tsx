@@ -1,3 +1,4 @@
+import { CardSection } from "@/components/card/card";
 import { formatDate } from "@/utils/format-date";
 import { ArrowRightIcon } from "@heroicons/react/24/outline";
 import clsx from "clsx";
@@ -15,7 +16,7 @@ export function EngineeringNotes({ showAll }: { showAll?: boolean }) {
   // @todo: organize by year if more than one year of posts
 
   return (
-    <section className="max-width z-0 rounded-md border border-slate-200 py-4">
+    <CardSection variant="outline" className="mb-12">
       <div className="mb-4 flex items-start justify-between">
         <h2 className="flex items-center gap-2 text-sm font-semibold uppercase tracking-wide">
           <span className="h-2 w-2 rounded-full bg-rose-600/60" /> Engineering
@@ -64,6 +65,6 @@ export function EngineeringNotes({ showAll }: { showAll?: boolean }) {
           </li>
         ))}
       </ul>
-    </section>
+    </CardSection>
   );
 }
