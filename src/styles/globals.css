@@ -1,0 +1,49 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer utilities {
+  .safe-area {
+    padding-left: env(safe-area-inset-left);
+    padding-right: env(safe-area-inset-left);
+  }
+
+  /* https://developer.mozilla.org/en-US/docs/Web/HTML/Element/s#accessibility_concerns */
+  .line-through-accessibility::before,
+  .line-through-accessibility::after {
+    clip-path: inset(100%);
+    clip: rect(1px, 1px, 1px, 1px);
+    height: 1px;
+    overflow: hidden;
+    position: absolute;
+    white-space: nowrap;
+    width: 1px;
+  }
+  .line-through-accessibility::before {
+    content: " [start of stricken text] ";
+  }
+  .line-through-accessibility::after {
+    content: " [end of stricken text] ";
+  }
+
+  .max-width {
+    @apply mx-auto max-w-screen-xl px-4;
+  }
+  .max-width-no-padding {
+    @apply mx-auto max-w-screen-xl;
+  }
+  pre code {
+    @apply rounded-md;
+  }
+
+  article.post .mdx-components > *:not(.wide),
+  article.post header {
+    @apply max-width;
+  }
+  article.post .mdx-components > .wide {
+    @apply w-full;
+  }
+  .mdx-components pre {
+    @apply rounded-md p-4;
+  }
+}
