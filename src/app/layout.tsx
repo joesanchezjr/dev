@@ -23,30 +23,9 @@ const fira_code = Fira_Code({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://www.joesanchezjr.dev"),
-  title: {
-    default: "Joe Sanchez Jr.",
-    template: "%s | Joe Sanchez Jr.",
-  },
-  description: "Senior Front-End/UI Engineer, Web | React + TypeScript",
-  openGraph: {
-    title: "Joe Sanchez Jr",
-    description: "Senior Front-End/UI Engineer, Web | React + TypeScript",
-    url: "https://www.joesanchezjr.dev",
-    siteName: "Joe Sanchez Jr.",
-    locale: "en-US",
-    type: "website",
-    images: [
-      {
-        url: "https://www.joesanchezjr.dev/images/cover.png",
-      },
-    ],
-  },
-  twitter: {
-    title: "Joe Sanchez Jr.",
-    card: "summary_large_image",
-    images: ["https://www.joesanchezjr.dev/images/cover.png"],
-  },
+  title: "Joe Sanchez Jr. | Software Engineer, Web",
+  description:
+    "Front-end software engineer with over six years of experience building for the web",
   keywords: [
     "Software engineer",
     "Front-end developer",
