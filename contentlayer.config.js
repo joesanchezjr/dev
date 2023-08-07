@@ -1,4 +1,5 @@
 import { defineDocumentType, makeSource } from "contentlayer/source-files";
+import highlight from "rehype-highlight";
 
 /** @type {import('contentlayer/source-files').ComputedFields} */
 const computedFields = {
@@ -81,4 +82,11 @@ export const Experience = defineDocumentType(() => ({
 export default makeSource({
   contentDirPath: "./src/_content",
   documentTypes: [Post, Page, Experience],
+  markdown: { rehypePlugins: [highlight] },
+  mdx: { rehypePlugins: [highlight] },
+  fieldOptions: {
+    date: {
+      timezone: "America/Chicago",
+    },
+  },
 });

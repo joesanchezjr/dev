@@ -3,6 +3,8 @@ import { allPosts } from "contentlayer/generated";
 
 import { Metadata } from "next";
 import { Mdx } from "@/components/mdx-components";
+import { formatDate } from "@/utils/format-date";
+import title from "title";
 
 interface PostProps {
   params: {
@@ -50,18 +52,20 @@ export default async function PostPage({ params }: PostProps) {
   }
 
   return (
-    <div className="flex min-h-screen flex-col items-center p-24">
-      <span>current page: /posts/[...slug]</span>
-      <article className="prose dark:prose-invert p-6">
-        <h1 className="mb-2">{post.title}</h1>
-        {post.description && (
-          <p className="mt-0 text-xl text-slate-700 dark:text-slate-200">
-            {post.description}
-          </p>
-        )}
-        <hr className="my-4" />
-        <Mdx code={post.body.code} />
-      </article>
-    </div>
+    <article className="max-width my-12">
+      <header className="mb-4 border-b border-slate-300 pb-4">
+        <h1 className="mb-2 text-2xl font-bold">{title(post.title)}</h1>
+        {post.description && <p>{post.description}</p>}
+
+        <time
+          dateTime={post.date}
+          className="flex-none py-0.5 font-mono text-xs leading-5 tracking-tight text-slate-500 md:order-2"
+        >
+          {formatDate(post.date, "MMMM dd, yyyy")}
+        </time>
+      </header>
+
+      <Mdx code={post.body.code} />
+    </article>
   );
 }

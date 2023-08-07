@@ -32,4 +32,7 @@
   .max-width-no-padding {
     @apply mx-auto max-w-screen-xl;
   }
+  pre code {
+    @apply rounded-md;
+  }
 }

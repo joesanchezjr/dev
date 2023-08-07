@@ -50,9 +50,8 @@ export default async function PagePage({ params }: PageProps) {
   }
 
   return (
-    <div className="flex min-h-screen flex-col items-center p-24">
-      <span>current path: /[...slug]</span>
-      <article className="prose dark:prose-invert py-6">
+    <div className="max-width my-12">
+      <article className="prose dark:prose-invert">
         <h1>{page.title}</h1>
         {page.description && <p className="text-xl">{page.description}</p>}
         <hr />

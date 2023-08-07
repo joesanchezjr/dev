@@ -6,6 +6,7 @@ import clsx from "clsx";
 import { NavigationEvents } from "@/components/navigation-events";
 import { Suspense } from "react";
 import Script from "next/script";
+import { Navigation } from "@/app/_components/navigation/navigation";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -49,15 +50,26 @@ export default function RootLayout({
                 </span>
               </Link>
             </div>
-            <nav className="flex items-center justify-end gap-4 ">
-              <Link href="/" className="py-4 hover:underline">
-                Home
-              </Link>
-              <Link href="/about" className="py-4 hover:underline">
-                About
-              </Link>
+            <nav className="flex items-center justify-end gap-4 text-slate-400">
+              <a
+                href="https://www.linkedin.com/in/joesanchezjr"
+                className="py-4 hover:underline"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                LinkedIn
+              </a>
+              <a
+                href="https://www.github.com/joesanchezjr"
+                className="py-4 hover:underline"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                GitHub
+              </a>
             </nav>
           </header>
+          <Navigation />
           {modal && modal}
           {children}
           <Suspense fallback={null}>

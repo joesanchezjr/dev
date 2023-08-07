@@ -6,7 +6,7 @@ const nextConfig = {
   swcMinify: true,
   images: {
     // @todo: switch to remotePatterns
-    domains: ["tailwindui.com"],
+    domains: ["tailwindui.com", "images.unsplash.com"],
     dangerouslyAllowSVG: true,
   },
 };
