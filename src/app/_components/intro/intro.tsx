@@ -2,17 +2,31 @@ import { GlobeAltIcon } from "@heroicons/react/24/outline";
 
 export const Intro = () => {
   return (
-    <section id="intro" className="max-width my-12">
-      <div className="mb-4 flex justify-end">
-        <div className="inline-flex items-center gap-2 rounded-full bg-green-200/50 px-2 py-1 text-xs">
-          <span className="relative flex h-2 w-2">
-            <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-green-400 opacity-75" />
-            <span className="relative inline-flex h-2 w-2 rounded-full bg-green-500" />
-          </span>
-          <span>Available for hire</span>
+    <section id="intro" className="mx-auto my-[100rem] ">
+      <div className="mx-auto flex h-[314px] w-[600px] flex-col justify-between rounded-md border border-slate-300 p-4">
+        <div className="mb-8 flex justify-end">
+          <div className="inline-flex items-center gap-2 rounded-full bg-green-200/50 px-2 py-1 text-xs">
+            <span className="relative flex h-2 w-2">
+              <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-green-400 opacity-75" />
+              <span className="relative inline-flex h-2 w-2 rounded-full bg-green-500" />
+            </span>
+            <span>Available for hire</span>
+          </div>
+        </div>
+        <div className="flex flex-col gap-2">
+          <h1 className="text-4xl font-bold">Joe Sanchez Jr</h1>
+          <div className="flex items-end justify-between">
+            <div>
+              <h2 className="text-xl font-medium">
+                Senior Front-End/UI Engineer, Web
+              </h2>
+              <h2 className="text-xl font-medium">React + TypeScript</h2>
+            </div>
+            <h3 className="text-lg font-medium">📍 Austin, Texas</h3>
+          </div>
         </div>
       </div>
-      <p className=" max-w-[58ch] text-xl leading-snug">
+      {/* <p className=" max-w-[58ch] text-4xl leading-snug">
         I&apos;m Joe, a creative software engineer at{" "}
         <span className="font-sans font-semibold text-[#ff612b]">Optum </span>{" "}
         and resident of <span className="italic">Austin, Texas </span>with over{" "}
@@ -46,7 +60,7 @@ export const Intro = () => {
         </span>{" "}
         space. Seeking to work with a team of good people making interesting
         things.
-      </p>
+      </p> */}
     </section>
   );
 };
