@@ -7,20 +7,18 @@ interface MdxProps {
 }
 
 const components: MDXComponents = {
-  ul: (props) => <ul className="list-inside list-disc" {...props} />,
-  li: (props) => <li className="prose" {...props} />,
+  ul: (props) => <ul className="prose list-inside list-disc" {...props} />,
+  li: (props) => <li {...props} />,
   Image: MdxImage,
-  p: (props) => <p className="prose" {...props} />,
+  p: (props) => <p {...props} />,
 };
 
 export function Mdx({ code }: MdxProps) {
   const Component = useMDXComponent(code);
 
   return (
-    <div className="mdx-components mt-4">
-      <article className="prose">
-        <Component components={components} />
-      </article>
+    <div className="mdx-components prose mt-4">
+      <Component components={components} />
     </div>
   );
 }

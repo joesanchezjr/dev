@@ -3,12 +3,14 @@ import { GlobeAltIcon } from "@heroicons/react/24/outline";
 export const Intro = () => {
   return (
     <section id="intro" className="max-width my-12">
-      <div className="mb-4 inline-flex items-center gap-2 rounded-full bg-green-200/50 px-2 py-1 text-xs">
-        <span className="relative flex h-2 w-2">
-          <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-green-400 opacity-75" />
-          <span className="relative inline-flex h-2 w-2 rounded-full bg-green-500" />
-        </span>
-        <span>Available for work</span>
+      <div className="mb-4 flex justify-end">
+        <div className="inline-flex items-center gap-2 rounded-full bg-green-200/50 px-2 py-1 text-xs">
+          <span className="relative flex h-2 w-2">
+            <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-green-400 opacity-75" />
+            <span className="relative inline-flex h-2 w-2 rounded-full bg-green-500" />
+          </span>
+          <span>Available for hire</span>
+        </div>
       </div>
       <p className=" max-w-[58ch] text-xl leading-snug">
         I&apos;m Joe, a creative software engineer at{" "}
