@@ -43,4 +43,7 @@
   article.post .mdx-components > .wide {
     @apply w-full;
   }
+  .mdx-components pre {
+    @apply rounded-md p-4;
+  }
 }
