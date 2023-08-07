@@ -56,7 +56,7 @@ export function Experience() {
                           </p>
                         </div>
                         <ChevronRightIcon
-                          className="ml-auto h-5 w-5 flex-none text-slate-400"
+                          className="-mt-6 ml-auto h-5 w-5 flex-none text-slate-400 sm:mt-0"
                           aria-hidden="true"
                         />
                       </div>
