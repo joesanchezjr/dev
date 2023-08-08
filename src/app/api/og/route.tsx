@@ -19,7 +19,7 @@ export async function GET() {
           <div tw="flex justify-end">
             <div tw="flex items-center rounded-full bg-green-200/50 px-6 py-3 ">
               <span tw="relative flex h-6 w-6 mr-4">
-                <span tw="relative inline h-6 w-6 rounded-full bg-green-500" />
+                <span tw="relative flex h-6 w-6 rounded-full bg-green-500" />
               </span>
               <span tw="text-6xl font-medium">Available for hire</span>
             </div>
