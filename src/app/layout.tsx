@@ -39,14 +39,14 @@ export const metadata: Metadata = {
     type: "website",
     images: [
       {
-        url: `${BASE_URL}/images/site-image.png`,
+        url: `${BASE_URL}/api/og`,
       },
     ],
   },
   twitter: {
     title: "Joe Sanchez Jr.",
     card: "summary_large_image",
-    images: [`${BASE_URL}/images/site-image.png`],
+    images: [`${BASE_URL}/api/og`],
   },
   keywords: [
     "Software engineer",
