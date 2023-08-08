@@ -4,6 +4,10 @@ export const IS_DEV =
 
 export const DATABASE = IS_DEV ? "myFirstDatabase" : "authDb";
 
+export const BASE_URL = IS_DEV
+  ? "http://localhost:3000"
+  : `https://${process.env.VERCEL_URL}` || "https://joesanchezjr.dev";
+
 export const navigations = {
   main: [
     { name: "Home", href: "/" },

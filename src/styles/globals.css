@@ -36,13 +36,13 @@
     @apply rounded-md;
   }
 
-  article.post .mdx-components > *:not(.wide),
+  /* article.post .mdx-components > *:not(.wide),
   article.post header {
     @apply max-width;
   }
   article.post .mdx-components > .wide {
     @apply w-full;
-  }
+  } */
   .mdx-components pre {
     @apply rounded-md p-4;
   }
