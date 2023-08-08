@@ -7,7 +7,6 @@ import { NavigationEvents } from "@/components/navigation-events";
 import { Suspense } from "react";
 import Script from "next/script";
 import { Navigation } from "@/app/_components/navigation/navigation";
-import { AppNotification } from "@/components/notification";
 import { Metadata } from "next";
 import { BASE_URL } from "@/utils/constants";
 
@@ -113,7 +112,6 @@ export default function RootLayout({
           src="https://static.cloudflareinsights.com/beacon.min.js"
           data-cf-beacon='{"token": "f95f7928ffdf42758a3fcc9bede5d584"}'
         ></Script>
-        <AppNotification />
       </body>
     </html>
   );
