@@ -3,9 +3,6 @@ import { ImageResponse } from "next/server";
 export const runtime = "edge";
 
 export async function GET() {
-  const interBold = await fetch(
-    new URL("../../../../public/fonts/inter/Inter-Bold.otf", import.meta.url)
-  ).then((res) => res.arrayBuffer());
   const interMedium = await fetch(
     new URL("../../../../public/fonts/inter/Inter-Medium.otf", import.meta.url)
   ).then((res) => res.arrayBuffer());
@@ -28,7 +25,7 @@ export async function GET() {
           <div tw="flex flex-col">
             <div tw="text-7xl font-medium mb-8">Joe Sanchez Jr</div>
             <div tw="relative flex items-end justify-between">
-              <div tw="flex flex-col text-6xl font-bold text-slate-900">
+              <div tw="flex flex-col text-6xl font-medium text-slate-900">
                 <div tw="mb-4">Senior Front-End/UI Engineer, Web</div>
                 <div>⚛️ React + TypeScript</div>
               </div>
@@ -49,12 +46,6 @@ export async function GET() {
           style: "normal",
           weight: 500,
           data: interMedium,
-        },
-        {
-          name: "Inter",
-          style: "normal",
-          weight: 700,
-          data: interBold,
         },
       ],
     }
