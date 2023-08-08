@@ -33,7 +33,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Joe Sanchez Jr",
     description: "Senior Front-End/UI Engineer, Web | React + TypeScript",
-    url: "BASE_URL",
+    url: BASE_URL,
     siteName: "Joe Sanchez Jr.",
     locale: "en-US",
     type: "website",
