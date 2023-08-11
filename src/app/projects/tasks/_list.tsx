@@ -1,6 +1,6 @@
 "use client";
 
-import { TaskItem } from "@/app/tasks/_task";
+import { TaskItem } from "@/app/projects/tasks/_task";
 import { useTasks } from "@/context/tasks-context/tasks-context";
 import React from "react";
 

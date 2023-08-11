@@ -1,5 +1,5 @@
 import { Suspense } from "react";
-import { TaskList } from "@/app/tasks/_list";
+import { TaskList } from "@/app/projects/tasks/_list";
 
 import { Metadata } from "next";
 
