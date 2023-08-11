@@ -107,14 +107,15 @@ export function useTasks(tasks?: Task[]) {
   if (context === undefined) {
     throw new Error("useApp must be used within an TasksContext");
   }
-  const { dispatch } = context;
+  const { state, dispatch } = context;
 
   React.useEffect(() => {
     if (tasks && !ref.current) {
+      ref.current = true;
       tasks.forEach((task) => {
+        if (state.find((t) => t.id === task.id)) return;
         dispatch({ type: ActionTypes.Create, task });
       });
-      ref.current = true;
     }
   }, [tasks]);
 
