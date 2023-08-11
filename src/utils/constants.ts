@@ -15,7 +15,7 @@ export const BASE_URL = IS_PROD
 export const navigations = {
   main: [
     { name: "Home", href: "/" },
-    // { name: "About", href: "/about" },
+    { name: "Tasks", href: "/tasks" },
     // { name: "Contact", href: "/contact" },
   ],
   social: [

@@ -45,11 +45,12 @@ type Action = CreateTaskAction | UpdateTaskAction | DeleteTaskAction;
 type Dispatch = (action: Action) => void;
 type Context = { state: State; dispatch: Dispatch } | undefined;
 
-const initialState: State = [
-  { id: 0, text: "Visit Kafka Museum", complete: true },
-  { id: 1, text: "Watch a puppet show", complete: false },
-  { id: 2, text: "Lennon Wall pic", complete: false },
-];
+// https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/from#sequence_generator_range
+const initialState: State = Array.from({ length: 10 }, (_, i) => ({
+  id: i + 1,
+  text: `Task #${i + 1}`,
+  complete: false,
+}));
 
 const TasksContext = React.createContext<Context>(undefined);
 
@@ -89,7 +90,7 @@ function tasksReducer(state: State, action: Action) {
 
 type TasksProviderProps = { children: React.ReactNode };
 
-export function TasksProvider({ children }: TasksProviderProps) {
+export function TasksContextProvider({ children }: TasksProviderProps) {
   const [state, dispatch] = React.useReducer(tasksReducer, initialState);
 
   const value = { state, dispatch };
