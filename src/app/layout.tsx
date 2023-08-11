@@ -1,4 +1,3 @@
-import Link from "next/link";
 import "@/styles/globals.css";
 import { Fira_Code, Inter } from "next/font/google";
 import { Providers } from "@/context/providers";
@@ -6,9 +5,9 @@ import clsx from "clsx";
 import { NavigationEvents } from "@/components/navigation-events";
 import { Suspense } from "react";
 import Script from "next/script";
-import { Navigation } from "@/app/_components/navigation/navigation";
 import { Metadata } from "next";
 import { BASE_URL } from "@/utils/constants";
+import { Header } from "@/components/header/header";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -68,42 +67,11 @@ export default function RootLayout({
     <html lang="en" className={htmlClasses}>
       <body className="relative min-h-screen bg-slate-50 text-slate-600">
         <Providers>
-          <header className="max-width flex items-center justify-between text-sm font-medium">
-            <div className="group">
-              <Link href="/">
-                ¡Hola!{" "}
-                <span
-                  role="img"
-                  aria-label="waving hand emoji"
-                  className="inline-block transition-transform group-hover:rotate-12"
-                >
-                  👋
-                </span>
-              </Link>
-            </div>
-            <nav className="flex items-center justify-end gap-4 text-slate-400">
-              <a
-                href="https://www.linkedin.com/in/joesanchezjr"
-                className="py-4 hover:underline"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                LinkedIn
-              </a>
-              <a
-                href="https://www.github.com/joesanchezjr"
-                className="py-4 hover:underline"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                GitHub
-              </a>
-            </nav>
-          </header>
-          <Navigation />
-          {modal && modal}
+          <Header />
+          {modal}
           {children}
           <Suspense fallback={null}>
+            {/* <NavigationEvents> is wrapped in a Suspense boundary becauseuseSearchParams() causes client-side rendering up to the closest Suspense boundary during static rendering. */}
             <NavigationEvents />
           </Suspense>
         </Providers>
@@ -111,7 +79,7 @@ export default function RootLayout({
           defer
           src="https://static.cloudflareinsights.com/beacon.min.js"
           data-cf-beacon='{"token": "f95f7928ffdf42758a3fcc9bede5d584"}'
-        ></Script>
+        />
       </body>
     </html>
   );

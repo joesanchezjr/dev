@@ -51,7 +51,6 @@ export default async function PostPage({ params }: PostProps) {
 
   return (
     <div className="flex min-h-screen flex-col items-center p-24">
-      <span>current page: /posts/[...slug]</span>
       <article className="prose p-6">
         <h1 className="mb-2">{post.title}</h1>
         {post.description && (
