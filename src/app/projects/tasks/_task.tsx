@@ -32,6 +32,7 @@ export function TaskItem({ task }: { task: Task }) {
             aria-disabled
             className="pointer-events-none cursor-not-allowed opacity-30"
             aria-label="Task checkbox not available while editing"
+            readOnly
           />
         </div>
         <form onSubmit={handleEditSave}>
@@ -57,6 +58,7 @@ export function TaskItem({ task }: { task: Task }) {
             aria-disabled
             className="pointer-events-none cursor-not-allowed "
             aria-label="Task checkbox not available on deleted tasks"
+            readOnly
           />
           <span>
             {task.id} - {task.title}
