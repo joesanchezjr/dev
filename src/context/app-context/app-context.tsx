@@ -6,26 +6,23 @@ import * as React from "react";
 
 // type CloseAction = { type: "close"; payload: { showSidebar: boolean } }; // example of action with payload
 
-type Action = { type: "open" } | { type: "close" } | { type: string };
+type Action = { type: "open" } | { type: "close" };
 type Dispatch = (action: Action) => void;
-type State = { showSidebar: boolean };
+type State = { unlocked: boolean };
 type AppProviderProps = { children: React.ReactNode };
 type Context = { state: State; dispatch: Dispatch } | undefined;
 
-const initialState = { showSidebar: false };
+const initialState = { unlocked: false };
 
 const AppContext = React.createContext<Context>(undefined);
 
-function appReducer(state: State, action: Action) {
+function appReducer(_: State, action: Action) {
   switch (action.type) {
     case "open": {
-      return { ...state, showSidebar: true };
+      return { unlocked: true };
     }
     case "close": {
-      return { ...state, showSidebar: false };
-    }
-    default: {
-      throw new Error(`Unhandled action type: ${action.type}`);
+      return { unlocked: false };
     }
   }
 }
