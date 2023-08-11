@@ -94,7 +94,16 @@ type TasksProviderProps = { children: React.ReactNode };
 export function TasksContextProvider({ children }: TasksProviderProps) {
   const [state, dispatch] = React.useReducer(tasksReducer, initialState);
 
-  const value = { state, dispatch };
+  // @todo: can we make this more efficient by only sorting when needed?
+  const sortedTasks = [...state].sort((a, b) => {
+    if (a.completed === b.completed) {
+      return a.id - b.id;
+    } else {
+      return a.completed ? 1 : -1;
+    }
+  });
+
+  const value = { state: sortedTasks, dispatch };
 
   return (
     <TasksContext.Provider value={value}>{children}</TasksContext.Provider>

@@ -11,7 +11,9 @@ export const metadata: Metadata = {
 
 const getRemoteTasks = async () => {
   try {
-    const tasks = await prisma.task.findMany();
+    const tasks = await prisma.task.findMany({
+      orderBy: [{ completed: "asc" }, { id: "asc" }],
+    });
     return tasks;
   } catch (error) {
     throw new Error("Failed to fetch tasks");
