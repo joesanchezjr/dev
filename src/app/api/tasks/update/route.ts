@@ -1,23 +1,17 @@
 import { NextResponse } from "next/server";
+import { Task } from "@prisma/client";
 
 import prisma from "@/lib/prisma";
 
 export async function POST(request: Request) {
-  const body = await request.json();
-
-  const { id, title, completed } = body;
-
-  const paramsToUpdate = {
-    ...(title && { title }),
-    ...(completed && { completed }),
-  };
+  const _task: Task = await request.json();
 
   try {
     const task = await prisma.task.update({
       where: {
-        id,
+        id: _task.id,
       },
-      data: paramsToUpdate,
+      data: _task,
     });
 
     return NextResponse.json(task, { status: 201 });

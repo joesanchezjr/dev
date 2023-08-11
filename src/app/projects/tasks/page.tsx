@@ -11,7 +11,7 @@ export const metadata: Metadata = {
 
 const getRemoteTasks = async () => {
   try {
-    const tasks = await prisma.task.findMany({ where: { deletedAt: null } });
+    const tasks = await prisma.task.findMany();
     console.log("DEBUG+ tasks", tasks);
     return tasks;
   } catch (error) {

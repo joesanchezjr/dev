@@ -47,6 +47,28 @@ export function TaskItem({ task }: { task: Task }) {
     );
   }
 
+  if (task.deletedAt) {
+    return (
+      <div className="space-x-2 line-through">
+        <label className="space-x-2 opacity-20">
+          <input
+            type="checkbox"
+            checked={task.completed}
+            aria-disabled
+            className="pointer-events-none cursor-not-allowed "
+            aria-label="Task checkbox not available on deleted tasks"
+          />
+          <span>
+            {task.id} - {task.title}
+          </span>
+        </label>
+        <button onClick={() => updateTask({ ...task, deletedAt: null })}>
+          Restore
+        </button>
+      </div>
+    );
+  }
+
   return (
     <>
       <label className="space-x-2">
