@@ -71,9 +71,31 @@ export function TaskItem({ task }: { task: Task }) {
     );
   }
 
+  if (task.completed) {
+    return (
+      <>
+        <label className="cursor-pointer space-x-2 line-through opacity-30">
+          <input
+            type="checkbox"
+            checked={task.completed}
+            onChange={(e) => {
+              updateTask({
+                ...task,
+                completed: e.target.checked,
+              });
+            }}
+          />
+          <span>
+            {task.id} - {task.title}
+          </span>
+        </label>
+      </>
+    );
+  }
+
   return (
     <>
-      <label className="space-x-2">
+      <label className="cursor-pointer space-x-2">
         <input
           type="checkbox"
           checked={task.completed}
