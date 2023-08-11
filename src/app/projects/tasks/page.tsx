@@ -11,7 +11,7 @@ export default function TasksPage() {
   return (
     <>
       <div className="max-width">
-        <Suspense fallback={<div>Loading tasks...</div>}>
+        <Suspense fallback={<div className="my-24">Loading tasks...</div>}>
           <TaskList />
         </Suspense>
       </div>

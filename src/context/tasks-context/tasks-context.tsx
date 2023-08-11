@@ -84,7 +84,7 @@ function tasksReducer(state: State, action: Action) {
       return state.filter((t) => t.id !== id);
     }
     default: {
-      // @ts-expect-error
+      // @ts-expect-error expecting error because all cases are covered, but leaving in case of bad input
       throw new Error(`Unhandled action type: ${action.type}`);
     }
   }
@@ -107,14 +107,28 @@ export function useTasks() {
   if (context === undefined) {
     throw new Error("useApp must be used within an TasksContext");
   }
-  const createTask = (task: CreateTaskPayload) =>
-    context.dispatch({ type: ActionTypes.Create, task });
+  const { dispatch } = context;
 
-  const updateTask = (task: UpdateTaskPayload) =>
-    context.dispatch({ type: ActionTypes.Update, task });
+  const createTask = (task: CreateTaskPayload) => {
+    try {
+      // create task on server, await response, then create task locally
+      dispatch({ type: ActionTypes.Create, task });
+    } catch (error) {}
+  };
 
-  const deleteTask = (taskId: DeleteTaskPayload["id"]) =>
-    context.dispatch({ type: ActionTypes.Delete, task: { id: taskId } });
+  const updateTask = (task: UpdateTaskPayload) => {
+    try {
+      // update task on server, await response, then update task locally
+      dispatch({ type: ActionTypes.Update, task });
+    } catch (error) {}
+  };
+
+  const deleteTask = (taskId: DeleteTaskPayload["id"]) => {
+    try {
+      // delete task from server, await response, then delete task locally
+      dispatch({ type: ActionTypes.Delete, task: { id: taskId } });
+    } catch (error) {}
+  };
 
   return { tasks: context.state, createTask, updateTask, deleteTask };
 }
