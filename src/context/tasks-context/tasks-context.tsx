@@ -40,7 +40,9 @@ type DeleteTaskAction = {
   task: DeleteTaskPayload;
 };
 
-type State = { id: number; text: string; complete: boolean }[];
+export type Task = { id: number; text: string; complete: boolean };
+
+type State = Task[];
 type Action = CreateTaskAction | UpdateTaskAction | DeleteTaskAction;
 type Dispatch = (action: Action) => void;
 type Context = { state: State; dispatch: Dispatch } | undefined;

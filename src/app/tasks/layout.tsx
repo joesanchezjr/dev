@@ -5,5 +5,13 @@ export default function TasksLayout({
 }: {
   children: React.ReactNode;
 }) {
-  return <TasksProvider>{children}</TasksProvider>;
+  return (
+    <TasksProvider>
+      <div className="max-width">
+        The Tasks Context is only available when the url is /tasks/** - leaving
+        or refreshing the route will clear the context
+      </div>
+      {children}
+    </TasksProvider>
+  );
 }
