@@ -1,8 +1,7 @@
 "use client";
 
-import { Fragment, use, useEffect, useRef, useState } from "react";
+import { Fragment, useEffect, useRef, useState } from "react";
 import { Transition } from "@headlessui/react";
-import { CheckCircleIcon } from "@heroicons/react/24/outline";
 import { XMarkIcon } from "@heroicons/react/20/solid";
 
 export function AppNotification() {
@@ -10,7 +9,6 @@ export function AppNotification() {
   const [show, setShow] = useState(false);
 
   useEffect(() => {
-    console.log("DEBUG+", { show, current: ref.current });
     if (!show && !ref.current) {
       const turnOn = setTimeout(() => {
         setShow(true);

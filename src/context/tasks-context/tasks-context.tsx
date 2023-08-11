@@ -109,12 +109,9 @@ export function useTasks(tasks?: Task[]) {
   }
   const { dispatch } = context;
 
-  console.log("DEBUG+ hook render");
   React.useEffect(() => {
-    console.log("DEBUG+ useTasks useEffect", !!tasks);
     if (tasks && !ref.current) {
       tasks.forEach((task) => {
-        console.log("dispatching for ", task.title);
         dispatch({ type: ActionTypes.Create, task });
       });
       ref.current = true;

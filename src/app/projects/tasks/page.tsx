@@ -12,7 +12,6 @@ export const metadata: Metadata = {
 const getRemoteTasks = async () => {
   try {
     const tasks = await prisma.task.findMany();
-    console.log("DEBUG+ tasks", tasks);
     return tasks;
   } catch (error) {
     throw new Error("Failed to fetch tasks");
@@ -25,7 +24,10 @@ export const dynamic = "force-dynamic";
 export default async function TasksPage() {
   const tasks = await getRemoteTasks();
 
-  console.log("DEBUG+ component render");
+  // @todo: add error handling
+  // @todo: add loading state
+  // @todo: add empty state
+  // @todo: add optimistic ui (useSWR?)
 
   return (
     <>
