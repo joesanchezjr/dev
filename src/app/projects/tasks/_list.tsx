@@ -2,18 +2,18 @@
 
 import { TaskItem } from "@/app/projects/tasks/_task";
 import { useTasks } from "@/context/tasks-context/tasks-context";
+import { Task } from "@prisma/client";
 import React from "react";
 
-export function TaskList() {
+export function TaskList({ tasks: _tasks }: { tasks: Task[] }) {
   const [newTask, setNewTask] = React.useState("");
 
-  const { tasks, createTask } = useTasks();
+  const { tasks, createTask } = useTasks(_tasks);
 
   const handleAddNewTask = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     if (!newTask) return;
-    const newTaskId = [...tasks].sort((a, b) => b.id - a.id)[0].id + 1;
-    createTask({ id: newTaskId, text: newTask });
+    createTask({ title: newTask });
     setNewTask("");
   };
 
@@ -42,7 +42,7 @@ export function TaskList() {
         </div>
       </form>
       <ul className="prose space-y-2">
-        {tasks?.map((task) => (
+        {tasks.map((task) => (
           <li key={task.id} className="flex gap-2">
             <TaskItem task={task} />
           </li>

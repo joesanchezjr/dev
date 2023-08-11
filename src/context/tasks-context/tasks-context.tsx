@@ -12,19 +12,11 @@ enum ActionTypes {
 
 // Payload Types
 
-type CreateTaskPayload = {
-  id: number;
-  text: string;
-};
-type UpdateTaskPayload = {
-  id: number;
-  text: string;
-  complete: boolean;
-};
-type DeleteTaskPayload = {
-  id: number;
-};
+type CreateTaskPayload = Task;
 
+type UpdateTaskPayload = Task;
+
+type DeleteTaskPayload = Task;
 // Action Types
 
 type CreateTaskAction = {
@@ -40,7 +32,14 @@ type DeleteTaskAction = {
   task: DeleteTaskPayload;
 };
 
-export type Task = { id: number; text: string; complete: boolean };
+export type Task = {
+  id: number;
+  title: string;
+  completed: boolean;
+  createdAt: Date;
+  updatedAt: Date;
+  deletedAt: Date | null;
+};
 
 type State = Task[];
 type Action = CreateTaskAction | UpdateTaskAction | DeleteTaskAction;
@@ -48,40 +47,40 @@ type Dispatch = (action: Action) => void;
 type Context = { state: State; dispatch: Dispatch } | undefined;
 
 // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/from#sequence_generator_range
-const initialState: State = Array.from({ length: 10 }, (_, i) => ({
-  id: i + 1,
-  text: `Task #${i + 1}`,
-  complete: false,
-}));
+// const initialState: State = Array.from({ length: 10 }, (_, i) => ({
+//   id: i + 1,
+//   title: `Task #${i + 1}`,
+//   complete: false,
+// }));
+
+const initialState: State = [];
 
 const TasksContext = React.createContext<Context>(undefined);
 
 function tasksReducer(state: State, action: Action) {
   switch (action.type) {
     case ActionTypes.Create: {
-      const { id, text } = action.task;
-      return [
-        ...state,
-        {
-          id,
-          text,
-          complete: false,
-        },
-      ];
+      return [...state, action.task];
     }
     case ActionTypes.Update: {
-      const { id, text, complete } = action.task;
       return state.map((t) => {
-        if (t.id === id) {
-          return { id, text, complete };
+        if (t.id === action.task.id) {
+          return action.task;
         } else {
           return t;
         }
       });
     }
     case ActionTypes.Delete: {
-      const { id } = action.task;
-      return state.filter((t) => t.id !== id);
+      // const { id } = action.task;
+      // return state.filter((t) => t.id !== id);
+      return state.map((t) => {
+        if (t.id === action.task.id) {
+          return action.task;
+        } else {
+          return t;
+        }
+      });
     }
     default: {
       // @ts-expect-error expecting error because all cases are covered, but leaving in case of bad input
@@ -102,32 +101,75 @@ export function TasksContextProvider({ children }: TasksProviderProps) {
   );
 }
 
-export function useTasks() {
+export function useTasks(tasks?: Task[]) {
+  const ref = React.useRef(false);
   const context = React.useContext(TasksContext);
   if (context === undefined) {
     throw new Error("useApp must be used within an TasksContext");
   }
   const { dispatch } = context;
 
-  const createTask = (task: CreateTaskPayload) => {
+  console.log("DEBUG+ hook render");
+  React.useEffect(() => {
+    console.log("DEBUG+ useTasks useEffect", !!tasks);
+    if (tasks && !ref.current) {
+      tasks.forEach((task) => {
+        console.log("dispatching for ", task.title);
+        dispatch({ type: ActionTypes.Create, task });
+      });
+      ref.current = true;
+    }
+  }, [tasks]);
+
+  const createTask = async (_task: Pick<CreateTaskPayload, "title">) => {
     try {
       // create task on server, await response, then create task locally
+      const res = await fetch("/api/tasks/create", {
+        method: "POST",
+        body: JSON.stringify(_task),
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
+      const task: Task = await res.json();
       dispatch({ type: ActionTypes.Create, task });
-    } catch (error) {}
+    } catch (error) {
+      console.error(error);
+    }
   };
 
-  const updateTask = (task: UpdateTaskPayload) => {
+  const updateTask = async (_task: UpdateTaskPayload) => {
     try {
-      // update task on server, await response, then update task locally
+      // create task on server, await response, then create task locally
+      const res = await fetch("/api/tasks/update", {
+        method: "POST",
+        body: JSON.stringify(_task),
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
+      const task: Task = await res.json();
       dispatch({ type: ActionTypes.Update, task });
-    } catch (error) {}
+    } catch (error) {
+      console.error(error);
+    }
   };
 
-  const deleteTask = (taskId: DeleteTaskPayload["id"]) => {
+  const deleteTask = async (_task: DeleteTaskPayload) => {
     try {
-      // delete task from server, await response, then delete task locally
-      dispatch({ type: ActionTypes.Delete, task: { id: taskId } });
-    } catch (error) {}
+      // create task on server, await response, then create task locally
+      const res = await fetch("/api/tasks/delete", {
+        method: "DELETE",
+        body: JSON.stringify(_task),
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
+      const task: Task = await res.json();
+      dispatch({ type: ActionTypes.Delete, task });
+    } catch (error) {
+      console.error(error);
+    }
   };
 
   return { tasks: context.state, createTask, updateTask, deleteTask };
