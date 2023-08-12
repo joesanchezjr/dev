@@ -12,6 +12,11 @@ const tasks: Prisma.TaskCreateInput[] = [
 async function main() {
   // waiting for each task to be created before creating the next one
   tasks.forEach(async (task: Prisma.TaskCreateInput) => {
+    const taskExists = await prisma.task.findFirst({
+      where: { title: task.title },
+    });
+    if (taskExists) return console.log(`Task ${task.title} already exists`);
+
     await prisma.task.create({ data: task });
   });
 }
@@ -25,15 +30,3 @@ main()
     await prisma.$disconnect();
     process.exit(1);
   });
-
-// //
-
-// // 3779fd73-9070-4a39-9c4c-7180481c14bb
-
-// // ee81d8a1-8201-40ae-b6bd-2742fd02d97f
-
-// // 92cf57c0-6076-4810-a1ad-fea74298a2ae
-
-// // e03b1099-ab5f-4db6-b7b5-9d6f26a88c45
-
-// // 6813f834-2563-45f0-a7ee-28e42a37e403

@@ -9,7 +9,7 @@
     "start": "next start",
     "lint": "next lint",
     "update-schema:seed": "prisma generate && prisma db push && prisma db seed",
-    "update-schema": "prisma generate && prisma db push && prisma db seed",
+    "update-schema": "prisma generate && prisma db push",
     "reset-schema:seed": "prisma generate && prisma db push --force-reset && prisma db seed",
     "reset-schema": "prisma generate && prisma db push --force-reset"
   },
