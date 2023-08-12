@@ -36,9 +36,15 @@ export function TaskList({ tasks: _tasks }: { tasks: Task[] }) {
             placeholder="Do laundry"
           />
           <div className="flex justify-end gap-2 sm:items-start">
+            <button
+              className="order-2 rounded border border-slate-600 bg-slate-600 px-4 py-2 text-white focus:outline-offset-2 sm:order-1"
+              type="submit"
+            >
+              Add Task
+            </button>
             {newTask && (
               <button
-                className="rounded border border-blue-600 px-4 py-2 text-black dark:text-white sm:order-2"
+                className="order-1 rounded border border-slate-600 px-4 py-2 text-black  dark:text-white sm:order-2"
                 type="button"
                 onClick={() => {
                   setNewTask("");
@@ -47,12 +53,6 @@ export function TaskList({ tasks: _tasks }: { tasks: Task[] }) {
                 Clear
               </button>
             )}
-            <button
-              className="rounded border border-blue-600 bg-blue-600 px-4 py-2 text-white"
-              type="submit"
-            >
-              Add Task
-            </button>
           </div>
         </div>
       </form>
