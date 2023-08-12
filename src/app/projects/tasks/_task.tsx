@@ -2,6 +2,8 @@
 
 import { Task, useTasks } from "@/context/tasks-context/tasks-context";
 import { useState } from "react";
+import toast from "react-hot-toast";
+
 // @todo: edit should open up a modal
 
 export function TaskItem({ task }: { task: Task }) {
@@ -11,6 +13,11 @@ export function TaskItem({ task }: { task: Task }) {
 
   const handleEditSave = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    if (editedTaskInput === task.title) {
+      toast("no changes made");
+      setIsEditing(false);
+      return;
+    }
     updateTask({
       ...task,
       title: editedTaskInput,
@@ -18,9 +25,24 @@ export function TaskItem({ task }: { task: Task }) {
     setIsEditing(false);
   };
 
+  const handleRestoreTask = () => updateTask({ ...task, deletedAt: null });
+
+  const handleTaskStatus = (e: React.ChangeEvent<HTMLInputElement>) => {
+    updateTask({
+      ...task,
+      completed: e.target.checked,
+    });
+  };
+
+  const handleEditStart = () => setIsEditing(true);
+
   const handleEditCancel = () => {
     setIsEditing(false);
     setEditedTaskInput(task.title);
+  };
+
+  const handleDelete = () => {
+    deleteTask(task);
   };
 
   if (isEditing) {
@@ -44,7 +66,7 @@ export function TaskItem({ task }: { task: Task }) {
           <button type="submit">Save</button>
           <button onClick={handleEditCancel}>Cancel</button>
         </form>
-        <button onClick={() => deleteTask(task)}>Delete</button>
+        <button onClick={handleDelete}>Delete</button>
       </>
     );
   }
@@ -65,9 +87,7 @@ export function TaskItem({ task }: { task: Task }) {
             {task.id} - {task.title}
           </span>
         </label>
-        <button onClick={() => updateTask({ ...task, deletedAt: null })}>
-          Restore
-        </button>
+        <button onClick={handleRestoreTask}>Restore</button>
       </div>
     );
   }
@@ -79,12 +99,7 @@ export function TaskItem({ task }: { task: Task }) {
           <input
             type="checkbox"
             checked={task.completed}
-            onChange={(e) => {
-              updateTask({
-                ...task,
-                completed: e.target.checked,
-              });
-            }}
+            onChange={handleTaskStatus}
           />
           <span>
             {task.id} - {task.title}
@@ -100,19 +115,14 @@ export function TaskItem({ task }: { task: Task }) {
         <input
           type="checkbox"
           checked={task.completed}
-          onChange={(e) => {
-            updateTask({
-              ...task,
-              completed: e.target.checked,
-            });
-          }}
+          onChange={handleTaskStatus}
         />
         <span>
           {task.id} - {task.title}
         </span>
       </label>
-      <button onClick={() => setIsEditing(true)}>Edit</button>
-      <button onClick={() => deleteTask(task)}>Delete</button>
+      <button onClick={handleEditStart}>Edit</button>
+      <button onClick={handleDelete}>Delete</button>
     </>
   );
 }

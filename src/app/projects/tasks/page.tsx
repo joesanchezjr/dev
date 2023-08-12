@@ -33,6 +33,7 @@ export default async function TasksPage() {
   // @todo: add loading state
   // @todo: add empty state
   // @todo: add optimistic ui (useSWR?)
+  // @todo: allow for multi delete
 
   return (
     <>
