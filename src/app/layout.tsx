@@ -65,7 +65,7 @@ export default function RootLayout({
   const htmlClasses = clsx(inter.variable, fira_code.variable, "antialiased");
   return (
     <html lang="en" className={htmlClasses}>
-      <body className="relative min-h-screen bg-slate-50 text-slate-600">
+      <body className="relative min-h-screen bg-slate-50 text-slate-700 dark:bg-slate-950 dark:text-slate-300">
         <Providers>
           <Header />
           {modal}

@@ -11,8 +11,11 @@ export const metadata: Metadata = {
 
 const getRemoteTasks = async () => {
   try {
+    // const tasks = await prisma.task.findMany({
+    //   orderBy: [{ completed: "asc" }, { id: "asc" }],
+    // });
     const tasks = await prisma.task.findMany({
-      orderBy: [{ completed: "asc" }, { id: "asc" }],
+      orderBy: [{ id: "asc" }],
     });
     return tasks;
   } catch (error) {

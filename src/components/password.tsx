@@ -1,6 +1,6 @@
 "use client";
 import { useApp } from "@/context/app-context/app-context";
-import React, { useRef } from "react";
+import React from "react";
 
 export function PasswordGuard({ children }: { children: React.ReactNode }) {
   const [error, setError] = React.useState(false);

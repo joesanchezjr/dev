@@ -17,7 +17,7 @@ export function Mdx({ code }: MdxProps) {
   const Component = useMDXComponent(code);
 
   return (
-    <div className="mdx-components prose mt-4">
+    <div className="mdx-components prose mt-4 dark:prose-invert">
       <Component components={components} />
     </div>
   );

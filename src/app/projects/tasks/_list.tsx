@@ -27,11 +27,12 @@ export function TaskList({ tasks: _tasks }: { tasks: Task[] }) {
         </label>
         <div className="space-y-2 sm:space-x-2 sm:space-y-0">
           <input
-            className="mb-4 w-full rounded border border-gray-300 p-2 sm:w-auto"
+            className="mb-4 w-full rounded border border-slate-300 p-2 placeholder:text-slate-800 dark:border-slate-800 dark:bg-slate-950 sm:w-auto"
             id="new-task"
             type="text"
             value={newTask}
             onChange={(e) => setNewTask(e.target.value)}
+            placeholder="Do laundry"
           />
           <button
             className="rounded bg-blue-600 px-4 py-2 text-white"
@@ -39,9 +40,18 @@ export function TaskList({ tasks: _tasks }: { tasks: Task[] }) {
           >
             Add Task
           </button>
+          <button
+            className="rounded bg-blue-600 px-4 py-2 text-white"
+            type="button"
+            onClick={() => {
+              setNewTask("");
+            }}
+          >
+            Clear
+          </button>
         </div>
       </form>
-      <ul className="prose space-y-2">
+      <ul className="prose space-y-2 dark:prose-invert">
         {tasks.map((task) => (
           <li key={task.id} className="flex gap-2">
             <TaskItem task={task} />

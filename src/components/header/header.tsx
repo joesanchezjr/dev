@@ -19,7 +19,7 @@ export function Header() {
           </Link>
         </div>
         {/* @todo: update nav to use list and to map over constant */}
-        <nav className="flex items-center justify-end gap-4 text-slate-400">
+        <nav className="flex items-center justify-end gap-4 text-slate-400 dark:text-slate-600">
           <a
             href="https://www.linkedin.com/in/joesanchezjr"
             className="py-4 hover:underline"
