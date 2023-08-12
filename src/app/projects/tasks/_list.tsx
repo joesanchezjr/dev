@@ -37,7 +37,7 @@ export function TaskList({ tasks: _tasks }: { tasks: Task[] }) {
           <div className="flex justify-end gap-2 sm:items-start">
             {newTask && (
               <button
-                className="rounded border border-blue-600 px-4 py-2 text-white"
+                className="rounded border border-blue-600 px-4 py-2 text-white sm:order-2"
                 type="button"
                 onClick={() => {
                   setNewTask("");
