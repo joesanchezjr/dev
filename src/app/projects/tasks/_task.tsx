@@ -2,6 +2,7 @@
 
 import { Task, useTasks } from "@/context/tasks-context/tasks-context";
 import { useState } from "react";
+// @todo: edit should open up a modal
 
 export function TaskItem({ task }: { task: Task }) {
   const [editedTaskInput, setEditedTaskInput] = useState(task.title);
