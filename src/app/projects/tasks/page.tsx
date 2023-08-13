@@ -1,9 +1,9 @@
 import prisma from "@/lib/prisma";
 
 import { Suspense } from "react";
-import { TaskList } from "@/app/projects/tasks/_list";
 
 import { Metadata } from "next";
+import { List } from "@/app/projects/tasks/_components/list";
 
 export const metadata: Metadata = {
   title: "Tasks",
@@ -37,9 +37,9 @@ export default async function TasksPage() {
 
   return (
     <>
-      <div className="max-width">
+      <div className="max-width my-24">
         <Suspense fallback={<div className="my-24">Loading tasks...</div>}>
-          <TaskList tasks={tasks} />
+          <List tasks={tasks} />
         </Suspense>
       </div>
     </>

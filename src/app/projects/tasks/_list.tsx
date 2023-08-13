@@ -19,7 +19,7 @@ export function TaskList({ tasks: _tasks }: { tasks: Task[] }) {
   };
 
   return (
-    <div className="my-24">
+    <div className="mb-12">
       <h1 className="mb-4 text-xl font-medium">Tasks</h1>
 
       <form onSubmit={handleAddNewTask} className="mb-12">
