@@ -1,5 +1,6 @@
 "use client";
 import { Task, useTasks } from "@/context/tasks-context/tasks-context";
+import clsx from "clsx";
 import { set } from "date-fns";
 import React, { useState } from "react";
 import toast from "react-hot-toast";
@@ -58,11 +59,14 @@ const ListItemWithEditableText = ({
   }, [isEditing]);
 
   if (!isEditing) {
+    const isDeleted = task.deletedAt !== null;
+    const classes = clsx(
+      "select-none",
+      isDeleted && "text-slate-400",
+      task.completed && "line-through"
+    );
     return (
-      <label
-        htmlFor={`task-${task.id}`}
-        className="select-none font-medium text-gray-900"
-      >
+      <label htmlFor={`task-${task.id}`} className={classes}>
         {task.title}
       </label>
     );
@@ -122,8 +126,6 @@ export function ListItem({ task }: ListItemProps) {
   const handleDelete = () => {
     deleteTask(task);
   };
-
-  console.log({ isEditing });
 
   return (
     <div key={task.id} className="relative flex items-start py-4">
