@@ -21,7 +21,7 @@ const Checkbox = ({ task, isEditing, onChange }: ListItemProps) => {
         type="checkbox"
         id={`task-${task.id}`}
         name={`task-${task.id}`}
-        className="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-600"
+        className="h-4 w-4 rounded border border-gray-300 text-indigo-600 focus:ring-indigo-600"
         checked={task.completed}
         onChange={onChange}
       />
@@ -32,7 +32,7 @@ const Checkbox = ({ task, isEditing, onChange }: ListItemProps) => {
       type="checkbox"
       id={`task-${task.id}`}
       name={`task-${task.id}`}
-      className="h-4 w-4 cursor-not-allowed rounded border-gray-300 text-slate-600 opacity-30 focus:ring-slate-600"
+      className="h-4 w-4 cursor-not-allowed rounded border border-gray-300 text-slate-600 opacity-30 focus:ring-slate-600"
       checked={task.completed}
       onChange={() => {
         // do nothing
@@ -58,12 +58,15 @@ const ListItemWithEditableText = ({
     !isEditing && setEditedTaskInput(task.title);
   }, [isEditing]);
 
+  const sharedClasses = clsx("py-2 block border-b border-t border-transparent");
+
   if (!isEditing) {
     const isDeleted = task.deletedAt !== null;
     const classes = clsx(
+      sharedClasses,
       "select-none",
-      isDeleted && "text-slate-400",
-      task.completed && "line-through"
+      isDeleted && "text-slate-400 dark:text-slate-800",
+      task.completed && "line-through text-slate-300 dark:text-slate-600"
     );
     return (
       <label htmlFor={`task-${task.id}`} className={classes}>
@@ -72,6 +75,9 @@ const ListItemWithEditableText = ({
     );
   }
 
+  const editingClasses = clsx(
+    "w-full select-none rounded border border-slate-300 px-2 py-2 text-sm placeholder:text-slate-300 dark:border-slate-800 dark:bg-slate-950 dark:placeholder:text-slate-800"
+  );
   return (
     <form
       onSubmit={() => {
@@ -83,7 +89,7 @@ const ListItemWithEditableText = ({
         type="text"
         id={`task-input-${task.id}`}
         name={`task-input-${task.id}`}
-        className="w-full select-none rounded border border-slate-300 px-2 py-1 text-sm placeholder:text-slate-300 dark:border-slate-800 dark:bg-slate-950 dark:placeholder:text-slate-800"
+        className={editingClasses}
         value={editedTaskInput}
         onChange={(e) => setEditedTaskInput(e.target.value)}
       />
@@ -127,9 +133,11 @@ export function ListItem({ task }: ListItemProps) {
     deleteTask(task);
   };
 
+  const topLevelClasses = clsx("relative flex items-center py-2");
+
   return (
-    <div key={task.id} className="relative flex items-start py-4">
-      <div className="min-w-0 flex-1 text-sm leading-6">
+    <div key={task.id} className={topLevelClasses}>
+      <div className="flex-1 text-sm">
         <ListItemWithEditableText
           task={task}
           isEditing={isEditing}

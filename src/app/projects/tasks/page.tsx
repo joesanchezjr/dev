@@ -11,10 +11,10 @@ export const metadata: Metadata = {
 
 const getRemoteTasks = async () => {
   try {
-    // const tasks = await prisma.task.findMany({
-    //   orderBy: [{ completed: "asc" }, { id: "asc" }],
-    // });
     const tasks = await prisma.task.findMany({
+      where: {
+        deletedAt: null,
+      },
       orderBy: [{ id: "asc" }],
     });
     return tasks;
@@ -34,6 +34,7 @@ export default async function TasksPage() {
   // @todo: add empty state
   // @todo: add optimistic ui (useSWR?)
   // @todo: allow for multi delete
+  // @todo: allow viewing and restoring of deleted tasks
 
   return (
     <>

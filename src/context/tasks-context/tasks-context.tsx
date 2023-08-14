@@ -164,13 +164,7 @@ function tasksReducer(state: State, action: Action) {
       // return state.filter((t) => t.id !== id);
       return {
         ...state,
-        tasks: state.tasks.map((t) => {
-          if (t.id === action.task.id) {
-            return { ...action.task, deletedAt: new Date() };
-          } else {
-            return t;
-          }
-        }),
+        tasks: state.tasks.filter((t) => t.id !== action.task.id),
       };
     }
     case ActionTypes.DeleteLoading: {
@@ -198,7 +192,7 @@ export function TasksContextProvider({ children }: TasksProviderProps) {
   const [state, dispatch] = React.useReducer(tasksReducer, initialState);
 
   // @todo: can we make this more efficient by only sorting when needed?
-  // const sortedTasks = [...state].sort((a, b) => {
+  // const sortedTasks = [...state.tasks].sort((a, b) => {
   //   if (a.completed === b.completed) {
   //     return a.id - b.id;
   //   } else {
@@ -285,11 +279,24 @@ export function useTasks(tasks?: Task[]) {
           "Content-Type": "application/json",
         },
       });
-      const task: Task = await res.json();
-      dispatch({ type: ActionTypes.DeleteCleanUp, task });
-      toast.success("Task deleted");
+      console.log(res.status);
+
+      if (res.status === 202) {
+        console.log("status = 200");
+        const task: Task = await res.json();
+        console.log("success");
+        dispatch({ type: ActionTypes.DeleteCleanUp, task });
+        console.log("success 2");
+        toast.success("Task deleted");
+      }
+      if (res.status === 500) {
+        toast.error("Task could not be deleted");
+        dispatch({ type: ActionTypes.Create, task: _task });
+        dispatch({ type: ActionTypes.DeleteCleanUp, task: _task });
+      }
     } catch (error) {
       toast.error("Task could not be deleted");
+      dispatch({ type: ActionTypes.CreateCleanUp, task: _task });
     }
   };
 
