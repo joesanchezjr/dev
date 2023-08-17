@@ -56,7 +56,7 @@ export function EngineeringNotes({ showAll }: { showAll?: boolean }) {
                 </time>
                 <p className="max-w-[85ch] flex-auto space-x-2 py-0.5 leading-5">
                   <span className="font-medium text-black dark:text-white">
-                    {title(post.title)}
+                    {post.overrideTitleCasing ? post.title : title(post.title)}
                   </span>
                   <span>{post.description}</span>
                 </p>

@@ -48,6 +48,9 @@ export const Post = defineDocumentType(() => ({
       type: "date",
       required: true,
     },
+    overrideTitleCasing: {
+      type: "boolean",
+    }
   },
   computedFields,
 }));
