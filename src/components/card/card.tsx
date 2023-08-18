@@ -13,7 +13,9 @@ export function CardSection({
   const innerClasses = clsx("mx-auto max-w-screen-xl px-4", className);
   const outerClasses = clsx(
     "rounded-md p-4 shadow-sm",
-    variant === "solid" ? "bg-slate-100" : "border border-slate-200"
+    variant === "solid"
+      ? "bg-slate-100 dark:bg-slate-900"
+      : "border border-slate-200 dark:border-slate-800"
   );
   return (
     <section className={innerClasses} {...props}>

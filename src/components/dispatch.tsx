@@ -1,8 +1,7 @@
 "use client";
 
+import { useApp } from "@/context/app-context/app-context";
 import { Bars3Icon } from "@heroicons/react/24/outline";
-
-import { useApp } from "@/hooks/use-app";
 
 export function Header() {
   const { dispatch } = useApp();

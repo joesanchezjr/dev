@@ -10,8 +10,8 @@ export function Experience() {
   return (
     <CardSection className="mb-12">
       <h2 className="mb-4 flex items-center gap-2 text-sm font-semibold uppercase tracking-wide">
-        <span className="h-2 w-2 rounded-full bg-purple-600/60" /> Work
-        Experience
+        <span className="h-2 w-2 rounded-full bg-purple-600/60 dark:bg-purple-600" />{" "}
+        Work Experience
       </h2>
 
       <ul role="list" className="flex flex-col gap-4">
@@ -23,11 +23,11 @@ export function Experience() {
             return (
               <li
                 key={experience.company}
-                className="group relative rounded-md border border-slate-200 bg-white p-4 shadow-sm transition-all hover:shadow-md"
+                className="group relative rounded-md border border-slate-200 bg-white p-4 shadow-sm transition-all hover:shadow-md  dark:border-slate-800 dark:bg-slate-950"
               >
                 <Link href={experience.slug}>
                   <div className="flex items-center gap-x-2">
-                    <div className="flex items-center justify-center rounded-md border border-slate-100 bg-slate-50 p-1">
+                    <div className="flex items-center justify-center rounded-md border border-slate-100 bg-slate-50 p-1 dark:border-slate-800 dark:bg-slate-900">
                       {experience.icon && (
                         <Image
                           src={experience.icon}
@@ -45,7 +45,7 @@ export function Experience() {
                       </p>
                       <div className="flex items-center gap-x-4">
                         <div className="sm:flex sm:flex-col sm:items-end">
-                          <p className="text-sm leading-6 text-slate-700">
+                          <p className="text-sm leading-6">
                             {experience.title}
                           </p>
                           <p className="mt-1 text-xs leading-5 text-slate-500">
@@ -56,7 +56,7 @@ export function Experience() {
                           </p>
                         </div>
                         <ChevronRightIcon
-                          className="-mt-6 ml-auto h-5 w-5 flex-none text-slate-400 sm:mt-0"
+                          className="-mt-6 ml-auto h-5 w-5 flex-none text-slate-400 dark:text-slate-600 sm:mt-0"
                           aria-hidden="true"
                         />
                       </div>
