@@ -1,11 +1,16 @@
 import { Metadata } from "next";
+import { redirect } from "next/navigation";
 import Link from "next/link";
+import { navigations } from "@/utils/constants";
 
 export const metadata: Metadata = {
   title: "Tasks",
 };
 
-export default function TasksPage() {
+export default function ProjectsPage() {
+  if (!navigations.main.find((nav) => nav.name === "Projects")) {
+    redirect("/");
+  }
   return (
     <>
       <div className="max-width my-20">
