@@ -5,64 +5,6 @@
 import * as React from "react";
 import toast from "react-hot-toast";
 
-enum ActionTypes {
-  Create = "CREATE",
-  CreateLoading = "CREATE_LOADING",
-  CreateCleanUp = "CREATE_CLEAN_UP",
-  Update = "UPDATE",
-  UpdateLoading = "UPDATE_LOADING",
-  UpdateCleanUp = "UPDATE_CLEAN_UP",
-  Delete = "DELETE",
-  DeleteLoading = "DELETE_LOADING",
-  DeleteCleanUp = "DELETE_CLEAN_UP",
-}
-
-// Payload Types
-
-type CreateTaskPayload = Task;
-
-type UpdateTaskPayload = Task;
-
-type DeleteTaskPayload = Task;
-// Action Types
-
-type CreateTaskAction = {
-  type: ActionTypes.Create;
-  task: CreateTaskPayload;
-};
-type CreateTaskLoadingAction = {
-  type: ActionTypes.CreateLoading;
-  task: Pick<CreateTaskPayload, "title">;
-};
-type CreateTaskCleanUpAction = {
-  type: ActionTypes.CreateCleanUp;
-  task: CreateTaskPayload;
-};
-type UpdateTaskAction = {
-  type: ActionTypes.Update;
-  task: UpdateTaskPayload;
-};
-type UpdateTaskLoadingAction = {
-  type: ActionTypes.UpdateLoading;
-  task: UpdateTaskPayload;
-};
-type UpdateTaskCleanUpAction = {
-  type: ActionTypes.UpdateCleanUp;
-  task: UpdateTaskPayload;
-};
-type DeleteTaskAction = {
-  type: ActionTypes.Delete;
-  task: DeleteTaskPayload;
-};
-type DeleteTaskLoadingAction = {
-  type: ActionTypes.DeleteLoading;
-  task: DeleteTaskPayload;
-};
-type DeleteTaskCleanUpAction = {
-  type: ActionTypes.DeleteCleanUp;
-  task: DeleteTaskPayload;
-};
-
 export type Task = {
   id: number;
   title: string;
@@ -72,12 +14,40 @@ export type Task = {
   deletedAt: Date | null;
 };
 
-type State = {
-  tasks: Task[];
-  created: Pick<CreateTaskPayload, "title">[]; // because we don't have the id yet
-  updated: Task[];
-  deleted: Task[];
+enum ActionTypes {
+  Create,
+  CreateLoading,
+  CreateCleanUp,
+  Update,
+  UpdateLoading,
+  UpdateCleanUp,
+  Delete,
+  DeleteLoading,
+  DeleteCleanUp,
+}
+
+type ActionBase<T, P = Task> = {
+  type: T;
+  task: P;
 };
+
+type TaskWithTitleOnly = Pick<Task, "title">;
+
+type CreateTaskAction = ActionBase<ActionTypes.Create>;
+type CreateTaskLoadingAction = ActionBase<
+  ActionTypes.CreateLoading,
+  TaskWithTitleOnly
+>;
+type CreateTaskCleanUpAction = ActionBase<ActionTypes.CreateCleanUp>;
+
+type UpdateTaskAction = ActionBase<ActionTypes.Update>;
+type UpdateTaskLoadingAction = ActionBase<ActionTypes.UpdateLoading>;
+type UpdateTaskCleanUpAction = ActionBase<ActionTypes.UpdateCleanUp>;
+
+type DeleteTaskAction = ActionBase<ActionTypes.Delete>;
+type DeleteTaskLoadingAction = ActionBase<ActionTypes.DeleteLoading>;
+type DeleteTaskCleanUpAction = ActionBase<ActionTypes.DeleteCleanUp>;
+
 type Action =
   | CreateTaskAction
   | UpdateTaskAction
@@ -89,15 +59,15 @@ type Action =
   | UpdateTaskCleanUpAction
   | DeleteTaskCleanUpAction;
 
+type State = {
+  tasks: Task[];
+  created: TaskWithTitleOnly[]; // because we don't have the id yet since it is generated on the server
+  updated: Task[];
+  deleted: Task[];
+};
+
 type Dispatch = (action: Action) => void;
 type Context = { state: State; dispatch: Dispatch } | undefined;
-
-// https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/from#sequence_generator_range
-// const initialState: State = Array.from({ length: 10 }, (_, i) => ({
-//   id: i + 1,
-//   title: `Task #${i + 1}`,
-//   complete: false,
-// }));
 
 const initialState: State = {
   tasks: [],
@@ -160,8 +130,6 @@ function tasksReducer(state: State, action: Action) {
       };
     }
     case ActionTypes.Delete: {
-      // const { id } = action.task;
-      // return state.filter((t) => t.id !== id);
       return {
         ...state,
         tasks: state.tasks.filter((t) => t.id !== action.task.id),
@@ -191,15 +159,6 @@ type TasksProviderProps = { children: React.ReactNode };
 export function TasksContextProvider({ children }: TasksProviderProps) {
   const [state, dispatch] = React.useReducer(tasksReducer, initialState);
 
-  // @todo: can we make this more efficient by only sorting when needed?
-  // const sortedTasks = [...state.tasks].sort((a, b) => {
-  //   if (a.completed === b.completed) {
-  //     return a.id - b.id;
-  //   } else {
-  //     return a.completed ? 1 : -1;
-  //   }
-  // });
-
   const value = { state, dispatch };
 
   return (
@@ -225,12 +184,12 @@ export function useTasks(tasks?: Task[]) {
     }
   }, [tasks]);
 
-  const createTask = async (_task: Pick<CreateTaskPayload, "title">) => {
+  const createTask = async (_task: TaskWithTitleOnly) => {
     dispatch({ type: ActionTypes.CreateLoading, task: _task });
     try {
       // type casting because we know we don't have the id yet but we want to be optimistic
+      // maybe we should spread the created array into the tasks array
       dispatch({ type: ActionTypes.Create, task: _task as Task });
-      // create task on server, await response, then create task locally
       const res = await fetch("/api/tasks/create", {
         method: "POST",
         body: JSON.stringify(_task),
@@ -246,11 +205,10 @@ export function useTasks(tasks?: Task[]) {
     }
   };
 
-  const updateTask = async (_task: UpdateTaskPayload) => {
+  const updateTask = async (_task: UpdateTaskAction["task"]) => {
     dispatch({ type: ActionTypes.UpdateLoading, task: _task });
     try {
       dispatch({ type: ActionTypes.Update, task: _task });
-      // create task on server, await response, then create task locally
       const res = await fetch("/api/tasks/update", {
         method: "POST",
         body: JSON.stringify(_task),
@@ -266,11 +224,10 @@ export function useTasks(tasks?: Task[]) {
     }
   };
 
-  const deleteTask = async (_task: DeleteTaskPayload) => {
+  const deleteTask = async (_task: DeleteTaskAction["task"]) => {
     dispatch({ type: ActionTypes.DeleteLoading, task: _task });
     try {
       dispatch({ type: ActionTypes.Delete, task: _task });
-      // create task on server, await response, then create task locally
       const res = await fetch("/api/tasks/delete", {
         // should this be an POST?
         method: "DELETE",
@@ -279,7 +236,6 @@ export function useTasks(tasks?: Task[]) {
           "Content-Type": "application/json",
         },
       });
-      console.log(res.status);
 
       if (res.status === 202) {
         console.log("status = 200");
