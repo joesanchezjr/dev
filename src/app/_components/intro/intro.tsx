@@ -17,9 +17,8 @@ export const Intro = async () => {
         </div>
       )}
       <p className="max-w-[58ch] text-xl leading-snug">
-        I&apos;m Joe, a creative software engineer at{" "}
-        <span className="font-sans font-semibold text-[#ff612b]">Optum </span>{" "}
-        and resident of <span className="italic">Austin, Texas </span>with over{" "}
+        I&apos;m Joe, a creative software engineer and resident of{" "}
+        <span className="italic">Austin, Texas </span>with over{" "}
         <span className="font-semibold">six years</span> of experience building
         for the{" "}
         <span className="group inline-flex items-center gap-2">
