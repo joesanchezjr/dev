@@ -34,15 +34,6 @@ export function Navigation() {
             );
           })}
         </ul>
-        <div className="flex justify-end">
-          <div className="inline-flex items-center gap-2 rounded-full bg-orange-800 px-2 py-1 text-xs text-white">
-            <span className="relative flex h-2 w-2">
-              <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-orange-500 opacity-75" />
-              <span className="relative inline-flex h-2 w-2 rounded-full bg-orange-600" />
-            </span>
-            <span>Under construction</span>
-          </div>
-        </div>
       </div>
     </nav>
   );
