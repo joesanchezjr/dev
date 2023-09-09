@@ -7,30 +7,31 @@ const OFFSET = 4;
 const ANIMATION_DURATION = 0.7;
 const PAUSE_DURATION = 0.3;
 
-function useDarkMode() {
-  const isSystemDarkMode = window.matchMedia(
-    "(prefers-color-scheme: dark)"
-  ).matches;
+function getSystemDarkMode() {
+  if (typeof window !== "undefined") {
+    return window.matchMedia("(prefers-color-scheme: dark)").matches;
+  }
+  return false;
+}
 
-  const [isDarkMode, setIsDarkMode] = React.useState<boolean>(isSystemDarkMode);
+function useDarkMode() {
+  const [isDarkMode, setIsDarkMode] = React.useState(getSystemDarkMode);
 
   React.useEffect(() => {
     const mediaQuery = window.matchMedia("(prefers-color-scheme: dark)");
-    const listener = (e: MediaQueryListEvent) => setIsDarkMode(e.matches);
-    mediaQuery.addEventListener("change", listener);
-    return () => mediaQuery.removeEventListener("change", listener);
+    const handleChange = (e: MediaQueryListEvent) => setIsDarkMode(e.matches);
+    mediaQuery.addEventListener("change", handleChange);
+    return () => mediaQuery.removeEventListener("change", handleChange);
   }, []);
 
   return isDarkMode;
 }
 
 function getRandomColor(isDarkMode?: boolean) {
-  const colors = ["#34d399", "#818cf8", "#22d3ee", "#f87171"];
+  const lightModeColors = ["#34d399", "#818cf8", "#22d3ee", "#f87171"];
   const darkModeColors = ["#059669", "#4f46e5", "#0891b2", "#dc2626"];
-
-  const colorsToUse = isDarkMode ? darkModeColors : colors;
-
-  return colorsToUse[Math.floor(Math.random() * colors.length)];
+  const colors = isDarkMode ? darkModeColors : lightModeColors;
+  return colors[Math.floor(Math.random() * colors.length)];
 }
 
 function Dot({ color, time }: { color: string; time: number }) {
