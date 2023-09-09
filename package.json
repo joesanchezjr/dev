@@ -38,6 +38,7 @@
     "date-fns": "^2.30.0",
     "eslint": "8.46.0",
     "eslint-config-next": "13.4.12",
+    "framer-motion": "^10.16.4",
     "kysely": "^0.26.1",
     "kysely-planetscale": "^1.4.0",
     "mongodb": "^5.7.0",
