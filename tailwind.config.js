@@ -23,6 +23,10 @@ module.exports = {
           "0%": { width: "100%" },
           "100%": { width: "0%" },
         },
+        fadein: {
+          "0%": { opacity: "0" },
+          "100%": { opacity: "1" },
+        },
       },
       animation: {
         disappear: "disappear 20s ease-in-out",
