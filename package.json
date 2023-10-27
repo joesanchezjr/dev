@@ -67,7 +67,7 @@
     "typescript": "5.1.6"
   },
   "devDependencies": {
-    "@types/ms": "^0.7.31",
+    "@types/ms": "^0.7.33",
     "prettier": "^2.8.8",
     "prettier-plugin-tailwindcss": "^0.2.8",
     "prisma": "^5.1.1"
