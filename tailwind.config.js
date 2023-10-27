@@ -12,6 +12,10 @@ module.exports = {
       sans: ["var(--font-inter)", ...defaultTheme.fontFamily.sans],
       mono: ["var(--font-fira-code)", ...defaultTheme.fontFamily.mono],
     },
+    screens: {
+      xs: "475px",
+      ...defaultTheme.screens,
+    },
     extend: {
       backgroundImage: {
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",

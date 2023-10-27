@@ -71,7 +71,6 @@ export default function RootLayout({
           {modal}
           {children}
           <Suspense fallback={null}>
-            {/* <NavigationEvents> is wrapped in a Suspense boundary becauseuseSearchParams() causes client-side rendering up to the closest Suspense boundary during static rendering. */}
             <NavigationEvents />
           </Suspense>
         </Providers>

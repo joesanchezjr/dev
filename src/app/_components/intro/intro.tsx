@@ -4,9 +4,9 @@ import { GlobeAltIcon } from "@heroicons/react/24/outline";
 export const Intro = async () => {
   const available = await get("availableForHire");
   return (
-    <section id="intro" className="max-width my-12">
+    <section id="intro" className="max-width mt-2 xs:mt-12 mb-12">
       {available && (
-        <div className="mb-4 flex justify-end">
+        <div className="xs:hidden mb-4 flex justify-end">
           <div className="inline-flex items-center gap-2 rounded-full bg-green-200 px-2 py-1 text-xs text-black dark:bg-green-800 dark:text-white">
             <span className="relative flex h-2 w-2">
               <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-green-500 opacity-75" />
