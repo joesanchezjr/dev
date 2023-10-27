@@ -1,4 +1,4 @@
-import { ImageResponse } from "next/server";
+import { ImageResponse } from "next/og";
 import { get } from "@vercel/edge-config";
 
 export const runtime = "edge";
