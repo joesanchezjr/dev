@@ -26,7 +26,7 @@ export default function HeadlessModal({
           <div className="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity dark:bg-black/90" />
         </Transition.Child>
 
-        <div className="fixed inset-0 z-10 overflow-y-auto">
+        <div className="fixed inset-0 z-10">
           <div className="flex min-h-full items-end justify-center p-4 text-center sm:items-center sm:p-0">
             <Transition.Child
               as={Fragment}
@@ -37,7 +37,7 @@ export default function HeadlessModal({
               leaveFrom="opacity-100 translate-y-0 sm:scale-100"
               leaveTo="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
             >
-              <Dialog.Panel className="relative transform rounded-lg bg-white px-4 pb-4 pt-5 text-left shadow-xl transition-all dark:bg-slate-950 dark:text-slate-300 sm:my-8 sm:p-6">
+              <Dialog.Panel className="relative max-h-[80vh] transform rounded-lg bg-white px-4 pb-4 pt-5 text-left shadow-xl transition-all dark:bg-slate-950 dark:text-slate-300 sm:my-8 sm:p-6">
                 <button
                   onClick={() => router.back()}
                   className="absolute -right-2 -top-10 p-2"
@@ -48,7 +48,7 @@ export default function HeadlessModal({
                   />
                   <span className="sr-only">Close modal</span>
                 </button>
-                {children}{" "}
+                <div className="flex flex-col">{children}</div>
               </Dialog.Panel>
             </Transition.Child>
           </div>

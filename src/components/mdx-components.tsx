@@ -26,7 +26,7 @@ export function Mdx({ code }: MdxProps) {
   const Component = useMDXComponent(code);
 
   return (
-    <div className="mdx-components prose mt-4 dark:prose-invert ">
+    <div className="mdx-components prose mt-4 dark:prose-invert flex flex-col overflow-y-scroll max-h-[57vh]">
       <Component components={components} />
     </div>
   );
