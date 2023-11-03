@@ -2,6 +2,7 @@ import { Experience } from "@/app/_components/experience/experience";
 import { Intro } from "@/app/_components/intro/intro";
 import { EngineeringNotes } from "@/app/_components/engineering-notes/engineering-notes";
 import { CardSection } from "@/components/card/card";
+import Dots from "@/app/animation/dots";
 
 export default function Home() {
   return (
@@ -43,7 +44,7 @@ export default function Home() {
           as="div"
         >
           <h2 className="mb-4 flex items-center gap-2 text-sm font-semibold uppercase tracking-wide">
-            <span className="h-2 w-2 rounded-full bg-blue-600/60 dark:bg-blue-600" />{" "}
+            <span className="h-2 w-2 rounded-full bg-slate-600/60 dark:bg-slate-600" />{" "}
             Currently Watching
           </h2>
           <div className="flex items-center justify-center py-8 md:h-[450px]">
@@ -55,6 +56,28 @@ export default function Home() {
             </p>
           </div>
         </CardSection>
+      </section>
+      <section className="max-width mb-12 flex flex-col gap-4 px-4 md:flex-row">
+        <CardSection
+          className="w-full md:w-auto md:basis-1/3"
+          noPadding
+          as="div"
+          variant="outline"
+        >
+          <h2 className="mb-4 flex items-center gap-2 text-sm font-semibold uppercase tracking-wide">
+            <span className="h-2 w-2 rounded-full bg-green-600/60 dark:bg-green-600" />{" "}
+            Dots
+          </h2>
+          <Dots mini />
+        </CardSection>
+        <div className="w-full md:w-auto md:basis-2/3" />
+        {/* <CardSection
+          className="w-full md:w-auto md:basis-2/3"
+          noPadding
+          as="div"
+        >
+          Test
+        </CardSection> */}
       </section>
     </>
   );

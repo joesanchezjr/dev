@@ -1,5 +1,6 @@
 "use client";
 
+import clsx from "clsx";
 import { motion, MotionConfig } from "framer-motion";
 import React from "react";
 
@@ -48,10 +49,16 @@ function Dot({ color, time }: { color: string; time: number }) {
   );
 }
 
-export default function Dots() {
+export default function Dots({ mini = true }: { mini?: boolean }) {
+  const classes = clsx(
+    "my-12 grid justify-items-center",
+    mini
+      ? "grid-cols-3 gap-[10vw] md:gap-[5vw] mx-auto p-4"
+      : "max-width grid-cols-4 gap-12 md:grid-cols-8 md:gap-24 "
+  );
   return (
-    <div className="max-width my-12 grid grid-cols-4 justify-items-center gap-12 md:grid-cols-8 md:gap-24">
-      {Array.from({ length: 64 }).map((_, i) => (
+    <div className={classes}>
+      {Array.from({ length: mini ? 9 : 64 }).map((_, i) => (
         <Dot
           key={i}
           color={getRandomColor()}
