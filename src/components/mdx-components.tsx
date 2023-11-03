@@ -8,7 +8,12 @@ interface MdxProps {
 }
 
 const components: MDXComponents = {
-  ul: (props) => <ul className="prose list-inside list-disc" {...props} />,
+  ul: (props) => (
+    <ul
+      className="prose list-inside list-disc text-slate-700 dark:text-slate-300 pl-0"
+      {...props}
+    />
+  ),
   li: (props) => <li {...props} />,
   Image: MdxImage,
   p: (props) => <p {...props} />,
@@ -21,7 +26,7 @@ export function Mdx({ code }: MdxProps) {
   const Component = useMDXComponent(code);
 
   return (
-    <div className="mdx-components prose mt-4 dark:prose-invert">
+    <div className="mdx-components prose mt-4 dark:prose-invert ">
       <Component components={components} />
     </div>
   );
