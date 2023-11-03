@@ -70,14 +70,9 @@ export default function Home() {
           </h2>
           <Dots mini />
         </CardSection>
-        <div className="w-full md:w-auto md:basis-2/3" />
-        {/* <CardSection
-          className="w-full md:w-auto md:basis-2/3"
-          noPadding
-          as="div"
-        >
-          Test
-        </CardSection> */}
+        <div className="flex w-full items-center justify-center rounded-md bg-gradient-to-r px-4 py-16 from-pink-600 via-purple-800 to-blue-700 text-slate-100 md:w-auto md:basis-2/3">
+          <div className="text-3xl font-bold">Hello world 👋🏽</div>
+        </div>
       </section>
     </>
   );
