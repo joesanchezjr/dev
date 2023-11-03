@@ -27,24 +27,24 @@ export const metadata: Metadata = {
     default: "Joe Sanchez Jr.",
     template: "%s | Joe Sanchez Jr.",
   },
-  description: "Senior Front-End/UI Engineer, Web | React + TypeScript",
+  description: "Software Engineer, Web | Front-End | React | TypeScript",
   openGraph: {
     title: "Joe Sanchez Jr",
-    description: "Senior Front-End/UI Engineer, Web | React + TypeScript",
+    description: "Software Engineer, Web | Front-End | React | TypeScript",
     url: BASE_URL,
     siteName: "Joe Sanchez Jr.",
     locale: "en-US",
     type: "website",
     images: [
       {
-        url: `${BASE_URL}/api/og`,
+        url: `${BASE_URL}/cover.png`,
       },
     ],
   },
   twitter: {
     title: "Joe Sanchez Jr.",
     card: "summary_large_image",
-    images: [`${BASE_URL}/api/og`],
+    images: [`${BASE_URL}/cover.png`],
   },
   keywords: [
     "Software engineer",
