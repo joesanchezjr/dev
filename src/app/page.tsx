@@ -3,6 +3,8 @@ import { Intro } from "@/app/_components/intro/intro";
 import { EngineeringNotes } from "@/app/_components/engineering-notes/engineering-notes";
 import { CardSection } from "@/components/card/card";
 import Dots from "@/app/animation/dots";
+// import Spotify from "@/app/spotify";
+import Pokemon from "@/app/pokemon";
 
 export default function Home() {
   return (
@@ -70,9 +72,22 @@ export default function Home() {
           </h2>
           <Dots mini />
         </CardSection>
-        <div className="flex w-full items-center justify-center rounded-md bg-gradient-to-r px-4 py-16 from-pink-600 via-purple-800 to-blue-700 text-slate-100 md:w-auto md:basis-2/3">
+        <div className="flex w-full items-center justify-center rounded-md bg-gradient-to-r from-pink-600 via-purple-800 to-blue-700 px-4 py-16 text-slate-100 md:w-auto md:basis-2/3">
           <div className="text-3xl font-bold">Hello world 👋🏽</div>
         </div>
+      </section>
+      <section className="max-width mb-12 flex flex-col gap-4 px-4 md:flex-row md:justify-end">
+        <CardSection
+          className="w-full md:mx-[initial] md:w-auto md:basis-1/6"
+          noPadding
+          as="div"
+        >
+          <h2 className="mb-4 flex items-center gap-2 text-sm font-semibold uppercase tracking-wide">
+            <span className="h-2 w-2 rounded-full bg-yellow-400/60 dark:bg-yellow-400" />{" "}
+            Pokédex
+          </h2>
+          <Pokemon />
+        </CardSection>
       </section>
     </>
   );

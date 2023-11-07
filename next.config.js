@@ -5,9 +5,14 @@ const nextConfig = {
   reactStrictMode: true,
   swcMinify: true,
   images: {
-    // @todo: switch to remotePatterns
-    domains: ["tailwindui.com", "images.unsplash.com"],
-    dangerouslyAllowSVG: true,
+    // dangerouslyAllowSVG: true,
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "raw.githubusercontent.com",
+        pathname: "/PokeAPI/sprites/**",
+      },
+    ],
   },
 };
 
