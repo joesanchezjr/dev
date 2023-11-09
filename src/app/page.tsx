@@ -5,6 +5,8 @@ import { CardSection } from "@/components/card/card";
 import Dots from "@/app/animation/dots";
 // import Spotify from "@/app/spotify";
 import Pokemon from "@/app/pokemon";
+import FavoriteMovies from "@/app/favorite-movies";
+import Image from "next/image";
 
 export default function Home() {
   return (
@@ -14,7 +16,7 @@ export default function Home() {
       <EngineeringNotes />
       <section className="max-width flex flex-col gap-4 px-4 md:flex-row">
         <CardSection
-          className="mb-8 w-full md:w-auto md:basis-1/2"
+          className="mb-8 w-full md:flex-shrink-0 md:basis-1/2"
           noPadding
           as="div"
         >
@@ -41,22 +43,26 @@ export default function Home() {
           />
         </CardSection>
         <CardSection
-          className="relative mb-12 w-full md:w-auto md:basis-1/2"
+          className="relative mb-12 w-full md:basis-1/2"
           noPadding
           as="div"
         >
-          <h2 className="mb-4 flex items-center gap-2 text-sm font-semibold uppercase tracking-wide">
-            <span className="h-2 w-2 rounded-full bg-slate-600/60 dark:bg-slate-600" />{" "}
-            Currently Watching
-          </h2>
-          <div className="flex items-center justify-center py-8 md:h-[450px]">
-            <p className="text-center">
-              This section is left intentionally blank{" "}
-              <span className="inline-block">
-                in solidarity with the ongoing SAG-AFTRA strike.
-              </span>
-            </p>
+          <div className="mb-4 flex items-center justify-between">
+            <h2 className="flex items-center gap-2 text-sm font-semibold uppercase tracking-wide">
+              <span className="h-2 w-2 rounded-full bg-slate-600/60 dark:bg-slate-600" />{" "}
+              Favorite Films
+            </h2>
+            <div className="flex items-center gap-1">
+              <span className="hidden text-xs sm:inline">Source /</span>
+              <Image
+                src="/the_movie_db-blue-short.svg"
+                width={100}
+                height={13}
+                alt="The Movie DB"
+              />
+            </div>
           </div>
+          <FavoriteMovies />
         </CardSection>
       </section>
       <section className="max-width mb-12 flex flex-col gap-4 px-4 md:flex-row">

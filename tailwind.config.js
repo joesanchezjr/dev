@@ -31,9 +31,14 @@ module.exports = {
           "0%": { opacity: "0" },
           "100%": { opacity: "1" },
         },
+        scaleup: {
+          "0%": { transform: "scale(0.90)" },
+          "100%": { transform: "scale(1)" },
+        },
       },
       animation: {
         disappear: "disappear 20s ease-in-out",
+        scaleup: "scaleup 0.2s ease-out 1",
       },
     },
   },

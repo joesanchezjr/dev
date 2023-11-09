@@ -12,6 +12,11 @@ const nextConfig = {
         hostname: "raw.githubusercontent.com",
         pathname: "/PokeAPI/sprites/**",
       },
+      {
+        protocol: "https",
+        hostname: "image.tmdb.org",
+        pathname: "/t/p/**",
+      },
     ],
   },
 };
