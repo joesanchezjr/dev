@@ -1,31 +1,65 @@
 import clsx from "clsx";
 import React from "react";
 
-export function CardSection({
+export function Card({
   children,
   className,
   variant = "solid",
-  as: Component = "section",
-  noPadding,
+  as: Component = "div",
+  withPadding,
+  title,
+  titleElement: TitleElement = "h2",
+  dotColor = "rose",
+  dotHue = 600,
+  rightHeaderElement: RightHeaderElement,
   ...props
 }: {
   children: React.ReactNode;
   className?: string;
   variant?: "solid" | "outline";
   as?: React.ElementType;
-  noPadding?: boolean;
+  withPadding?: boolean;
+  title?: string;
+  titleElement?: React.ElementType;
+  dotColor?: string;
+  dotHue?: number;
+  rightHeaderElement?: React.ElementType;
 }) {
-  const innerClasses = clsx(noPadding ? "max-width-no-padding" : "max-width", className);
   const outerClasses = clsx(
-    "rounded-md shadow-sm p-4",
+    withPadding ? "max-width" : "max-width-no-padding",
+    "w-full md:w-auto",
+    className,
+  );
+  const innerClasses = clsx(
+    "rounded-md p-4 shadow-sm",
     variant === "solid"
       ? "bg-slate-100 dark:bg-slate-900"
-      : "border border-slate-200 dark:border-slate-800"
+      : "border border-slate-200 dark:border-slate-800",
   );
 
   return (
-    <Component className={innerClasses} {...props}>
-      <div className={outerClasses}>{children}</div>
+    <Component className={outerClasses} {...props}>
+      <div className={innerClasses}>
+        <div
+          className={
+            RightHeaderElement
+              ? "mb-4 flex items-center justify-between "
+              : "mb-4 "
+          }
+        >
+          {title && (
+            <TitleElement className="flex items-center gap-2 text-sm font-semibold uppercase tracking-wide">
+              <span
+                className={`h-2 w-2 rounded-full bg-${dotColor}-${dotHue}/60 dark:bg-${dotColor}-${dotHue}`}
+              />
+              {title}
+            </TitleElement>
+          )}
+          {RightHeaderElement && <RightHeaderElement />}
+        </div>
+
+        {children}
+      </div>
     </Component>
   );
 }

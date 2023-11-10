@@ -1,6 +1,6 @@
 "use client";
 
-import { usePokemon } from "@/app/pokemon-context";
+import { usePokemon } from "@/components/pokemon/pokemon-context";
 import { getRandomPokemon } from "@/lib/pokemon";
 import React from "react";
 

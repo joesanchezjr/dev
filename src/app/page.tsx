@@ -1,11 +1,11 @@
 import { Experience } from "@/app/_components/experience/experience";
 import { Intro } from "@/app/_components/intro/intro";
 import { EngineeringNotes } from "@/app/_components/engineering-notes/engineering-notes";
-import { CardSection } from "@/components/card/card";
+import { Card } from "@/components/card/card";
 import Dots from "@/app/animation/dots";
 // import Spotify from "@/app/spotify";
-import Pokemon from "@/app/pokemon";
-import FavoriteMovies from "@/app/favorite-movies";
+import Pokemon from "@/components/pokemon/pokemon";
+import FavoriteMovies from "@/components/favorite-movies/favorite-movies";
 import Image from "next/image";
 
 export default function Home() {
@@ -15,43 +15,27 @@ export default function Home() {
       <Experience />
       <EngineeringNotes />
       <section className="max-width flex flex-col gap-4 px-4 md:flex-row">
-        <CardSection
-          className="mb-8 w-full md:flex-shrink-0 md:basis-1/2"
-          noPadding
-          as="div"
+        <Card
+          className="mb-8 md:flex-shrink-0 md:basis-1/2"
+          title="Listening To"
+          dotColor="blue"
         >
-          <h2 className="mb-4 flex items-center gap-2 text-sm font-semibold uppercase tracking-wide">
-            <span className="h-2 w-2 rounded-full bg-blue-600/60 dark:bg-blue-600" />{" "}
-            Listening To
-          </h2>
           <iframe
-            id="embedPlayer"
-            src="https://embed.music.apple.com/us/playlist/fall-2023/pl.u-MqM6s4G14EX?app=music&amp;itsct=music_box_player&amp;itscg=30200&amp;ls=1&amp;theme=auto"
-            height="450px"
+            style={{ borderRadius: 12 }}
+            src="https://open.spotify.com/embed/playlist/3uiwFOJYSULQBk43ubSOOw?utm_source=generator&theme=0"
+            width="100%"
+            height={450}
             frameBorder="0"
-            sandbox="allow-forms allow-popups allow-same-origin allow-scripts allow-top-navigation-by-user-activation"
-            allow="autoplay *; encrypted-media *; clipboard-write"
-            style={{
-              width: "100%",
-              // maxWidth: 660,
-              overflow: "hidden",
-              borderRadius: 10,
-              backgroundColor: "transparent",
-              transform: "translateZ(0px)",
-              animation: "2s ease 0s 6 normal none running loading-indicator",
-            }}
-          />
-        </CardSection>
-        <CardSection
-          className="relative mb-12 w-full md:basis-1/2"
-          noPadding
-          as="div"
-        >
-          <div className="mb-4 flex items-center justify-between">
-            <h2 className="flex items-center gap-2 text-sm font-semibold uppercase tracking-wide">
-              <span className="h-2 w-2 rounded-full bg-slate-600/60 dark:bg-slate-600" />{" "}
-              Favorite Films
-            </h2>
+            allowFullScreen
+            allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+            loading="lazy"
+          ></iframe>
+        </Card>
+        <Card
+          className="relative mb-12 md:basis-1/2"
+          title="Favorite Films"
+          dotColor="slate"
+          rightHeaderElement={() => (
             <div className="flex items-center gap-1">
               <span className="hidden text-xs sm:inline">Source /</span>
               <Image
@@ -61,39 +45,33 @@ export default function Home() {
                 alt="The Movie DB"
               />
             </div>
-          </div>
+          )}
+        >
           <FavoriteMovies />
-        </CardSection>
+        </Card>
       </section>
       <section className="max-width mb-12 flex flex-col gap-4 px-4 md:flex-row">
-        <CardSection
-          className="w-full md:w-auto md:basis-1/3"
-          noPadding
-          as="div"
+        <Card
+          className="md:basis-1/3"
           variant="outline"
+          title="Dots"
+          dotColor="green"
         >
-          <h2 className="mb-4 flex items-center gap-2 text-sm font-semibold uppercase tracking-wide">
-            <span className="h-2 w-2 rounded-full bg-green-600/60 dark:bg-green-600" />{" "}
-            Dots
-          </h2>
           <Dots mini />
-        </CardSection>
+        </Card>
         <div className="flex w-full items-center justify-center rounded-md bg-gradient-to-r from-pink-600 via-purple-800 to-blue-700 px-4 py-16 text-slate-100 md:w-auto md:basis-2/3">
           <div className="text-3xl font-bold">Hello world 👋🏽</div>
         </div>
       </section>
       <section className="max-width mb-12 flex flex-col gap-4 px-4 md:flex-row md:justify-end">
-        <CardSection
-          className="w-full md:mx-[initial] md:w-auto md:basis-1/6"
-          noPadding
-          as="div"
+        <Card
+          className="md:mx-[initial] md:basis-1/6"
+          title="Pokédex"
+          dotColor="yellow"
+          dotHue={400}
         >
-          <h2 className="mb-4 flex items-center gap-2 text-sm font-semibold uppercase tracking-wide">
-            <span className="h-2 w-2 rounded-full bg-yellow-400/60 dark:bg-yellow-400" />{" "}
-            Pokédex
-          </h2>
           <Pokemon />
-        </CardSection>
+        </Card>
       </section>
     </>
   );

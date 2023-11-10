@@ -1,4 +1,4 @@
-import { CardSection } from "@/components/card/card";
+import { Card } from "@/components/card/card";
 import { formatDate } from "@/utils/format-date";
 import { ArrowRightIcon } from "@heroicons/react/24/outline";
 import clsx from "clsx";
@@ -9,28 +9,20 @@ import title from "title";
 
 export function EngineeringNotes({ showAll }: { showAll?: boolean }) {
   const sortedPosts = allPosts.sort((a, z) =>
-    compareDesc(new Date(a.date), new Date(z.date))
+    compareDesc(new Date(a.date), new Date(z.date)),
   );
   const postsToShow = showAll ? sortedPosts : sortedPosts.slice(0, 5);
 
   // @todo: organize by year if more than one year of posts
 
   return (
-    <CardSection variant="outline" className="mb-12">
-      <div className="mb-4 flex items-start justify-between">
-        <h2 className="flex items-center gap-2 text-sm font-semibold uppercase tracking-wide">
-          <span className="h-2 w-2 rounded-full bg-rose-600/60 dark:bg-rose-600" />{" "}
-          Engineering Notes
-        </h2>
-        {postsToShow.length > 5 && (
-          <Link
-            href="/notes"
-            className="flex items-center gap-1 rounded-md border border-slate-200 bg-white px-2 py-1 text-sm font-medium hover:bg-slate-50 dark:border-slate-800 dark:bg-slate-950 dark:hover:bg-slate-900"
-          >
-            All notes <ArrowRightIcon className="inline h-4 w-4" />
-          </Link>
-        )}
-      </div>
+    <Card
+      variant="outline"
+      className="mb-12"
+      withPadding
+      title="Engineering Notes"
+      dotColor="rose"
+    >
       <ul role="list" className="-ml-1 space-y-6">
         {postsToShow.map((post, index) => (
           <li key={post.title}>
@@ -38,7 +30,7 @@ export function EngineeringNotes({ showAll }: { showAll?: boolean }) {
               <div
                 className={clsx(
                   index === postsToShow.length - 1 ? "h-6" : "-bottom-6",
-                  "absolute left-0 top-0 flex w-4 justify-center"
+                  "absolute left-0 top-0 flex w-4 justify-center",
                 )}
               >
                 <div className="w-px bg-slate-200 dark:bg-slate-800" />
@@ -65,6 +57,6 @@ export function EngineeringNotes({ showAll }: { showAll?: boolean }) {
           </li>
         ))}
       </ul>
-    </CardSection>
+    </Card>
   );
 }

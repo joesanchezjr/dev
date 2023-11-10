@@ -2,7 +2,7 @@
 
 import React from "react";
 import Image from "next/image";
-import { usePokemon } from "@/app/pokemon-context";
+import { usePokemon } from "@/components/pokemon/pokemon-context";
 
 export default function PokemonDisplay() {
   const { state } = usePokemon();

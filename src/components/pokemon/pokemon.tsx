@@ -1,8 +1,8 @@
 import React from "react";
 import { Pokemon, PokemonSpecies } from "pokenode-ts";
-import { PokemonProvider } from "@/app/pokemon-context";
-import PokemonDisplay from "@/app/pokemon-display";
-import PokemonRandomButton from "@/app/pokemon-random-button";
+import { PokemonProvider } from "@/components/pokemon/pokemon-context";
+import PokemonDisplay from "@/components/pokemon/pokemon-display";
+import PokemonRandomButton from "@/components/pokemon/pokemon-random-button";
 
 async function getRandomPokemon() {
   const randomPokemonId = Math.floor(Math.random() * 1017) + 1;

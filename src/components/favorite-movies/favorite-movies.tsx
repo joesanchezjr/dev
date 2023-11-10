@@ -1,4 +1,4 @@
-import FavoriteMoviesSelector from "@/app/favorite-movies-selector";
+import FavoriteMoviesSelector from "@/components/favorite-movies/favorite-movies-selector";
 
 export type Movie = {
   adult: boolean;

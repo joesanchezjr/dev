@@ -4,10 +4,10 @@ import Image from "next/image";
 import { ChevronRightIcon } from "@heroicons/react/24/outline";
 import { compareDesc } from "date-fns";
 import { formatDate } from "@/utils/format-date";
-import { CardSection } from "@/components/card/card";
+import { Card } from "@/components/card/card";
 import { ArrowDownIcon } from "@heroicons/react/20/solid";
 
-const skills =[
+const skills = [
   "React",
   "TypeScript",
   "JavaScript (ES6+)",
@@ -33,23 +33,21 @@ const skills =[
   "Webpack",
   "CLI",
   "CSS-in-JS",
-  "styled-components"
-]
+  "styled-components",
+];
 
 export function Experience() {
-
   return (
-    <section className="px-4 flex flex-col md:flex-row gap-4 max-width">
-      <CardSection className="mb-8 w-full md:w-auto md:basis-2/3" noPadding as="div">
-        <h2 className="mb-4 flex items-center gap-2 text-sm font-semibold uppercase tracking-wide">
-          <span className="h-2 w-2 rounded-full bg-purple-600/60 dark:bg-purple-600" />{" "}
-          Work Experience
-        </h2>
-
+    <section className="max-width flex flex-col gap-4 px-4 md:flex-row">
+      <Card
+        className="mb-8 md:basis-2/3"
+        title="Work Experience"
+        dotColor="purple"
+      >
         <ul role="list" className="flex flex-col gap-4">
           {allExperiences
             .sort((a, z) =>
-              compareDesc(new Date(a.startDate), new Date(z.startDate))
+              compareDesc(new Date(a.startDate), new Date(z.startDate)),
             )
             .map((experience) => {
               return (
@@ -66,7 +64,7 @@ export function Experience() {
                             alt={experience.company}
                             width={24}
                             height={24}
-                            className="my-0 inline-block h-4 w-4 sm:h-6 sm:w-6 object-contain"
+                            className="my-0 inline-block h-4 w-4 object-contain sm:h-6 sm:w-6"
                           />
                         )}
                       </div>
@@ -99,26 +97,34 @@ export function Experience() {
               );
             })}
         </ul>
-      </CardSection>
-      <CardSection className="mb-12 w-full md:w-auto md:basis-1/3 relative" noPadding as="div">
-        <h2 className="mb-4 flex items-center gap-2 text-sm font-semibold uppercase tracking-wide">
-          <span className="h-2 w-2 rounded-full bg-yellow-600/60 dark:bg-yellow-600" />{" "}
-          Skills
-        </h2>
-        <ul role="list" className="flex flex-col md:gap-1 md:mb-[2px] md:max-h-[276px] overflow-y-scroll">
+      </Card>
+      <Card
+        className="relative mb-12 md:basis-1/3"
+        title="Skills"
+        dotColor="yellow"
+      >
+        <ul
+          role="list"
+          className="flex flex-col overflow-y-scroll md:mb-[2px] md:max-h-[276px] md:gap-1"
+        >
           {skills.map((skill) => {
             return (
               <li key={skill} className="w-1/2 md:w-auto">
-                <span className="text-sm" aria-hidden role="presentation">↳</span> {skill}
+                <span className="text-sm" aria-hidden role="presentation">
+                  ↳
+                </span>{" "}
+                {skill}
               </li>
             );
           })}
         </ul>
-        <div className="group absolute right-4 bottom-4 hidden md:block">
-          <div className="transition-opacity opacity-0 group-hover:opacity-100  text-xs">Scroll in this box for more skills</div>
-          <ArrowDownIcon className="h-5 w-5 animate-bounce ml-auto" />
+        <div className="group absolute bottom-4 right-4 hidden md:block">
+          <div className="text-xs opacity-0 transition-opacity  group-hover:opacity-100">
+            Scroll in this box for more skills
+          </div>
+          <ArrowDownIcon className="ml-auto h-5 w-5 animate-bounce" />
         </div>
-      </CardSection>
+      </Card>
     </section>
   );
 }
