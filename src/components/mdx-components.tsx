@@ -5,6 +5,7 @@ import { useMDXComponent } from "next-contentlayer/hooks";
 
 interface MdxProps {
   code: string;
+  inModal?: boolean;
 }
 
 const components: MDXComponents = {
@@ -22,11 +23,11 @@ const components: MDXComponents = {
   ),
 };
 
-export function Mdx({ code }: MdxProps) {
+export function Mdx({ code, inModal }: MdxProps) {
   const Component = useMDXComponent(code);
-
+const inModalClasses= inModal ? "max-h-[57vh] overflow-y-scroll flex flex-col" : ""
   return (
-    <div className="mdx-components prose mt-4 dark:prose-invert flex flex-col overflow-y-scroll max-h-[57vh]">
+    <div className={`mdx-components prose mt-4 dark:prose-invert ${inModalClasses}`}>
       <Component components={components} />
     </div>
   );

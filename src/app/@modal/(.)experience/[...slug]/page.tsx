@@ -31,7 +31,7 @@ export default async function ExperienceModal({ params }: ExperienceProps) {
     <HeadlessModal>
       <h1 className="text-lg font-semibold">{experience.company}</h1>
       <span>{experience.title}</span>
-      <Mdx code={experience.body.code} />
+      <Mdx code={experience.body.code} inModal />
     </HeadlessModal>
   );
 }
