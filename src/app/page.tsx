@@ -71,7 +71,7 @@ export default function Home() {
             { title: "∞", subtitle: "Possibilities" },
           ].map((block) => {
             return (
-              <div className="basis-1/2  p-1 text-center">
+              <div className="basis-1/2  p-1 text-center" key={block.title}>
                 <div className="rounded border border-slate-300 px-4 py-8 hover:bg-slate-50 hover:text-slate-700">
                   <div className="text-4xl font-bold">{block.title}</div>
                   <div>{block.subtitle}</div>
