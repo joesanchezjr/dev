@@ -59,8 +59,26 @@ export default function Home() {
         >
           <Dots mini />
         </Card>
-        <div className="flex w-full items-center justify-center rounded-md bg-gradient-to-r from-pink-600 via-purple-800 to-blue-700 px-4 py-16 text-slate-100 md:w-auto md:basis-2/3">
-          <div className="text-3xl font-bold">Hello world 👋🏽</div>
+        <div className="flex w-full flex-wrap items-center justify-between rounded-md bg-gradient-to-r from-pink-600 via-purple-800 to-blue-700 px-4 py-16 text-slate-100 md:w-auto md:basis-2/3">
+          {[
+            {
+              title: "6+",
+              subtitle: "years of experience",
+            },
+            { title: "30+", subtitle: "cafes coded in" },
+            { title: "120+", subtitle: "daily mg of caffeine" },
+
+            { title: "∞", subtitle: "Possibilities" },
+          ].map((block) => {
+            return (
+              <div className="basis-1/2  p-1 text-center">
+                <div className="rounded border border-slate-300 px-4 py-8 hover:bg-slate-50 hover:text-slate-700">
+                  <div className="text-4xl font-bold">{block.title}</div>
+                  <div>{block.subtitle}</div>
+                </div>
+              </div>
+            );
+          })}
         </div>
       </section>
       <section className="max-width mb-12 flex flex-col gap-4 px-4 md:flex-row md:justify-end">

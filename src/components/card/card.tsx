@@ -37,6 +37,18 @@ export function Card({
       : "border border-slate-200 dark:border-slate-800",
   );
 
+  const dotColorClasses = clsx(
+    dotColor === "blue" && "bg-blue-600/60 dark:bg-blue-600",
+    dotColor === "green" && "bg-green-600/60 dark:bg-green-600",
+    dotColor === "slate" && "bg-slate-600/60 dark:bg-slate-600",
+    dotColor === "yellow" && "bg-yellow-600/60 dark:bg-yellow-600",
+    dotColor === "rose" && "bg-rose-600/60 dark:bg-rose-600",
+    dotColor === "purple" && "bg-purple-600/60 dark:bg-purple-600",
+    dotColor === "yellow" &&
+      dotHue === 400 &&
+      "bg-yellow-400/60 dark:bg-yellow-400",
+  );
+
   return (
     <Component className={outerClasses} {...props}>
       <div className={innerClasses}>
@@ -44,14 +56,12 @@ export function Card({
           className={
             RightHeaderElement
               ? "mb-4 flex items-center justify-between "
-              : "mb-4 "
+              : "mb-4"
           }
         >
           {title && (
             <TitleElement className="flex items-center gap-2 text-sm font-semibold uppercase tracking-wide">
-              <span
-                className={`h-2 w-2 rounded-full bg-${dotColor}-${dotHue}/60 dark:bg-${dotColor}-${dotHue}`}
-              />
+              <span className={`h-2 w-2 rounded-full ${dotColorClasses}`} />
               {title}
             </TitleElement>
           )}
