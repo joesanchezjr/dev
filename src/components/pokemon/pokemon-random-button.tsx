@@ -11,7 +11,7 @@ export default function PokemonRandomButton() {
     const randomPokemonId = Math.floor(Math.random() * 1017) + 1;
 
     const pokemonInState = Object.entries(state.allPokemon).find(
-      ([_, data]) => data.pokemon.id === randomPokemonId
+      ([_, data]) => data.pokemon.id === randomPokemonId,
     );
 
     if (pokemonInState) {
@@ -32,7 +32,7 @@ export default function PokemonRandomButton() {
 
   return (
     <button
-      className="mt-2 rounded border bg-white px-2 py-1 text-xs hover:bg-slate-50 active:bg-slate-300"
+      className="mt-2 rounded border bg-white-100 dark:bg-black dark:border-slate-800 px-2 py-1 text-xs hover:bg-slate-50 active:bg-slate-300 dark:hover:bg-slate-900 dark:active:bg-slate-600"
       onClick={fetchRandomPokemon}
     >
       Random 🔀

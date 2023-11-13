@@ -25,16 +25,16 @@ export default function PokemonDisplay() {
 
   return (
     <div
-      className="flex flex-col border-2 rounded p-2 pt-6 relative"
+      className="flex flex-col border-2 rounded p-2 relative"
       style={{ borderColor: selectedPokemon.species.color.name }}
     >
-      <div className="absolute top-0 right-0 py-1 px-2  font-mono text-sm">{`#${pokemonId}`}</div>
+      <div className="absolute self-end font-mono text-sm">{`#${pokemonId}`}</div>
       <Image
         src={pokemonImage}
         alt={pokemonName}
         width={96}
         height={96}
-        className="self-center"
+        className="self-center my-4"
       />
       <div className="flex justify-between items-center">
         <h3 className="font-bold">{pokemonName}</h3>
@@ -46,7 +46,7 @@ export default function PokemonDisplay() {
                 key={type.type.name}
                 className={`type-${type.type.name} rounded-full w-4 h-4 group relative`}
               >
-                <div className="hidden group-hover:block absolute bottom-[125%] right-0 bg-white rounded p-1">
+                <div className="hidden group-hover:block absolute bottom-[125%] right-0 bg-white rounded p-1 text-slate-700">
                   {type.type.name}
                 </div>
               </div>
