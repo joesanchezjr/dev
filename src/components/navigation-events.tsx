@@ -2,6 +2,7 @@
 
 import { useEffect } from "react";
 import { usePathname, useSearchParams } from "next/navigation";
+import { IS_DEV, IS_PROD } from "@/utils/constants";
 
 // https://nextjs.org/docs/app/api-reference/functions/use-router#router-events
 
@@ -11,9 +12,7 @@ export function NavigationEvents() {
 
   useEffect(() => {
     const url = `${pathname}?${searchParams}`;
-    console.log(url);
-    // You can now use the current URL
-    // ...
+    IS_DEV && console.log(url);
   }, [pathname, searchParams]);
 
   return null;

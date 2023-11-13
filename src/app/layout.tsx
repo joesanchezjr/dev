@@ -6,7 +6,7 @@ import { NavigationEvents } from "@/components/navigation-events";
 import { Suspense } from "react";
 import Script from "next/script";
 import { Metadata } from "next";
-import { BASE_URL } from "@/utils/constants";
+import { BASE_URL, IS_PROD } from "@/utils/constants";
 import { Header } from "@/components/header/header";
 
 const inter = Inter({
@@ -74,11 +74,13 @@ export default function RootLayout({
             <NavigationEvents />
           </Suspense>
         </Providers>
-        <Script
-          defer
-          src="https://static.cloudflareinsights.com/beacon.min.js"
-          data-cf-beacon='{"token": "f95f7928ffdf42758a3fcc9bede5d584"}'
-        />
+        {IS_PROD && (
+          <Script
+            defer
+            src="https://static.cloudflareinsights.com/beacon.min.js"
+            data-cf-beacon='{"token": "f95f7928ffdf42758a3fcc9bede5d584"}'
+          />
+        )}
       </body>
     </html>
   );
