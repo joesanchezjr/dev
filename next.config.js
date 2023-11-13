@@ -17,6 +17,11 @@ const nextConfig = {
         hostname: "image.tmdb.org",
         pathname: "/t/p/**",
       },
+      {
+        protocol: "https",
+        hostname: "assets.pokemon.com",
+        pathname: '/assets/cms2/img/pokedex/detail/**'
+      }
     ],
   },
 };
