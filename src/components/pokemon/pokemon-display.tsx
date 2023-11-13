@@ -46,7 +46,7 @@ export default function PokemonDisplay() {
                 key={type.type.name}
                 className={`type-${type.type.name} rounded-full w-4 h-4 group relative`}
               >
-                <div className="hidden group-hover:block absolute bottom-[125%] right-0 bg-white rounded p-1 text-slate-700">
+                <div className="hidden group-hover:block absolute bottom-[125%] right-0 bg-white rounded p-1 text-slate-700 px-2">
                   {type.type.name}
                 </div>
               </div>
