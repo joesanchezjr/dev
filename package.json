@@ -12,7 +12,8 @@
     "update-schema:seed": "prisma generate && prisma db push && prisma db seed",
     "update-schema": "prisma generate && prisma db push",
     "reset-schema:seed": "prisma generate && prisma db push --force-reset && prisma db seed",
-    "reset-schema": "prisma generate && prisma db push --force-reset"
+    "reset-schema": "prisma generate && prisma db push --force-reset",
+    "test": "jest"
   },
   "prisma": {
     "seed": "ts-node --compiler-options {\"module\":\"CommonJS\"} src/prisma/seed.ts",
@@ -26,6 +27,7 @@
     "@spotify/web-api-ts-sdk": "^1.1.2",
     "@tailwindcss/forms": "^0.5.4",
     "@tailwindcss/typography": "^0.5.9",
+    "@testing-library/user-event": "^14.5.1",
     "@types/mdx": "^2.0.5",
     "@types/node": "20.8.9",
     "@types/react": "18.2.18",
@@ -68,7 +70,12 @@
     "typescript": "5.1.6"
   },
   "devDependencies": {
+    "@testing-library/jest-dom": "^6.1.4",
+    "@testing-library/react": "^14.1.2",
+    "@types/jest": "^29.5.10",
     "@types/ms": "^0.7.33",
+    "jest": "^29.7.0",
+    "jest-environment-jsdom": "^29.7.0",
     "prettier": "^3.0.3",
     "prettier-plugin-tailwindcss": "^0.2.8",
     "prisma": "^5.1.1"
