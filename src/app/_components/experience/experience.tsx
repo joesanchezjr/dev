@@ -3,7 +3,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { ChevronRightIcon } from "@heroicons/react/24/outline";
 import { compareDesc } from "date-fns";
-import { formatDate } from "@/utils/format-date";
+import { formatDate } from "@/utils/date";
 import { Card } from "@/components/card/card";
 import { ArrowDownIcon } from "@heroicons/react/20/solid";
 

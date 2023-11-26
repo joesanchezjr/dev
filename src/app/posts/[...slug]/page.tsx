@@ -3,7 +3,7 @@ import { allPosts } from "contentlayer/generated";
 
 import { Metadata } from "next";
 import { Mdx } from "@/components/mdx-components";
-import { formatDate } from "@/utils/format-date";
+import { formatDate } from "@/utils/date";
 import title from "title";
 
 interface PostProps {
