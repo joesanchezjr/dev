@@ -54,7 +54,7 @@ export default function Dots({ mini = true }: { mini?: boolean }) {
     "my-12 grid justify-items-center",
     mini
       ? "grid-cols-3 gap-[10vw] md:gap-[5vw] mx-auto p-4"
-      : "max-width grid-cols-4 gap-12 md:grid-cols-8 md:gap-24 "
+      : "max-width grid-cols-4 gap-12 md:grid-cols-8 md:gap-24 ",
   );
   return (
     <div className={classes}>

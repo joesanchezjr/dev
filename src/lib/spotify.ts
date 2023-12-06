@@ -6,10 +6,10 @@ const client_secret = String(process.env.SPOTIFY_CLIENT_SECRET);
 
 const PLAYLIST_ID = `3uiwFOJYSULQBk43ubSOOw`;
 const FIELDS = encodeURIComponent(
-  "external_urls,images,name,tracks.items(track(name,uri,external_urls,duration_ms,artists(name,uri,external_urls),album(images,name)))"
+  "external_urls,images,name,tracks.items(track(name,uri,external_urls,duration_ms,artists(name,uri,external_urls),album(images,name)))",
 );
 
-// WITH SPOTIFY SDK 
+// WITH SPOTIFY SDK
 const api = SpotifyApi.withClientCredentials(client_id, client_secret);
 
 export const getWorkflowPlaylist = async () => {
@@ -21,7 +21,6 @@ export const getWorkflowPlaylist = async () => {
 const basic = btoa(`${client_id}:${client_secret}`);
 const TOKEN_ENDPOINT = `https://accounts.spotify.com/api/token`;
 const PLAYLIST_ENDPOINT = `https://api.spotify.com/v1/playlists/${PLAYLIST_ID}?fields=${FIELDS}`;
-
 
 const getAccessToken = async () => {
   try {

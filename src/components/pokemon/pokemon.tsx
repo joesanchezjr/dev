@@ -8,12 +8,12 @@ async function getRandomPokemon() {
   const randomPokemonId = Math.floor(Math.random() * 1017) + 1;
   try {
     const res = await fetch(
-      `https://pokeapi.co/api/v2/pokemon-species/${randomPokemonId}`
+      `https://pokeapi.co/api/v2/pokemon-species/${randomPokemonId}`,
     );
     const species = await res.json();
     try {
       const res = await fetch(
-        `https://pokeapi.co/api/v2/pokemon/${randomPokemonId}`
+        `https://pokeapi.co/api/v2/pokemon/${randomPokemonId}`,
       );
       const pokemon = await res.json();
       return { species, pokemon } as {
@@ -30,11 +30,15 @@ async function getRandomPokemon() {
   }
 }
 
-export default async function Pokemon() {
+export default async function Pokemon({ className }: { className?: string }) {
   const { pokemon, species } = await getRandomPokemon();
   return (
     <PokemonProvider data={{ pokemon, species }}>
-      <div className="flex flex-col">
+      <div
+        className={["flex flex-col justify-between h-full", className]
+          .filter(Boolean)
+          .join(" ")}
+      >
         <PokemonDisplay />
         <PokemonRandomButton />
       </div>

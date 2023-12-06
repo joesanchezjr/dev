@@ -4,12 +4,12 @@ export async function getRandomPokemon(passedId: number) {
   const randomPokemonId = passedId || Math.floor(Math.random() * 1017) + 1;
   try {
     const res = await fetch(
-      `https://pokeapi.co/api/v2/pokemon-species/${randomPokemonId}`
+      `https://pokeapi.co/api/v2/pokemon-species/${randomPokemonId}`,
     );
     const species = await res.json();
     try {
       const res = await fetch(
-        `https://pokeapi.co/api/v2/pokemon/${randomPokemonId}`
+        `https://pokeapi.co/api/v2/pokemon/${randomPokemonId}`,
       );
       const pokemon = await res.json();
       return { species, pokemon } as {

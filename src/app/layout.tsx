@@ -58,9 +58,11 @@ export const metadata: Metadata = {
 export default function RootLayout({
   children,
   modal,
+  pokemon: _pokemon,
 }: {
   children: React.ReactNode;
   modal: React.ReactNode;
+  pokemon: React.ReactNode;
 }) {
   const htmlClasses = clsx(inter.variable, fira_code.variable, "antialiased");
   return (

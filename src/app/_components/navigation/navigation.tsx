@@ -25,7 +25,7 @@ export function Navigation() {
                     isActive
                       ? "bg-slate-900 text-white dark:bg-slate-800"
                       : "text-slate-300 hover:bg-slate-700 hover:text-white dark:hover:bg-slate-950",
-                    "rounded-md px-3 py-2 text-sm font-medium"
+                    "rounded-md px-3 py-2 text-sm font-medium",
                   )}
                 >
                   {item.name}
