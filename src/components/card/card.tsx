@@ -4,6 +4,7 @@ import React from "react";
 export function Card({
   children,
   className,
+  innerClasses: inClasses,
   variant = "solid",
   as: Component = "div",
   withPadding,
@@ -16,6 +17,7 @@ export function Card({
 }: {
   children: React.ReactNode;
   className?: string;
+  innerClasses?: string;
   variant?: "solid" | "outline";
   as?: React.ElementType;
   withPadding?: boolean;
@@ -35,6 +37,7 @@ export function Card({
     variant === "solid"
       ? "bg-slate-100 dark:bg-slate-900"
       : "border border-slate-200 dark:border-slate-800",
+    inClasses,
   );
 
   const dotColorClasses = clsx(

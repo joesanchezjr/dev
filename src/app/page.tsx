@@ -8,7 +8,12 @@ import Pokemon from "@/components/pokemon/pokemon";
 import FavoriteMovies from "@/components/favorite-movies/favorite-movies";
 import Image from "next/image";
 
-export default function Home() {
+import { getRepositoryInformation } from "@/app/git-history/octokit-rest";
+import RepoSearch from "@/app/git-history/repo-search";
+
+export default async function Home() {
+  const repo = await getRepositoryInformation("joesanchezjr/dev");
+
   return (
     <>
       <Intro />
@@ -84,14 +89,22 @@ export default function Home() {
           })}
         </div>
       </section>
-      <section className="max-width mb-12 flex flex-col gap-4 px-4 md:flex-row md:justify-end">
+      <section className="max-width mb-12 flex flex-col gap-4 px-4 md:flex-row md:items-stretch">
         <Card
-          className="md:mx-[initial] md:basis-1/6"
+          className="md:mx-[initial] md:basis-1/6 md:flex"
           title="Pokédex"
           dotColor="yellow"
           dotHue={400}
+          innerClasses="w-full flex flex-col justify-between"
         >
           <Pokemon />
+        </Card>
+        <Card
+          className="md:mx-[initial] md:basis-1/3"
+          title="Respository Search"
+          dotColor="blue"
+        >
+          <RepoSearch repo={repo} />
         </Card>
       </section>
     </>

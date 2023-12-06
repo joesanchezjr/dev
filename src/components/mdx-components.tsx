@@ -25,9 +25,13 @@ const components: MDXComponents = {
 
 export function Mdx({ code, inModal }: MdxProps) {
   const Component = useMDXComponent(code);
-const inModalClasses= inModal ? "max-h-[57vh] overflow-y-scroll flex flex-col" : ""
+  const inModalClasses = inModal
+    ? "max-h-[57vh] overflow-y-scroll flex flex-col"
+    : "";
   return (
-    <div className={`mdx-components prose mt-4 dark:prose-invert ${inModalClasses}`}>
+    <div
+      className={`mdx-components prose mt-4 dark:prose-invert ${inModalClasses}`}
+    >
       <Component components={components} />
     </div>
   );
