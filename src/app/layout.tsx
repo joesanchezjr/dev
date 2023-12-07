@@ -21,30 +21,34 @@ const fira_code = Fira_Code({
   variable: "--font-fira-code",
 });
 
+const title = "Joe Sanchez Jr. | Software Engineer for Hire";
+const description =
+  "Creative front-end/full-stack developer building apps and websites for people. Dedicated to making the internet a more beautiful and accessible space.";
+
 export const metadata: Metadata = {
   metadataBase: new URL(BASE_URL),
   title: {
-    default: "Joe Sanchez Jr.",
-    template: "%s | Joe Sanchez Jr.",
+    default: title,
+    template: `%s | ${title}`,
   },
-  description: "Software Engineer, Web | Front-End | React | TypeScript",
+  description,
   openGraph: {
-    title: "Joe Sanchez Jr",
-    description: "Software Engineer, Web | Front-End | React | TypeScript",
+    title,
+    description,
     url: BASE_URL,
-    siteName: "Joe Sanchez Jr.",
+    siteName: title,
     locale: "en-US",
     type: "website",
     images: [
       {
-        url: `${BASE_URL}/cover.png`,
+        url: `${BASE_URL}/og-image-v12.07.png`,
       },
     ],
   },
   twitter: {
-    title: "Joe Sanchez Jr.",
+    title: title,
     card: "summary_large_image",
-    images: [`${BASE_URL}/cover.png`],
+    images: [`${BASE_URL}/og-image-v12.07.png`],
   },
   keywords: [
     "Software engineer",
