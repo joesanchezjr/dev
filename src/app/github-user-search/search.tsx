@@ -1,9 +1,8 @@
 "use client";
 import { useFormState, useFormStatus } from "react-dom";
-
-import Repo from "@/app/git-history/repo";
-import { search } from "@/app/git-history/actions";
-import type { RepositoryInformation } from "@/app/git-history/octokit-rest";
+import { search } from "@/app/github-user-search/actions";
+import { type User } from "@/app/github-user-search/octokit-rest";
+import UserCard from "@/app/github-user-search/user-card";
 
 function SearchButton() {
   const { pending } = useFormStatus();
@@ -19,10 +18,10 @@ function SearchButton() {
   );
 }
 
-export default function RepoSearch({ repo }: { repo: RepositoryInformation }) {
+export default function Search({ initialUser }: { initialUser: User }) {
   const [state, formAction] = useFormState(search, null);
 
-  const repoInfo = state || repo;
+  const data = state || initialUser;
 
   return (
     <div className="@container">
@@ -35,7 +34,7 @@ export default function RepoSearch({ repo }: { repo: RepositoryInformation }) {
             htmlFor="search-username"
             className="block text-sm font-medium leading-6"
           >
-            Search
+            Search for GitHub User
           </label>
           <div className="mt-2">
             <input
@@ -50,7 +49,11 @@ export default function RepoSearch({ repo }: { repo: RepositoryInformation }) {
         </div>
         <SearchButton />
       </form>
-      {repoInfo && <Repo data={repoInfo} />}
+      {data && (
+        <div id="to-capture">
+          <UserCard data={data} />
+        </div>
+      )}
     </div>
   );
 }
