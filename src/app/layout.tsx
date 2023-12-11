@@ -8,6 +8,7 @@ import Script from "next/script";
 import { Metadata } from "next";
 import { BASE_URL, IS_PROD } from "@/utils/constants";
 import { Header } from "@/components/header/header";
+import { Analytics as VercelAnalytics } from "@vercel/analytics/react";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -87,6 +88,7 @@ export default function RootLayout({
             data-cf-beacon='{"token": "f95f7928ffdf42758a3fcc9bede5d584"}'
           />
         )}
+        {IS_PROD && <VercelAnalytics />}
       </body>
     </html>
   );
