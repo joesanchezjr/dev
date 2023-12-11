@@ -9,6 +9,7 @@ import { Metadata } from "next";
 import { BASE_URL, IS_PROD } from "@/utils/constants";
 import { Header } from "@/components/header/header";
 import { Analytics as VercelAnalytics } from "@vercel/analytics/react";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -82,13 +83,16 @@ export default function RootLayout({
           </Suspense>
         </Providers>
         {IS_PROD && (
-          <Script
-            defer
-            src="https://static.cloudflareinsights.com/beacon.min.js"
-            data-cf-beacon='{"token": "f95f7928ffdf42758a3fcc9bede5d584"}'
-          />
+          <>
+            <Script
+              defer
+              src="https://static.cloudflareinsights.com/beacon.min.js"
+              data-cf-beacon='{"token": "f95f7928ffdf42758a3fcc9bede5d584"}'
+            />
+            <VercelAnalytics />
+            <SpeedInsights />
+          </>
         )}
-        {IS_PROD && <VercelAnalytics />}
       </body>
     </html>
   );
