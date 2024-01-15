@@ -55,7 +55,7 @@ export async function Header() {
             title="Resume"
             content={
               <a
-                href="/documents/resume.pdf"
+                href="/documents/resume.pdf?v=01.15"
                 className="hover:underline"
                 target="_blank"
                 rel="noopener noreferrer"
