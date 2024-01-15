@@ -99,13 +99,13 @@ export default async function Home() {
         >
           <Pokemon />
         </Card>
-        <Card
+        {/* <Card
           className="md:mx-[initial] md:basis-1/3"
           title="Respository Search"
           dotColor="blue"
         >
           <RepoSearch repo={repo} />
-        </Card>
+        </Card> */}
       </section>
     </>
   );
