@@ -1,19 +1,14 @@
+import Image from "next/image";
+
 import { Experience } from "@/app/_components/experience/experience";
 import { Intro } from "@/app/_components/intro/intro";
 import { EngineeringNotes } from "@/app/_components/engineering-notes/engineering-notes";
 import { Card } from "@/components/card/card";
 import Dots from "@/app/animation/dots";
-// import Spotify from "@/app/spotify";
 import Pokemon from "@/components/pokemon/pokemon";
 import FavoriteMovies from "@/components/favorite-movies/favorite-movies";
-import Image from "next/image";
-
-import { getRepositoryInformation } from "@/app/git-history/octokit-rest";
-import RepoSearch from "@/app/git-history/repo-search";
 
 export default async function Home() {
-  const repo = await getRepositoryInformation("joesanchezjr/dev");
-
   return (
     <>
       <Intro />
@@ -30,7 +25,6 @@ export default async function Home() {
             src="https://open.spotify.com/embed/playlist/3uiwFOJYSULQBk43ubSOOw?utm_source=generator&theme=0"
             width="100%"
             height={450}
-            frameBorder="0"
             allowFullScreen
             allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
             loading="lazy"
@@ -99,13 +93,6 @@ export default async function Home() {
         >
           <Pokemon />
         </Card>
-        {/* <Card
-          className="md:mx-[initial] md:basis-1/3"
-          title="Respository Search"
-          dotColor="blue"
-        >
-          <RepoSearch repo={repo} />
-        </Card> */}
       </section>
     </>
   );
