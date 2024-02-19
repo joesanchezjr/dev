@@ -10,6 +10,7 @@
     "test": "jest"
   },
   "dependencies": {
+    "@gsap/react": "^2.1.0",
     "@headlessui/react": "^1.7.17",
     "@heroicons/react": "^2.0.18",
     "@planetscale/database": "^1.11.0",
