@@ -1,1 +1,1 @@
-// export { useApp } from "./use-app";
+export { useReducedMotion } from "./use-reduced-motion/use-reduced-motion";

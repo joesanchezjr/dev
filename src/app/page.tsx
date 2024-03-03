@@ -49,7 +49,7 @@ export default async function Home() {
                 aria-hidden
                 className="h-4 w-4 opacity-0 translate-y-1 inline group-hover:translate-y-0 group-hover:opacity-100 transition-all"
               />{" "}
-              <span className="underline underline-offset-4 decoration-zinc-300 group-hover:decoration-zinc-700 transition-colors">
+              <span className="underline underline-offset-4 decoration-zinc-300 group-hover:decoration-zinc-700 dark:decoration-zinc-600 dark:group-hover:decoration-zinc-300 transition-colors">
                 Download resume
               </span>
             </Link>
@@ -63,7 +63,7 @@ export default async function Home() {
                 .map((experience) => {
                   return {
                     title: `${experience.title}`,
-                    description: `@ ${experience.company}`,
+                    description: `at ${experience.company}`,
                     preformattedDate: `${formatDate(experience.startDate)} - ${
                       experience.endDate
                         ? formatDate(experience.endDate)
@@ -93,6 +93,42 @@ export default async function Home() {
                   );
                 })}
             </ul> */}
+          </div>
+        </div>
+        <div>
+          <div className="flex items-center justify-between mb-4 gap-1">
+            <h2 className="font-medium ">Connect</h2>
+          </div>
+          <div>
+            <p>
+              Find me on{" "}
+              <a
+                href="https://www.linkedin.com/in/joesanchezjr"
+                className="underline underline-offset-4 decoration-zinc-300 hover:decoration-zinc-700 dark:decoration-zinc-600 dark:hover:decoration-zinc-300 transition-colors"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                LinkedIn
+              </a>
+              ,{" "}
+              <a
+                href="https://github.com/joesanchezjr"
+                className="underline underline-offset-4 decoration-zinc-300 hover:decoration-zinc-700 dark:decoration-zinc-600 dark:hover:decoration-zinc-300 transition-colors"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                GitHub
+              </a>
+              , or{" "}
+              <a
+                href="https://bsky.app/profile/joesanchezjr.dev"
+                className="underline underline-offset-4 decoration-zinc-300 hover:decoration-zinc-700 dark:decoration-zinc-600 dark:hover:decoration-zinc-300 transition-colors"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Bluesky
+              </a>
+            </p>
           </div>
         </div>
 
