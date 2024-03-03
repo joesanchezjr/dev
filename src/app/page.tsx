@@ -63,7 +63,7 @@ export default async function Home() {
                 .map((experience) => {
                   return {
                     title: `${experience.title}`,
-                    description: `@ ${experience.company}`,
+                    description: `at ${experience.company}`,
                     preformattedDate: `${formatDate(experience.startDate)} - ${
                       experience.endDate
                         ? formatDate(experience.endDate)
