@@ -4,6 +4,7 @@ import { formatDate } from "@/utils/date";
 export function TimelineItem({
   item,
   isLast,
+  ...rest
 }: {
   item: {
     title: string;
@@ -12,18 +13,18 @@ export function TimelineItem({
     preformattedDate?: string;
   };
   isLast?: boolean;
-}) {
+} & React.HTMLAttributes<HTMLLIElement>) {
   return (
-    <li className="relative flex timeline-item">
+    <li className="relative flex timeline-item" {...rest}>
       <div
         className={clsx(
-          "absolute left-0 top-0 flex w-4 justify-center",
-          isLast ? "h-6" : "-bottom-6",
+          "absolute left-0 top-5 flex w-4 justify-center",
+          isLast ? "h-0" : "-bottom-5",
         )}
       >
         <div className="w-px bg-zinc-200 dark:bg-zinc-800" />
       </div>
-      <div className="absolute flex h-6 w-4 flex-none items-center justify-center bg-zinc-50 dark:bg-zinc-950">
+      <div className="absolute flex h-6 w-4 flex-none items-center justify-center">
         <div className="h-1.5 w-1.5 rounded-full bg-zinc-200 ring-1 ring-zinc-300 dark:bg-zinc-800 dark:ring-zinc-700" />
       </div>
 
