@@ -12,6 +12,7 @@ import { SpeedInsights } from "@vercel/speed-insights/next";
 import Footer from "@/components/footer";
 
 import { inter, newsreader, fira_code } from "@/fonts";
+import { MouseGradient } from "@/components/mouse-gradient/mouse-gradient";
 
 const title = "Joe Sanchez Jr. | Software Engineer for Hire";
 const description =
@@ -69,6 +70,7 @@ export default function RootLayout({
   return (
     <html lang="en" className={htmlClasses}>
       <body className="relative min-h-[100svh] bg-zinc-50 text-zinc-700 dark:bg-zinc-950 dark:text-zinc-300 flex flex-col justify-center">
+        <MouseGradient />
         <Providers>
           {/* <Header /> */}
           {modal}
