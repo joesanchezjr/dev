@@ -15,7 +15,7 @@ export function TimelineItem({
   isLast?: boolean;
 } & React.HTMLAttributes<HTMLLIElement>) {
   return (
-    <li className="relative flex timeline-item" {...rest}>
+    <li className="relative flex timeline-item will-change-transform" {...rest}>
       <div
         className={clsx(
           "absolute left-0 top-5 flex w-4 justify-center",
