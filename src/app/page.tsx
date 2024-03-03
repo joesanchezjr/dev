@@ -7,7 +7,6 @@
 // import Dots from "@/app/animation/dots";
 // import Pokemon from "@/components/pokemon/pokemon";
 // import FavoriteMovies from "@/components/favorite-movies/favorite-movies";
-import Status from "@/components/header/status";
 import { allExperiences } from "contentlayer/generated";
 import { compareDesc } from "date-fns";
 import { formatDate } from "@/utils/date";
@@ -15,26 +14,13 @@ import { ArrowDownTrayIcon } from "@heroicons/react/16/solid";
 import Link from "next/link";
 
 import Timeline from "@/components/timeline/timeline";
+import { Header } from "@/components/header/header";
 
 export default async function Home() {
   return (
     <main>
       <div className="py-16 md:py-32 max-width space-y-12">
-        {/* not using a <section> here because the document outline goes in one and the h1 is applied to the section instead of the body */}
-        <div>
-          <div className="flex justify-between mb-6 items-center">
-            <h1 className="font-medium text-lg">Joe Sanchez Jr.</h1>
-            <Status />
-          </div>
-          <p className="max-w-prose">
-            <span className="font-serif italic text-lg">
-              Software Engineer &mdash;
-            </span>{" "}
-            Creative developer with seven years of building for the web.
-            Dedicated to making the internet a more beautiful and accessible
-            space.
-          </p>
-        </div>
+        <Header />
         <div>
           <div className="flex items-center justify-between mb-4 gap-1">
             <h2 className="font-medium ">Experience</h2>

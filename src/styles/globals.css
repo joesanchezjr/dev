@@ -2,6 +2,15 @@
 @tailwind components;
 @tailwind utilities;
 
+:root {
+  --mouse-gradient-color: theme(colors.zinc.200 / 60%);
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --mouse-gradient-color: theme(colors.zinc.900);
+  }
+}
+
 @layer utilities {
   .safe-area {
     padding-left: env(safe-area-inset-left);

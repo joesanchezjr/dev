@@ -29,7 +29,7 @@ export default function Timeline({
         ease: "power2.out",
       });
     },
-    { scope: container },
+    { scope: container, dependencies: [prefersReducedMotion] },
   );
 
   return (
