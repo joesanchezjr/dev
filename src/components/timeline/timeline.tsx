@@ -21,16 +21,16 @@ function TimelineItem({
           isLast ? "h-6" : "-bottom-6",
         )}
       >
-        <div className="w-px bg-slate-200 dark:bg-slate-800" />
+        <div className="w-px bg-zinc-200 dark:bg-zinc-800" />
       </div>
-      <div className="absolute flex h-6 w-4 flex-none items-center justify-center bg-slate-50 dark:bg-slate-950">
-        <div className="h-1.5 w-1.5 rounded-full bg-slate-200 ring-1 ring-slate-300 dark:bg-slate-800 dark:ring-slate-700" />
+      <div className="absolute flex h-6 w-4 flex-none items-center justify-center bg-zinc-50 dark:bg-zinc-950">
+        <div className="h-1.5 w-1.5 rounded-full bg-zinc-200 ring-1 ring-zinc-300 dark:bg-zinc-800 dark:ring-zinc-700" />
       </div>
 
       <div className="flex flex-col sm:flex-row sm:justify-between w-full">
         <time
           dateTime={item.date}
-          className="flex-none py-0.5 text-sm leading-5 tracking-tight text-slate-500 md:order-2 ml-6 md:ml-0"
+          className="flex-none py-0.5 text-sm leading-5 tracking-tight text-zinc-500 md:order-2 ml-6 md:ml-0"
         >
           {item?.preformattedDate ??
             (item.date && formatDate(item.date, "MMM dd"))}
