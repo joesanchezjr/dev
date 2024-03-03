@@ -50,7 +50,7 @@ export default async function PostPage({ params }: PostProps) {
   }
 
   return (
-    <div className="flex min-h-screen flex-col items-center p-24">
+    <div className="flex min-h-[100dvh] flex-col items-center p-24">
       <h1 className="mb-2">{post.company}</h1>
       <span>{post.title}</span>
       <article className="prose p-6">

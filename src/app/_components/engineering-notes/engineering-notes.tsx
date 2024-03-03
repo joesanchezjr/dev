@@ -53,25 +53,20 @@ export function EngineeringNotes({ showAll }: { showAll?: boolean }) {
   );
   const postsToShow = showAll ? sortedPosts : sortedPosts.slice(0, 5);
 
-  // @todo: organize by year if more than one year of posts
-
   return (
-    <Card
-      variant="outline"
-      className="mb-12"
-      withPadding
-      title="Engineering Notes"
-      dotColor="rose"
-    >
-      <ul role="list" className="-ml-1 space-y-6">
-        {postsToShow.map((post, index) => (
-          <PostLinkListItem
-            key={post.title}
-            post={post}
-            isLast={index === postsToShow.length - 1}
-          />
-        ))}
-      </ul>
-    </Card>
+    <div>
+      <h2 className="font-medium mb-2">Engineering Notes</h2>
+      <div>
+        <ul role="list" className="-ml-1 space-y-6">
+          {postsToShow.map((post, index) => (
+            <PostLinkListItem
+              key={post.title}
+              post={post}
+              isLast={index === postsToShow.length - 1}
+            />
+          ))}
+        </ul>
+      </div>
+    </div>
   );
 }
