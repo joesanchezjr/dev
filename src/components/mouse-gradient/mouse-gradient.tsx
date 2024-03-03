@@ -1,10 +1,10 @@
-"use client";
+"use client"
 
-import { useMousePosition } from "@/hooks/use-mouse-position/use-mouse-position";
-import React from "react";
+import { useMousePosition } from "@/hooks/use-mouse-position/use-mouse-position"
+import React from "react"
 
 export function MouseGradient() {
-  const mouse = useMousePosition();
+  const mouse = useMousePosition()
 
   return (
     <>
@@ -15,5 +15,5 @@ export function MouseGradient() {
         }}
       />
     </>
-  );
+  )
 }
