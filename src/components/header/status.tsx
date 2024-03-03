@@ -1,4 +1,12 @@
-export default function Status() {
+import { get } from "@vercel/edge-config";
+
+export async function Status() {
+  const available = await get("availableForHire");
+
+  if (!available) {
+    return null;
+  }
+
   return (
     <div className="inline-flex items-center gap-2 rounded-full bg-green-200 px-2 py-1 text-xs dark:bg-transparent dark:border-zinc-700 dark:border dark:text-white">
       <span className="relative flex h-2 w-2">
