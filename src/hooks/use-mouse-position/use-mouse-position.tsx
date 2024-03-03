@@ -1,29 +1,31 @@
-import React from "react";
+import React from "react"
 
-import { useIsomorphicLayoutEffect } from "@/hooks/use-isomorphic-layout-effect/use-isomorphic-layout-effect";
-import { useReducedMotion } from "@/hooks/use-reduced-motion/use-reduced-motion";
+import { useIsomorphicLayoutEffect } from "@/hooks/use-isomorphic-layout-effect/use-isomorphic-layout-effect"
+import { useReducedMotion } from "@/hooks/use-reduced-motion/use-reduced-motion"
 
 export function useMousePosition() {
-  const prefersReducedMotion = useReducedMotion();
+  const prefersReducedMotion = useReducedMotion()
 
-  const [state, setState] = React.useState({ x: 0, y: 0 });
+  const [state, setState] = React.useState({ x: 0, y: 0 })
 
   useIsomorphicLayoutEffect(() => {
-    if (prefersReducedMotion) return;
+    if (prefersReducedMotion) {
+      return
+    }
 
     const handleMouseMove = (event: MouseEvent) => {
-      const newState = { x: event.pageX, y: event.pageY };
+      const newState = { x: event.pageX, y: event.pageY }
       setState((prev) => {
-        return { ...prev, ...newState };
-      });
-    };
+        return { ...prev, ...newState }
+      })
+    }
 
-    document.addEventListener("mousemove", handleMouseMove);
+    document.addEventListener("mousemove", handleMouseMove)
 
     return () => {
-      document.removeEventListener("mousemove", handleMouseMove);
-    };
-  }, [prefersReducedMotion]);
+      document.removeEventListener("mousemove", handleMouseMove)
+    }
+  }, [prefersReducedMotion])
 
-  return state;
+  return state
 }

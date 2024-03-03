@@ -20,4 +20,4 @@ export const experience = [
     endDate: "2021-06",
     icon: "/icons/logos/preemptive-love.png",
   },
-];
+]

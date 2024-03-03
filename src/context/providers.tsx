@@ -1,7 +1,5 @@
-"use client";
-
-import { AppProvider } from "./app-context/app-context";
+"use client"
 
 export function Providers({ children }: { children: React.ReactNode }) {
-  return <AppProvider>{children}</AppProvider>;
+  return <>{children}</>
 }

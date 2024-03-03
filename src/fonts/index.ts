@@ -1,4 +1,4 @@
-import localFont from "next/font/local";
+import localFont from "next/font/local"
 
 export const newsreader = localFont({
   src: [
@@ -12,7 +12,7 @@ export const newsreader = localFont({
     },
   ],
   variable: "--font-newsreader",
-});
+})
 
 export const inter = localFont({
   src: [
@@ -26,4 +26,4 @@ export const inter = localFont({
     },
   ],
   variable: "--font-inter",
-});
+})

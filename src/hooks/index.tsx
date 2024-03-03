@@ -1,1 +1,1 @@
-export { useReducedMotion } from "./use-reduced-motion/use-reduced-motion";
+export { useReducedMotion } from "./use-reduced-motion/use-reduced-motion"
