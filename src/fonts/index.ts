@@ -1,12 +1,4 @@
-import { Fira_Code } from "next/font/google";
-
 import localFont from "next/font/local";
-
-export const fira_code = Fira_Code({
-  subsets: ["latin"],
-  display: "swap",
-  variable: "--font-fira-code",
-});
 
 export const newsreader = localFont({
   src: [

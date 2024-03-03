@@ -9,7 +9,7 @@ import { Analytics as VercelAnalytics } from "@vercel/analytics/react";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import Footer from "@/components/footer";
 
-import { inter, newsreader, fira_code } from "@/fonts";
+import { inter, newsreader } from "@/fonts";
 import { MouseGradient } from "@/components/mouse-gradient/mouse-gradient";
 
 import "@/styles/globals.css";
@@ -57,12 +57,7 @@ export default function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
-  const htmlClasses = clsx(
-    inter.variable,
-    fira_code.variable,
-    newsreader.variable,
-    "antialiased",
-  );
+  const htmlClasses = clsx(inter.variable, newsreader.variable, "antialiased");
   return (
     <html lang="en" className={htmlClasses}>
       <body className="relative min-h-[100svh] bg-zinc-50 text-zinc-700 dark:bg-zinc-950 dark:text-zinc-300 flex flex-col justify-center">
