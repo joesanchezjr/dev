@@ -1,8 +1,10 @@
-import { allExperiences } from "contentlayer/generated";
 import { compareDesc } from "date-fns";
-import { formatDate } from "@/utils/date";
-import { ArrowDownTrayIcon } from "@heroicons/react/16/solid";
 import Link from "next/link";
+import { ArrowDownTrayIcon } from "@heroicons/react/16/solid";
+
+import { formatDate } from "@/utils/date";
+
+import { experience } from "@/content/experience";
 
 import Timeline from "@/components/timeline/timeline";
 import { Header } from "@/components/header/header";
@@ -33,7 +35,7 @@ export default async function Home() {
           </div>
           <div>
             <Timeline
-              items={allExperiences
+              items={experience
                 .sort((a, z) =>
                   compareDesc(new Date(a.startDate), new Date(z.startDate)),
                 )

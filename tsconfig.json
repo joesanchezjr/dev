@@ -19,10 +19,10 @@
         "name": "next"
       }
     ],
+    "baseUrl": ".",
     "paths": {
       "@/*": ["./src/*"],
-      "@/public/*": ["./public/*"],
-      "contentlayer/generated": ["./.contentlayer/generated"]
+      "@/public/*": ["./public/*"]
     }
   },
   "include": ["next-env.d.ts", "**/*", "**/*", ".next/types/**/*.ts"],
