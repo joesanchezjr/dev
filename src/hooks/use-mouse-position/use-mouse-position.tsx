@@ -23,7 +23,7 @@ export function useMousePosition() {
     return () => {
       document.removeEventListener("mousemove", handleMouseMove);
     };
-  }, []);
+  }, [prefersReducedMotion]);
 
   return state;
 }
