@@ -1,4 +1,3 @@
-import "@/styles/globals.css";
 import { Providers } from "@/context/providers";
 import clsx from "clsx";
 import { NavigationEvents } from "@/components/navigation-events";
@@ -6,13 +5,14 @@ import { Suspense } from "react";
 import Script from "next/script";
 import { Metadata } from "next";
 import { BASE_URL, IS_PROD } from "@/utils/constants";
-// import { Header } from "@/components/header/header";
 import { Analytics as VercelAnalytics } from "@vercel/analytics/react";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import Footer from "@/components/footer";
 
 import { inter, newsreader, fira_code } from "@/fonts";
 import { MouseGradient } from "@/components/mouse-gradient/mouse-gradient";
+
+import "@/styles/globals.css";
 
 const title = "Joe Sanchez Jr. | Software Engineer for Hire";
 const description =
@@ -54,12 +54,8 @@ export const metadata: Metadata = {
 
 export default function RootLayout({
   children,
-  modal,
-  pokemon: _pokemon,
 }: {
   children: React.ReactNode;
-  modal: React.ReactNode;
-  pokemon: React.ReactNode;
 }) {
   const htmlClasses = clsx(
     inter.variable,
@@ -71,11 +67,7 @@ export default function RootLayout({
     <html lang="en" className={htmlClasses}>
       <body className="relative min-h-[100svh] bg-zinc-50 text-zinc-700 dark:bg-zinc-950 dark:text-zinc-300 flex flex-col justify-center">
         <MouseGradient />
-        <Providers>
-          {/* <Header /> */}
-          {modal}
-          {children}
-        </Providers>
+        <Providers>{children}</Providers>
 
         <Footer />
 
