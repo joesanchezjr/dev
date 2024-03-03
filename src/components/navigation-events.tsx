@@ -2,7 +2,7 @@
 
 import { useEffect } from "react";
 import { usePathname, useSearchParams } from "next/navigation";
-import { IS_DEV, IS_PROD } from "@/utils/constants";
+import { IS_DEV } from "@/utils/constants";
 
 // https://nextjs.org/docs/app/api-reference/functions/use-router#router-events
 
@@ -11,8 +11,10 @@ export function NavigationEvents() {
   const searchParams = useSearchParams();
 
   useEffect(() => {
-    const url = `${pathname}?${searchParams}`;
-    IS_DEV && console.log(url);
+    if (!IS_DEV) return;
+    console.log(
+      `DEV ONLY {pathname}/{searchParams}: ${pathname}?${searchParams}`,
+    );
   }, [pathname, searchParams]);
 
   return null;

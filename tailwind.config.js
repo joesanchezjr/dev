@@ -11,6 +11,7 @@ module.exports = {
     fontFamily: {
       sans: ["var(--font-inter)", ...defaultTheme.fontFamily.sans],
       mono: ["var(--font-fira-code)", ...defaultTheme.fontFamily.mono],
+      serif: ["var(--font-newsreader)", ...defaultTheme.fontFamily.serif],
     },
     screens: {
       xs: "475px",
