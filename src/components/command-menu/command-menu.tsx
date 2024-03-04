@@ -102,7 +102,7 @@ export function CommandMenu() {
               <span>Home</span>
               <CommandShortcut>⌘H</CommandShortcut>
             </CommandItem>
-            <CommandItem onSelect={goHome}>
+            <CommandItem onSelect={goToContact}>
               <Mail className="mr-2 h-4 w-4" />
               <span>Contact</span>
               <CommandShortcut>⌘C</CommandShortcut>
