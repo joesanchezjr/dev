@@ -1,8 +1,9 @@
 "use client"
 
 import * as React from "react"
-import { FileText } from "lucide-react"
+import { FileText, Home, Mail } from "lucide-react"
 import { toast } from "sonner"
+import { useRouter } from "next/navigation"
 
 import {
   CommandDialog,
@@ -11,7 +12,7 @@ import {
   CommandInput,
   CommandItem,
   CommandList,
-  // CommandSeparator,
+  CommandSeparator,
   CommandShortcut,
 } from "@/components/ui/command"
 import Start from "@/components/command-menu/start"
@@ -19,6 +20,7 @@ import { Toaster } from "@/components/ui/sonner"
 import { useCommandMenu } from "@/components/command-menu/use-command-menu"
 
 export function CommandMenu() {
+  const router = useRouter()
   const { open, setOpen } = useCommandMenu()
 
   const downloadResume = React.useCallback(() => {
@@ -31,6 +33,16 @@ export function CommandMenu() {
     }
   }, [open, setOpen])
 
+  const goHome = React.useCallback(() => {
+    router.push("/")
+    open && setOpen(false)
+  }, [open, router, setOpen])
+
+  const goToContact = React.useCallback(() => {
+    router.push("/contact")
+    open && setOpen(false)
+  }, [open, router, setOpen])
+
   React.useEffect(() => {
     const down = (e: KeyboardEvent) => {
       if (e.key === "k" && (e.metaKey || e.ctrlKey)) {
@@ -41,11 +53,19 @@ export function CommandMenu() {
         e.preventDefault()
         downloadResume()
       }
+      if (e.key === "h" && (e.metaKey || e.ctrlKey)) {
+        e.preventDefault()
+        goHome()
+      }
+      if (e.key === "c" && (e.metaKey || e.ctrlKey)) {
+        e.preventDefault()
+        goToContact()
+      }
     }
 
     document.addEventListener("keydown", down)
     return () => document.removeEventListener("keydown", down)
-  }, [downloadResume, open, setOpen])
+  }, [downloadResume, goHome, goToContact, open, router, setOpen])
 
   if (typeof window === "undefined") {
     return
@@ -73,16 +93,21 @@ export function CommandMenu() {
             <CommandItem>
               <Calculator className="mr-2 h-4 w-4" />
               <span>Calculator</span>
-            </CommandItem> */}
+            </CommandItem>  */}
           </CommandGroup>
-          {/* <CommandSeparator />
-           <CommandGroup heading="Navigation">
-            <CommandItem>
-              <User className="mr-2 h-4 w-4" />
-              <span>Profile</span>
-              <CommandShortcut>⌘P</CommandShortcut>
+          <CommandSeparator />
+          <CommandGroup heading="Navigation">
+            <CommandItem onSelect={goHome}>
+              <Home className="mr-2 h-4 w-4" />
+              <span>Home</span>
+              <CommandShortcut>⌘H</CommandShortcut>
             </CommandItem>
-            <CommandItem>
+            <CommandItem onSelect={goHome}>
+              <Mail className="mr-2 h-4 w-4" />
+              <span>Contact</span>
+              <CommandShortcut>⌘C</CommandShortcut>
+            </CommandItem>
+            {/* <CommandItem>
               <CreditCard className="mr-2 h-4 w-4" />
               <span>Billing</span>
               <CommandShortcut>⌘B</CommandShortcut>
@@ -91,8 +116,8 @@ export function CommandMenu() {
               <Settings className="mr-2 h-4 w-4" />
               <span>Settings</span>
               <CommandShortcut>⌘S</CommandShortcut>
-            </CommandItem>
-          </CommandGroup> */}
+            </CommandItem> */}
+          </CommandGroup>
         </CommandList>
       </CommandDialog>
       <Toaster />

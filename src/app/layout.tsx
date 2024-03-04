@@ -13,6 +13,7 @@ import { MouseGradient } from "@/components/mouse-gradient/mouse-gradient"
 
 import "@/styles/globals.css"
 import { CommandMenu } from "@/components/command-menu/command-menu"
+import DefaultLayout from "@/components/layout/layout"
 
 const title = "Joe Sanchez Jr. | Software Engineer for Hire"
 const description =
@@ -51,10 +52,10 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="en" className={htmlClasses}>
       <body className="relative flex min-h-[100svh] flex-col justify-center bg-zinc-50 text-zinc-700 dark:bg-zinc-950 dark:text-zinc-300">
-        <MouseGradient />
         <Providers>
+          <MouseGradient />
           <CommandMenu />
-          {children}
+          <DefaultLayout>{children}</DefaultLayout>
         </Providers>
 
         <Footer />
