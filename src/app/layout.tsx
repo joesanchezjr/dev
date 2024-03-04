@@ -12,6 +12,7 @@ import { inter, newsreader } from "@/fonts"
 import { MouseGradient } from "@/components/mouse-gradient/mouse-gradient"
 
 import "@/styles/globals.css"
+import { CommandMenu } from "@/components/command-menu/command-menu"
 
 const title = "Joe Sanchez Jr. | Software Engineer for Hire"
 const description =
@@ -46,12 +47,15 @@ export const metadata: Metadata = {
 }
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
-  const htmlClasses = clsx(inter.variable, newsreader.variable, "antialiased")
+  const htmlClasses = clsx(inter.variable, newsreader.variable, "relative antialiased")
   return (
     <html lang="en" className={htmlClasses}>
       <body className="relative flex min-h-[100svh] flex-col justify-center bg-zinc-50 text-zinc-700 dark:bg-zinc-950 dark:text-zinc-300">
         <MouseGradient />
-        <Providers>{children}</Providers>
+        <Providers>
+          <CommandMenu />
+          {children}
+        </Providers>
 
         <Footer />
 

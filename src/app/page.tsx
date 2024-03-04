@@ -17,7 +17,7 @@ export default function Home() {
         <div>
           <div className="mb-4 flex items-center justify-between gap-1">
             <h2 className="font-medium ">Experience</h2>
-            <Link href="/resume" download className="group text-sm" target="_blank" rel="noopener noreferrer">
+            <Link href="/resume" download className="group text-sm" target="_blank" rel="noopener noreferrer" id="download-resume-link">
               <ArrowDownTrayIcon
                 aria-hidden
                 className="inline h-4 w-4 translate-y-1 opacity-0 transition-all group-hover:translate-y-0 group-hover:opacity-100"
