@@ -8,17 +8,17 @@ export type Experience = {
 }[]
 
 export const experience: Experience = [
-  {
-    company: "Personal Projects / Freelance Work",
-    title: "Full-Stack Developer",
-    startDate: "2017-01",
-    content: (
-      <p>
-        → Building with &mdash; React, TypeScript, Tailwind, Next, Vite, Jest, React Router, Postgres (Supabase), Auth
-        (Supabase, next-auth), Prisma, AWS, GitHub Actions, Vercel, GSAP, and more (always experimenting)
-      </p>
-    ),
-  },
+  // {
+  //   company: "Personal Projects / Freelance Work",
+  //   title: "Full-Stack Developer",
+  //   startDate: "2017-01",
+  //   content: (
+  //     <p>
+  //       → Building with &mdash; React, TypeScript, Tailwind, Next, Vite, Jest, React Router, Postgres (Supabase), Auth
+  //       (Supabase, next-auth), Prisma, AWS, GitHub Actions, Vercel, GSAP, and more (always experimenting)
+  //     </p>
+  //   ),
+  // },
   {
     company: "Optum",
     title: "Senior Software Engineer",

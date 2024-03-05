@@ -29,7 +29,7 @@ export default function Timeline({
       }
       gsap.from(".timeline-item", {
         opacity: 0,
-        y: 25,
+        y: 15,
         stagger: 0.125,
         ease: "power2.out",
       })
@@ -39,7 +39,7 @@ export default function Timeline({
 
   return (
     <>
-      <Accordion type="single" collapsible>
+      <Accordion type="single" collapsible ref={container}>
         {items.map((item, index) => (
           <AccordionItem value={index.toString()} key={index} isLast={index === items.length - 1}>
             <AccordionTrigger>
