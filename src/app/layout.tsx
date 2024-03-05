@@ -36,14 +36,14 @@ export const metadata: Metadata = {
     type: "website",
     images: [
       {
-        url: `${BASE_URL}/og-image-v12.07.png`,
+        url: `${BASE_URL}/og-image-v03.04.png`,
       },
     ],
   },
   twitter: {
     title: title,
     card: "summary_large_image",
-    images: [`${BASE_URL}/og-image-v12.07.png`],
+    images: [`${BASE_URL}/og-image-v03.04.png`],
   },
   keywords: ["Software engineer", "Front-end developer", "UI engineer", "React engineer", "Typescript engineer"],
 }
