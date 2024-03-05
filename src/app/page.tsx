@@ -18,14 +18,7 @@ export default function Home() {
       <div>
         <div className="mb-4 flex items-center justify-between gap-1">
           <h2 className="font-medium ">Experience</h2>
-          <Link
-            href="/resume"
-            download
-            className="group text-sm"
-            target="_blank"
-            rel="noopener noreferrer"
-            id="download-resume-link"
-          >
+          <Link href="/resume" download className="group text-sm" target="_blank" rel="noopener noreferrer">
             <ArrowDownTrayIcon
               aria-hidden
               className="inline h-4 w-4 translate-y-1 opacity-0 transition-all group-hover:translate-y-0 group-hover:opacity-100"
@@ -38,7 +31,15 @@ export default function Home() {
         <div>
           <Timeline
             items={experience
-              .sort((a, z) => compareDesc(new Date(a.startDate), new Date(z.startDate)))
+              .sort((a, z) => {
+                if (!a.endDate) {
+                  return -1
+                }
+                if (!z.endDate) {
+                  return 1
+                }
+                return compareDesc(new Date(a.endDate), new Date(z.endDate))
+              })
               .map((experience) => {
                 return {
                   title: `${experience.title}`,
@@ -46,6 +47,7 @@ export default function Home() {
                   preformattedDate: `${formatDate(experience.startDate)} - ${
                     experience.endDate ? formatDate(experience.endDate) : "Present"
                   }`,
+                  content: experience.content as React.ReactNode, // I don't like this type assertion
                 }
               })}
           />

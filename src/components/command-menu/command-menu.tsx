@@ -23,11 +23,14 @@ export function CommandMenu() {
   const router = useRouter()
   const { open, setOpen } = useCommandMenu()
 
+  // @todo: closing menu after navigation causes a flash (opacity drops before page is routed)
+  // @todo: menu might close while still routing on slow connections making it look like it didn't work
+
   const downloadResume = React.useCallback(() => {
     // @todo: make this a fetch?
     const link = document.querySelector("#download-resume-link") as HTMLAnchorElement
     if (link) {
-      link.click()
+      link.click() // link is target="_blank" so it will open in a new tab
       open && setOpen(false)
       toast.success("Downloading resume...")
     }
@@ -76,6 +79,7 @@ export function CommandMenu() {
   return (
     <>
       <Start />
+      <Toaster />
       <CommandDialog open={open} onOpenChange={setOpen}>
         <CommandInput placeholder="Type a command or search..." />
         <CommandList>
@@ -100,12 +104,12 @@ export function CommandMenu() {
             <CommandItem onSelect={goHome}>
               <Home className="mr-2 h-4 w-4" />
               <span>Home</span>
-              <CommandShortcut>⌘H</CommandShortcut>
+              {!isMobile && <CommandShortcut>{isMac ? "⌘" : "ctrl"}H</CommandShortcut>}
             </CommandItem>
             <CommandItem onSelect={goToContact}>
               <Mail className="mr-2 h-4 w-4" />
               <span>Contact</span>
-              <CommandShortcut>⌘C</CommandShortcut>
+              {!isMobile && <CommandShortcut>{isMac ? "⌘" : "ctrl"}C</CommandShortcut>}
             </CommandItem>
             {/* <CommandItem>
               <CreditCard className="mr-2 h-4 w-4" />
@@ -120,7 +124,6 @@ export function CommandMenu() {
           </CommandGroup>
         </CommandList>
       </CommandDialog>
-      <Toaster />
     </>
   )
 }
