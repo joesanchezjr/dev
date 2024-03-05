@@ -23,11 +23,14 @@ export function CommandMenu() {
   const router = useRouter()
   const { open, setOpen } = useCommandMenu()
 
+  // @todo: closing menu after navigation causes a flash (opacity drops before page is routed)
+  // @todo: menu might close while still routing on slow connections making it look like it didn't work
+
   const downloadResume = React.useCallback(() => {
     // @todo: make this a fetch?
     const link = document.querySelector("#download-resume-link") as HTMLAnchorElement
     if (link) {
-      link.click()
+      link.click() // link is target="_blank" so it will open in a new tab
       open && setOpen(false)
       toast.success("Downloading resume...")
     }

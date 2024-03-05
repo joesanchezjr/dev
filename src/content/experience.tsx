@@ -15,7 +15,7 @@ export const experience: Experience = [
     content: (
       <p>
         → Building with &mdash; React, TypeScript, Tailwind, Next, Vite, Jest, React Router, Postgres (Supabase), Auth
-        (Supabase, next-auth), Prisma, AWS, Github Actions, Vercel, GSAP, and more (always experimenting)
+        (Supabase, next-auth), Prisma, AWS, GitHub Actions, Vercel, GSAP, and more (always experimenting)
       </p>
     ),
   },
