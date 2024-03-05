@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 :root {
-  --mouse-gradient-color: theme(colors.zinc.200 / 60%);
+  --mouse-gradient-color: theme(colors.zinc.200 / 80%);
 }
 @media (prefers-color-scheme: dark) {
   :root {

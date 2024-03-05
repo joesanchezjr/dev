@@ -76,6 +76,7 @@ export function CommandMenu() {
   return (
     <>
       <Start />
+      <Toaster />
       <CommandDialog open={open} onOpenChange={setOpen}>
         <CommandInput placeholder="Type a command or search..." />
         <CommandList>
@@ -120,7 +121,6 @@ export function CommandMenu() {
           </CommandGroup>
         </CommandList>
       </CommandDialog>
-      <Toaster />
     </>
   )
 }

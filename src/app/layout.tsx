@@ -14,6 +14,7 @@ import { MouseGradient } from "@/components/mouse-gradient/mouse-gradient"
 import "@/styles/globals.css"
 import { CommandMenu } from "@/components/command-menu/command-menu"
 import DefaultLayout from "@/components/layout/layout"
+import Link from "next/link"
 
 const title = "Joe Sanchez Jr. | Software Engineer for Hire"
 const description =
@@ -56,6 +57,14 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           <MouseGradient />
           <CommandMenu />
           <DefaultLayout>{children}</DefaultLayout>
+          <Link
+            href="/resume"
+            download
+            className="hidden"
+            target="_blank"
+            rel="noopener noreferrer"
+            id="download-resume-link"
+          />
         </Providers>
 
         <Footer />
