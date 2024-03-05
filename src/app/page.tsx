@@ -31,7 +31,15 @@ export default function Home() {
         <div>
           <Timeline
             items={experience
-              .sort((a, z) => compareDesc(new Date(a.startDate), new Date(z.startDate)))
+              .sort((a, z) => {
+                if (!a.endDate) {
+                  return -1
+                }
+                if (!z.endDate) {
+                  return 1
+                }
+                return compareDesc(new Date(a.endDate), new Date(z.endDate))
+              })
               .map((experience) => {
                 return {
                   title: `${experience.title}`,

@@ -101,12 +101,12 @@ export function CommandMenu() {
             <CommandItem onSelect={goHome}>
               <Home className="mr-2 h-4 w-4" />
               <span>Home</span>
-              <CommandShortcut>⌘H</CommandShortcut>
+              {!isMobile && <CommandShortcut>{isMac ? "⌘" : "ctrl"}H</CommandShortcut>}
             </CommandItem>
             <CommandItem onSelect={goToContact}>
               <Mail className="mr-2 h-4 w-4" />
               <span>Contact</span>
-              <CommandShortcut>⌘C</CommandShortcut>
+              {!isMobile && <CommandShortcut>{isMac ? "⌘" : "ctrl"}C</CommandShortcut>}
             </CommandItem>
             {/* <CommandItem>
               <CreditCard className="mr-2 h-4 w-4" />
