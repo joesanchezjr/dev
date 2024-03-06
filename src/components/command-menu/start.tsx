@@ -6,6 +6,8 @@ import { MoreVertical } from "lucide-react"
 import { useCommandMenu } from "@/components/command-menu/use-command-menu"
 import { cn } from "@/lib/utils"
 
+import { ACTION_KEY } from "./command-menu"
+
 export default function Start({
   global = true,
   className,
@@ -22,7 +24,6 @@ export default function Start({
     return null
   }
 
-  const isMac = /(Mac)/i.test(navigator.userAgent)
   const isMobile = /iPhone|iPad|Android/i.test(navigator.userAgent)
 
   const styles = cn(
@@ -40,25 +41,13 @@ export default function Start({
         </span>
       </button>
     )
-  } else if (isMac) {
-    return (
-      <button className={styles} onClick={() => setOpen(!open)} {...rest}>
-        Press{" "}
-        <kbd className="bg-muted font-mono text-muted-foreground pointer-events-none inline-flex h-5 select-none items-center gap-1 rounded border px-1.5 text-[10px] font-medium opacity-100">
-          <span className="text-xs">⌘</span>K
-        </kbd>
-      </button>
-    )
-  } else {
-    return (
-      <button className={styles} onClick={() => setOpen(!open)} {...rest}>
-        <span className="hidden sm:inline">
-          Press{" "}
-          <kbd className="bg-muted font-mono text-muted-foreground pointer-events-none inline-flex h-5 select-none items-center gap-1 rounded border px-1.5 text-[10px] font-medium opacity-100">
-            <span className="text-xs">ctrl</span>K
-          </kbd>
-        </span>
-      </button>
-    )
   }
+  return (
+    <button className={styles} onClick={() => setOpen(!open)} {...rest}>
+      Press{" "}
+      <kbd className="bg-muted font-mono text-muted-foreground pointer-events-none inline-flex h-5 select-none items-center gap-1 rounded border px-1.5 text-[10px] font-medium opacity-100">
+        <span className="text-xs">{ACTION_KEY.toUpperCase()} + K</span>
+      </kbd>
+    </button>
+  )
 }

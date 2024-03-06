@@ -19,6 +19,12 @@ import Start from "@/components/command-menu/start"
 import { Toaster } from "@/components/ui/sonner"
 import { useCommandMenu } from "@/components/command-menu/use-command-menu"
 
+export const ACTION_KEY = "z"
+
+const createCommandLabel = (shortcut: string) => {
+  return `${ACTION_KEY.toLocaleUpperCase()} + ${shortcut.toLocaleUpperCase()}`
+}
+
 export function CommandMenu() {
   const router = useRouter()
   const { open, setOpen } = useCommandMenu()
@@ -47,33 +53,58 @@ export function CommandMenu() {
   }, [open, router, setOpen])
 
   React.useEffect(() => {
+    const keys = new Set<string>([])
+
     const down = (e: KeyboardEvent) => {
-      if (e.key === "k" && (e.metaKey || e.ctrlKey)) {
+      const usingActionKey = keys.has(ACTION_KEY)
+
+      keys.add(e.key)
+      // if action key is not pressed, don't do anything
+      if (!usingActionKey) {
+        return
+      }
+
+      // open command menu
+      if (keys.has("k")) {
         e.preventDefault()
         setOpen((open) => !open)
       }
-      if (e.key === "/" && (e.metaKey || e.ctrlKey)) {
+
+      // download resume
+      if (keys.has("/")) {
         e.preventDefault()
         downloadResume()
       }
-      if (e.key === "h" && (e.metaKey || e.ctrlKey)) {
+
+      // go to home page
+      if (keys.has("h")) {
         e.preventDefault()
         goHome()
       }
-      if (e.key === "c" && (e.metaKey || e.ctrlKey)) {
+
+      // go to contact page
+      if (keys.has("c")) {
         e.preventDefault()
         goToContact()
       }
     }
 
+    // remove keys from set on keyup
+    const up = (e: KeyboardEvent) => {
+      keys.delete(e.key)
+    }
+
     document.addEventListener("keydown", down)
-    return () => document.removeEventListener("keydown", down)
+    document.addEventListener("keyup", up)
+    return () => {
+      document.removeEventListener("keydown", down)
+      document.removeEventListener("keyup", up)
+    }
   }, [downloadResume, goHome, goToContact, open, router, setOpen])
 
   if (typeof window === "undefined") {
     return
   }
-  const isMac = /(Mac)/i.test(navigator.userAgent)
   const isMobile = /iPhone|iPad|Android/i.test(navigator.userAgent)
 
   return (
@@ -88,7 +119,7 @@ export function CommandMenu() {
             <CommandItem onSelect={downloadResume}>
               <FileText className="mr-2 h-4 w-4" />
               <span>Download Resume</span>
-              {!isMobile && <CommandShortcut>{isMac ? "⌘" : "ctrl"}/</CommandShortcut>}
+              {!isMobile && <CommandShortcut>{createCommandLabel("/")}</CommandShortcut>}
             </CommandItem>
             {/* <CommandItem>
               <Smile className="mr-2 h-4 w-4" />
@@ -104,12 +135,12 @@ export function CommandMenu() {
             <CommandItem onSelect={goHome}>
               <Home className="mr-2 h-4 w-4" />
               <span>Home</span>
-              {!isMobile && <CommandShortcut>{isMac ? "⌘" : "ctrl"}H</CommandShortcut>}
+              {!isMobile && <CommandShortcut>{createCommandLabel("h")}</CommandShortcut>}
             </CommandItem>
             <CommandItem onSelect={goToContact}>
               <Mail className="mr-2 h-4 w-4" />
               <span>Contact</span>
-              {!isMobile && <CommandShortcut>{isMac ? "⌘" : "ctrl"}C</CommandShortcut>}
+              {!isMobile && <CommandShortcut>{createCommandLabel("c")}</CommandShortcut>}
             </CommandItem>
             {/* <CommandItem>
               <CreditCard className="mr-2 h-4 w-4" />
