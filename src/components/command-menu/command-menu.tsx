@@ -1,7 +1,7 @@
 "use client"
 
 import * as React from "react"
-import { FileText, Home, Mail } from "lucide-react"
+import { FileText, Home, Mail, Rss } from "lucide-react"
 import { toast } from "sonner"
 import { useRouter } from "next/navigation"
 
@@ -52,6 +52,11 @@ export function CommandMenu() {
     open && setOpen(false)
   }, [open, router, setOpen])
 
+  const goToBlog = React.useCallback(() => {
+    router.push("/blog")
+    open && setOpen(false)
+  }, [open, router, setOpen])
+
   React.useEffect(() => {
     const keys = new Set<string>([])
 
@@ -87,6 +92,11 @@ export function CommandMenu() {
         e.preventDefault()
         goToContact()
       }
+      // go to contact page
+      if (keys.has("b")) {
+        e.preventDefault()
+        goToBlog()
+      }
     }
 
     // remove keys from set on keyup
@@ -100,7 +110,7 @@ export function CommandMenu() {
       document.removeEventListener("keydown", down)
       document.removeEventListener("keyup", up)
     }
-  }, [downloadResume, goHome, goToContact, open, router, setOpen])
+  }, [downloadResume, goHome, goToBlog, goToContact, open, router, setOpen])
 
   if (typeof window === "undefined") {
     return
@@ -141,6 +151,11 @@ export function CommandMenu() {
               <Mail className="mr-2 h-4 w-4" />
               <span>Contact</span>
               {!isMobile && <CommandShortcut>{createCommandLabel("c")}</CommandShortcut>}
+            </CommandItem>
+            <CommandItem onSelect={() => {}} disabled>
+              <Rss className="mr-2 h-4 w-4" />
+              <span>Blog (Coming Soon)</span>
+              {!isMobile && <CommandShortcut>{createCommandLabel("b")}</CommandShortcut>}
             </CommandItem>
             {/* <CommandItem>
               <CreditCard className="mr-2 h-4 w-4" />
