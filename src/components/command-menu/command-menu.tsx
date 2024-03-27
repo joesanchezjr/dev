@@ -152,7 +152,7 @@ export function CommandMenu() {
               <span>Contact</span>
               {!isMobile && <CommandShortcut>{createCommandLabel("c")}</CommandShortcut>}
             </CommandItem>
-            <CommandItem onSelect={() => {}} disabled>
+            <CommandItem onSelect={goToBlog}>
               <Rss className="mr-2 h-4 w-4" />
               <span>Blog (Coming Soon)</span>
               {!isMobile && <CommandShortcut>{createCommandLabel("b")}</CommandShortcut>}
