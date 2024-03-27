@@ -20,6 +20,8 @@ export default async function SingleBlogPage({ params }: { params: { slug: strin
   const allBlogs = await getBlogPosts()
   const post = allBlogs.find((post) => post.slug === params.slug)
 
+  console.log(post)
+
   if (!post) {
     notFound()
   }
@@ -34,6 +36,12 @@ export default async function SingleBlogPage({ params }: { params: { slug: strin
       </header>
 
       <div className="prose prose-zinc dark:prose-invert">
+        {typeof post.metadata.excerpt === "string" && post.metadata.excerpt.length > 0 && (
+          <div className="prose-p:mb-0 prose-p:text-zinc-500 dark:prose-p:text-zinc-500">
+            <MdxRenderer source={post.metadata.excerpt} />
+            <hr className="my-5" />
+          </div>
+        )}
         <MdxRenderer source={post.content} />
       </div>
     </article>
