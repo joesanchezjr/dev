@@ -16,6 +16,8 @@ function formatDate(date: string = "") {
   return fullDate
 }
 
+// @todo: add generateMetadata
+
 export default async function SingleBlogPage({ params }: { params: { slug: string } }) {
   const allBlogs = await getBlogPosts()
   const post = allBlogs.find((post) => post.slug === params.slug)
