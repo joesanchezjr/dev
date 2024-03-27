@@ -2,11 +2,12 @@ import { notFound } from "next/navigation"
 import type { Metadata } from "next"
 import MdxRenderer from "@/components/mdx"
 import { BASE_URL } from "@/utils/constants"
-import { MdxMetadata, getBlogPosts } from "@/utils/mdx"
+import { MdxMetadata, getAllBlogPosts, getBlogPostBySlug } from "@/utils/mdx"
 import { formatDate } from "@/utils/date"
 
 export async function generateMetadata({ params }: { params: { slug: string } }): Promise<Metadata | undefined> {
-  const post = (await getBlogPosts()).find((post) => post.slug === params.slug)
+  const post = await getBlogPostBySlug(params.slug)
+
   if (!post) {
     return
   }
@@ -39,7 +40,7 @@ export async function generateMetadata({ params }: { params: { slug: string } })
 }
 
 export default async function SingleBlogPage({ params }: { params: { slug: string } }) {
-  const allBlogs = await getBlogPosts()
+  const allBlogs = await getAllBlogPosts()
   const post = allBlogs.find((post) => post.slug === params.slug)
 
   // console.log(post)

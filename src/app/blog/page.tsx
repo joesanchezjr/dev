@@ -1,11 +1,11 @@
 import Link from "next/link"
 
 import MdxRenderer from "@/components/mdx"
-import { getBlogPosts } from "@/utils/mdx"
+import { getAllBlogPosts } from "@/utils/mdx"
 import { formatDate } from "@/utils/date"
 
 export default async function BlogPage() {
-  const allBlogs = await getBlogPosts()
+  const allBlogs = await getAllBlogPosts()
 
   return (
     <div>
