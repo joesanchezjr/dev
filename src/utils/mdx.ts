@@ -3,6 +3,13 @@ import { readdir, readFile } from "node:fs/promises"
 import matter from "gray-matter"
 import { isTruthy } from "@/utils/boolean"
 
+export type MdxMetadata = {
+  title: string
+  publishedAt: string
+  excerpt?: string
+  image?: string
+}
+
 const CONTENT_PATH = path.join(process.cwd(), "src", "content")
 
 async function getMdxFilesInDirectory(dir: string) {
