@@ -154,7 +154,7 @@ export function CommandMenu() {
             </CommandItem>
             <CommandItem onSelect={goToBlog}>
               <Rss className="mr-2 h-4 w-4" />
-              <span>Blog (Coming Soon)</span>
+              <span>Blog</span>
               {!isMobile && <CommandShortcut>{createCommandLabel("b")}</CommandShortcut>}
             </CommandItem>
             {/* <CommandItem>
