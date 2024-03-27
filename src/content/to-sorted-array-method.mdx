@@ -1,0 +1,85 @@
+---
+title: Sorting Arrays without Mutating Them
+excerpt: Exploring the new way to sort arrays in JavaScript with `toSorted`
+publishedAt: 2023-11-30
+---
+
+This summer, ECMAScript 2023 was released and with it came a new method for sorting arrays: `toSorted`. It also came with `toReversed`, `toSpliced`, `findLast`, and `with` methods. The `to___` methods are similar to the `sort`, `reverse`, and `splice` methods, but they return a new array instead of mutating the original array.
+
+I though it would be fun to compare the new `toSorted` method with the old `sort` method.
+
+## The `sort` method
+
+Previously, the `sort` method was the go to for sorting array. Although it had a potential drawback: it mutated the original array.
+
+```ts
+const arr = [3, 2, 1]
+arr.sort()
+console.log(arr) // [1, 2, 3]
+```
+
+As you can see the original array was mutated. This can be a problem if you want to keep the original array around.
+
+One solution for avoiding this was to create a copy of the array before sorting it.
+
+```ts
+const arr = [3, 2, 1]
+const sortedArr = [...arr].sort()
+console.log(arr) // [3, 2, 1]
+console.log(sortedArr) // [1, 2, 3]
+```
+
+By using the spread operator, we create a new array with the same values as the original array. This new array can be sorted without mutating the original array.
+
+## The `toSorted` method
+
+Now, with the new `toSorted` method, we can sort an array without mutating the original array.
+
+```ts
+const arr = [3, 2, 1]
+const sortedArr = arr.toSorted()
+console.log(arr) // [3, 2, 1]
+console.log(sortedArr) // [1, 2, 3]
+```
+
+## Comparing the two methods
+
+I ran some tests to compare the two methods. I created an array of 100,000 random string (using `nanoid`) and sorted it using both methods. Since this was mostly about curiousity, I only ran the test a few times. This is the code I used:
+
+```ts
+// Define nanoid (copied from the nanoid project) https://github.com/ai/nanoid
+let nanoid = (t = 21) =>
+  crypto
+    .getRandomValues(new Uint8Array(t))
+    .reduce(
+      (t, e) =>
+        (t += (e &= 63) < 36 ? e.toString(36) : e < 62 ? (e - 26).toString(36).toUpperCase() : e > 62 ? "-" : "_"),
+      "",
+    )
+
+// create array of 100k
+const sampleArray = Array.from({ length: 100000 }, () => nanoid())
+
+// measure spread operator + sort (copy + sort)
+const start = performance.now()
+;[...sampleArray].sort()
+const end = performance.now()
+console.log(`Time to sort ${arr.length} nanoid strings with [...arr].sort(): ${end - start} ms`)
+
+// measure new toSorted method
+const startBeta = performance.now()
+sampleArray.toSorted()
+const endBeta = performance.now()
+console.log(`Time to sort ${arr.length} nanoid strings with arr.toSorted(): ${endBeta - startBeta} ms`)
+```
+
+The results were as follows:
+
+```ts
+// Time to sort 10000 nanoid strings with [...arr].sort():    53.5 ms
+// Time to sort 10000 nanoid strings with arr.toSorted():     29.099999994039536 ms
+```
+
+---
+
+It might take some time to adjust, but I'll probably be using the new `toSorted` method from now on. 😇

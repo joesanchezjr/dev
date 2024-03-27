@@ -16,21 +16,3 @@ export const BASE_URL = IS_PROD
     ? "http://localhost:3000"
     : `https://${process.env.VERCEL_URL}` || "https://joesanchezjr.dev"
 
-export const navigations = {
-  main: [
-    { name: "Home", href: "/" },
-    // { name: "Animation", href: "/animation" },
-    // { name: "Projects", href: "/projects" },
-    // { name: "Contact", href: "/contact" },
-  ],
-  social: [
-    {
-      name: "LinkedIn",
-      href: "https://www.linkedin.com/in/joesanchejr",
-    },
-    {
-      name: "GitHub",
-      href: "https://www.github.com/joesanchejr",
-    },
-  ],
-}
