@@ -1,13 +1,18 @@
 ---
-title: Hello world 👋
-publishedAt: "2022-03-28"
-excerpt: Join me as I once again kickstart a blog... because I like to pretend I'm a writer.
+title: Hello World
+excerpt: A brief introduction in words and code
+publishedAt: 2023-08-06
 ---
 
-Why is it that creatives and engineers are alway starting new projects? I think that maybe it's because we like the chase. It's always fun learning something new.
+Hi there <span role="img" alt="waving hand emoji">👋</span> — My name is Joe. I'm a software engineer building cool things on the web. I'm creating this engineering blog as a place to share the things I find interesting, learn, and build.
 
-For this iteration of my "blog", I decided to use static Markdown files (more specifically, MDX) and Next. I had previously been using `contentlayer` to source my local files, but I wanted to try something new - or rather something old. Instead, I'm just using good ol' `fs` to read the files and `gray-matter` to parse the frontmatter. I'm also using `next-mdx-remote` to render the content.
+```ts
+type Emoji = string
 
-It's a relatively simple setup that I hope I won't have to change too often.
-
-For now, let's see how long I can keep this version running. ✌️
+function buildBlog(): Emoji {
+  if (isAfter("2023-08-06")) {
+    return "🚀"
+  }
+  return "🚧"
+}
+```

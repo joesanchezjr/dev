@@ -1,0 +1,70 @@
+---
+title: What the JavaScript?!
+excerpt: 3 Cool things you probably don't need to know about JavaScript
+publishedAt: 2023-09-02
+---
+
+## 1. All functions have a `length` property
+
+> A **Function** object's `length` property indicates how many arguments the function expects, i.e. the number of formal parameters. This number excludes the rest parameter and only includes parameters before the first one with a default value...
+
+Source:
+[Function: length - JavaScript | MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function/length)
+
+```ts
+function doSomething(a, b, c) {
+  return null
+}
+
+doSomething.length // 3
+```
+
+## 2. Non-arrow functions have access to `arguments` which is an object of all the arguments passed to the function
+
+> `arguments` is an array-like object accessible inside functions that contains the values of the arguments passed to that function
+
+Source: [The arguments object - JavaScript | MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/arguments)
+
+```ts
+function doSomething(a, b, c) {
+  console.log(arguments)
+}
+doSomething("alpha", "beta", "gamma")
+// { '0': 'alpha', '1': 'beta', '2': 'gamma' }
+```
+
+A more modern solution is to access the arguments via a spread operator or "rest parameters".
+
+```ts
+function doSomething(...args) {
+  console.log(args)
+}
+doSomething("alpha", "beta", "gamma")
+// [ 'alpha', 'beta', 'gamma' ]
+```
+
+Reference: [Rest parameters - JavaScript | MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/rest_parameters)
+
+## 3. Built-in objects can be extended!
+
+You can add your own methods to built-in objects like `Array` and `String`. When called, you can access the passed in object via `this`.
+
+Caution: This is not always recommended in production code. It can be confusing to other developers and can cause issues if the built-in object is extended in a different way by another library.
+
+```ts
+Array.prototype.square = function () {
+  // `this` is a reference to the array
+  return this.map((x) => x * x)
+}
+
+String.prototype.first = function () {
+  // `this` is a reference to the string
+  return this[0]
+}
+;[1, 2, 3].square() // [1, 4, 9]
+"hello".first() // "h"
+```
+
+---
+
+Although these might not be used often, it's helpful to know more about JavaScript and how it works under the hood. It's also fun to learn about the language you use every day!
