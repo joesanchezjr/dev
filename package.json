@@ -43,7 +43,7 @@
     "framer-motion": "^11.0.8",
     "gray-matter": "^4.0.3",
     "gsap": "^3.12.5",
-    "kysely": "^0.27.2",
+    "kysely": "^0.27.3",
     "kysely-planetscale": "^1.4.0",
     "lucide-react": "^0.349.0",
     "mongodb": "^6.4.0",
