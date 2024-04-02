@@ -5,6 +5,14 @@ import { BASE_URL } from "@/utils/constants"
 import { MdxMetadata, getAllBlogPosts, getBlogPostBySlug } from "@/utils/mdx"
 import { formatDate } from "@/utils/date"
 
+export async function generateStaticParams() {
+  const posts = await getAllBlogPosts()
+
+  return posts.map((post) => ({
+    slug: post.slug,
+  }))
+}
+
 export async function generateMetadata({ params }: { params: { slug: string } }): Promise<Metadata | undefined> {
   const post = await getBlogPostBySlug(params.slug)
 
