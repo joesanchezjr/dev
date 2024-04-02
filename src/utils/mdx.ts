@@ -68,19 +68,8 @@ async function getAllMdxData() {
 }
 
 /**
- * Get MDX data for a single file by slug
- */
-async function getMdxDataBySlug(slug: string) {
-  try {
-    const { data, content, excerpt } = await readAndParseMdxFile(path.join(POSTS_DIRECTORY, `${slug}.mdx`)) // Read the file
-    return { metadata: data, slug, content, excerpt } // Return the metadata, slug, content, and excerpt
-  } catch (error) {
-    notFound()
-  }
-}
-
-/**
  * Get all blog posts
+ * using cache so that we can use the data without making multiple requests
  */
 export const getAllBlogPosts = cache(async () => {
   const posts = await getAllMdxData()
@@ -92,8 +81,9 @@ export const getAllBlogPosts = cache(async () => {
 
 /**
  * Get a blog post by slug
+ * getAllBlogPosts is already cached, so it's safe to use here without worrying about multiple reads of the filesystem
  */
 export const getBlogPostBySlug = cache(async (slug: string) => {
-  const post = await getMdxDataBySlug(slug)
-  return post
+  const posts = await getAllBlogPosts()
+  return posts.find((post) => post.slug === slug)
 })
