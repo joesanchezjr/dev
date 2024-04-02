@@ -48,8 +48,7 @@ export async function generateMetadata({ params }: { params: { slug: string } })
 }
 
 export default async function SingleBlogPage({ params }: { params: { slug: string } }) {
-  const allBlogs = await getAllBlogPosts()
-  const post = allBlogs.find((post) => post.slug === params.slug)
+  const post = await getBlogPostBySlug(params.slug)
 
   // console.log(post)
 
