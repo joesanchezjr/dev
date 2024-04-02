@@ -4,6 +4,8 @@ import matter from "gray-matter"
 import { isTruthy } from "@/utils/boolean"
 import { notFound } from "next/navigation"
 
+import { cache } from "react"
+
 export type MdxMetadata = {
   title: string
   publishedAt: string
@@ -80,18 +82,18 @@ async function getMdxDataBySlug(slug: string) {
 /**
  * Get all blog posts
  */
-export async function getAllBlogPosts() {
+export const getAllBlogPosts = cache(async () => {
   const posts = await getAllMdxData()
   const sortedPosts = posts.sort((a, z) => {
     return new Date(z.metadata.publishedAt as string).getTime() - new Date(a.metadata.publishedAt as string).getTime()
   })
   return sortedPosts
-}
+})
 
 /**
  * Get a blog post by slug
  */
-export async function getBlogPostBySlug(slug: string) {
+export const getBlogPostBySlug = cache(async (slug: string) => {
   const post = await getMdxDataBySlug(slug)
   return post
-}
+})
