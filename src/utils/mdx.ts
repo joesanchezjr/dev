@@ -83,7 +83,7 @@ export const getAllBlogPosts = cache(async () => {
  * Get a blog post by slug
  * getAllBlogPosts is already cached, so it's safe to use here without worrying about multiple reads of the filesystem
  */
-export const getBlogPostBySlug = cache(async (slug: string) => {
+export const getBlogPostBySlug = async (slug: string) => {
   const posts = await getAllBlogPosts()
   return posts.find((post) => post.slug === slug)
-})
+}
