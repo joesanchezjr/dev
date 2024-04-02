@@ -21,7 +21,7 @@ export default async function BlogPage() {
                 {post.metadata.title}
               </h2>
               {typeof post.metadata.excerpt === "string" && (
-                <div className="prose prose-p:mb-2 text-sm text-zinc-500">
+                <div className="prose text-sm text-zinc-500 prose-p:mb-2">
                   <MdxRenderer source={post.metadata.excerpt} />
                   <div>
                     <time className="text-sm text-zinc-500">
