@@ -4,6 +4,8 @@ import MdxRenderer from "@/components/mdx"
 
 import { getAllBlogPosts, getBlogPostBySlug } from "@/utils/mdx"
 
+export const dynamic = "force-static" // this shouldn't be necessary
+
 export async function generateStaticParams() {
   const posts = await getAllBlogPosts()
 
