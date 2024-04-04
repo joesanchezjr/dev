@@ -4,6 +4,8 @@ import MdxRenderer from "@/components/mdx"
 import { getAllBlogPosts } from "@/utils/mdx"
 import { formatDate } from "@/utils/date"
 
+export const dynamic = 'force-static'
+
 export default async function BlogPage() {
   const allBlogs = await getAllBlogPosts()
 
