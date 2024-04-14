@@ -1,7 +1,7 @@
 "use client"
 
 import * as React from "react"
-import { FileText, Home, Mail, Rss } from "lucide-react"
+import { FileText, Home, Rss } from "lucide-react"
 import { toast } from "sonner"
 import { useRouter } from "next/navigation"
 
@@ -31,6 +31,7 @@ export function CommandMenu() {
 
   // @todo: closing menu after navigation causes a flash (opacity drops before page is routed)
   // @todo: menu might close while still routing on slow connections making it look like it didn't work
+  // @todo: too many useCallbacks - needs to be cleaned up - use a single handler for all actions
 
   const downloadResume = React.useCallback(() => {
     // @todo: make this a fetch?
@@ -44,11 +45,6 @@ export function CommandMenu() {
 
   const goHome = React.useCallback(() => {
     router.push("/")
-    open && setOpen(false)
-  }, [open, router, setOpen])
-
-  const goToContact = React.useCallback(() => {
-    router.push("/contact")
     open && setOpen(false)
   }, [open, router, setOpen])
 
@@ -88,11 +84,6 @@ export function CommandMenu() {
       }
 
       // go to contact page
-      if (keys.has("c")) {
-        e.preventDefault()
-        goToContact()
-      }
-      // go to contact page
       if (keys.has("b")) {
         e.preventDefault()
         goToBlog()
@@ -110,7 +101,7 @@ export function CommandMenu() {
       document.removeEventListener("keydown", down)
       document.removeEventListener("keyup", up)
     }
-  }, [downloadResume, goHome, goToBlog, goToContact, open, router, setOpen])
+  }, [downloadResume, goHome, goToBlog, open, router, setOpen])
 
   if (typeof window === "undefined") {
     return
@@ -131,14 +122,6 @@ export function CommandMenu() {
               <span>Download Resume</span>
               {!isMobile && <CommandShortcut>{createCommandLabel("/")}</CommandShortcut>}
             </CommandItem>
-            {/* <CommandItem>
-              <Smile className="mr-2 h-4 w-4" />
-              <span>Search Emoji</span>
-            </CommandItem>
-            <CommandItem>
-              <Calculator className="mr-2 h-4 w-4" />
-              <span>Calculator</span>
-            </CommandItem>  */}
           </CommandGroup>
           <CommandSeparator />
           <CommandGroup heading="Navigation">
@@ -147,26 +130,11 @@ export function CommandMenu() {
               <span>Home</span>
               {!isMobile && <CommandShortcut>{createCommandLabel("h")}</CommandShortcut>}
             </CommandItem>
-            <CommandItem onSelect={goToContact}>
-              <Mail className="mr-2 h-4 w-4" />
-              <span>Contact</span>
-              {!isMobile && <CommandShortcut>{createCommandLabel("c")}</CommandShortcut>}
-            </CommandItem>
             <CommandItem onSelect={goToBlog}>
               <Rss className="mr-2 h-4 w-4" />
               <span>Blog</span>
               {!isMobile && <CommandShortcut>{createCommandLabel("b")}</CommandShortcut>}
             </CommandItem>
-            {/* <CommandItem>
-              <CreditCard className="mr-2 h-4 w-4" />
-              <span>Billing</span>
-              <CommandShortcut>⌘B</CommandShortcut>
-            </CommandItem>
-            <CommandItem>
-              <Settings className="mr-2 h-4 w-4" />
-              <span>Settings</span>
-              <CommandShortcut>⌘S</CommandShortcut>
-            </CommandItem> */}
           </CommandGroup>
         </CommandList>
       </CommandDialog>
