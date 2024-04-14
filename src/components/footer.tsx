@@ -3,12 +3,9 @@ import Link from "next/link"
 
 export default function Footer() {
   return (
-    <footer className="mt-auto">
+    <footer className="mt-auto pb-4 md:pb-0">
       <div className="container flex flex-wrap justify-between gap-x-4 gap-y-2  py-4 text-sm text-zinc-500">
         <nav className="space-x-2">
-          <Link href="/contact" className="hover:text-indigo-500 hover:underline hover:underline-offset-4">
-            /contact
-          </Link>
           <Link href="/blog" className="hover:text-indigo-500 hover:underline hover:underline-offset-4">
             /blog
           </Link>

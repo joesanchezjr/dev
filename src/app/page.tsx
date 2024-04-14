@@ -87,12 +87,12 @@ export default function Home() {
               Bluesky
             </a>
             , or{" "}
-            <Link
-              href="/contact"
+            <a
               className="underline decoration-zinc-300 underline-offset-4 transition-colors hover:decoration-zinc-700 dark:decoration-zinc-600 dark:hover:decoration-zinc-300"
+              href={`mailto:joe@joesanchezjr.com?subject=${encodeURIComponent("✨ Contact Form - Howdy!")}&body=${encodeURIComponent("Hey Joe! Just wanted to let you know that you're the coolest dev ever! 😎🚀")}`}
             >
               send me an email
-            </Link>
+            </a>
           </p>
         </div>
       </div>
