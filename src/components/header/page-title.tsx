@@ -12,9 +12,6 @@ export function PageTitle() {
     case pathname.includes("/blog"):
       title = "Blog"
       break
-    case pathname === "/contact":
-      title = "Contact"
-      break
     default:
       title = null
   }

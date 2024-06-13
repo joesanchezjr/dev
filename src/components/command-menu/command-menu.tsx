@@ -83,7 +83,7 @@ export function CommandMenu() {
         goHome()
       }
 
-      // go to contact page
+      // go to blog page
       if (keys.has("b")) {
         e.preventDefault()
         goToBlog()
