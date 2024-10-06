@@ -21,7 +21,6 @@ export default function MdxRenderer({ components: componentsOverride, ...props }
     <MDXRemote
       components={{ ...components, ...(componentsOverride || {}) }}
       options={{
-        // @ts-expect-error this is a valid option
         mdxOptions: {
           rehypePlugins: [
             [

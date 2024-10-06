@@ -47,7 +47,7 @@ export default function Home() {
                   preformattedDate: `${formatDate(experience.startDate)} - ${
                     experience.endDate ? formatDate(experience.endDate) : "Present"
                   }`,
-                  content: experience.content as React.ReactNode, // I don't like this type assertion
+                  content: experience.content
                 }
               })}
           />
