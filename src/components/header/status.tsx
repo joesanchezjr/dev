@@ -1,7 +1,12 @@
 import { get } from "@vercel/edge-config"
 
 export async function Status() {
-  const available: unknown = await get("availableForHire")
+  let available: boolean | undefined
+  try {
+    available = await get("availableForHire")
+  } catch {
+    return null
+  }
 
   if (!available) {
     return null
